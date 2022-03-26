@@ -9,7 +9,7 @@ export default new Router({
     {
       path: '/',
       name: 'HomePage',
-      component:()=> import("../components/HomePage.vue")
+      component: HomePage
     }
   ]
 })
