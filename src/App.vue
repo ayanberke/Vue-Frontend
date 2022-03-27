@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <router-view/>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a href="#" class="navbar-brand">Brand</a>
@@ -10,7 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav">
                 <a href="#" class="nav-item nav-link active">Home</a>
-                <a href="#" class="nav-item nav-link">Profile</a>
+                <a href="#" class="nav-item nav-link">Profiles</a>
                 <a href="#" class="nav-item nav-link">Messages</a>
                 <a href="#" class="nav-item nav-link disabled" tabindex="-1">Reports</a>
             </div>
@@ -19,7 +18,8 @@
             </div>
         </div>
     </div>
-</nav>
+    </nav>
+    <router-view/>
   </div>
 </template>
 
