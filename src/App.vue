@@ -1,6 +1,4 @@
-
 <template>
-
   <div id="app">
     <router-view />
   </div>
@@ -18,9 +16,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #0e0e0e;
   font-size: 1rem;
-  
 }
 .full-height {
   min-height: 100vh;
