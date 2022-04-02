@@ -23,6 +23,10 @@
         </div>
       </nav>
 
+      <h1 class="welcome-msg">
+        Welcome Tankut
+      </h1>
+
       <section class="search-sec">
         <div class="container">
           <form action="#" method="post" novalidate="novalidate">
@@ -30,21 +34,13 @@
               <div class="col-lg-12">
                 <div class="row">
                   <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                    <textarea placeholder="Write a building info"> </textarea>
+                    <textarea placeholder="Enter Building Info"> </textarea>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                    <textarea placeholder="Write a room no "></textarea>
+                    <textarea placeholder="Enter Room No "></textarea>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                    <select
-                      class="form-select form-select-lg mb-3"
-                      aria-label=".form-select-lg example"
-                    >
-                      <option selected>Select Presenter</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                    </select>
+                    <textarea placeholder="Enter Presenter "></textarea>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                     <button type="button" class="btn btn-danger wrn-btn">
@@ -58,11 +54,6 @@
         </div>
       </section>
     </div>
-    <div id="About" class="bg-warning p-4"><b> About </b></div>
-    <div id="Contact" class="bg-info p-4"><b> Contact </b></div>
-    <div id="Footer" class="bg-primary p-4">
-      <b> Info </b>
-    </div>
   </div>
 </template>
 
@@ -74,32 +65,29 @@ export default {};
 #home-page {
   background-color: #0a090a;
   background: url("../assets/conference.jpg") no-repeat center center;
-  opacity: 0.8;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   min-height: 100vh;
+  opacity: 0.9;
 }
-#about {
-  min-height: 10vh;
-}
-#contact {
-  background-color: #ffffff;
-}
-#footer {
-  background-color: #050101;
+#nav-bar {
+  opacity: 0.75;
 }
 .search-sec div {
   margin: 1rem;
   padding: 1rem;
   display: inline-block;
-  float: none;
-  vertical-align: bottom;
-  text-align: center;
 }
-.search-sec div:hover {
-  color: rgb(224, 11, 11);
+.welcome-msg{
+  margin: 150px 100px;
+  color:rgb(229, 229, 16);
+  text-decoration: overline underline;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 2px black, 0 0 25px rgb(255, 0, 17), 0 0 5px rgb(139, 0, 30);
+  font-family: "Brush Script MT", cursive;
+  font-size: 50px;
 }
 textarea {
   border-radius: 0.5rem;
