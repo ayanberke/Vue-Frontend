@@ -1,0 +1,32 @@
+*{
+    marging: 0.5 rem;
+    padding: 1 rem;
+    box-sizing: border-box;
+    }
+    background{
+    background: rgb(167, 85, 31);
+    }
+    
+    button.btn{
+        margin-top: 1.25rem;
+        padding: 0.8rem 3rem;
+        border-radius: 7px;
+        letter-spacing: 0.5px;
+        background:#523101;
+        position: relative;
+    }
+    button.btn:hover{
+        color:#d89312;
+        background: #fff;
+        border: 0.5px solid #c79310;
+        position: relative;
+    }
+    
+    txtarea{
+     resize: none;
+     marging-top: 1rem;
+     padding:0.5rem 1rem ;
+     letter-spacing: 0.5px;
+     background: rgb(167, 85, 31);
+     position: relative;
+    }

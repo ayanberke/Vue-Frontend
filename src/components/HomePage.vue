@@ -1,4 +1,5 @@
-<template>
+
+npm<template>
   <div class="container-fluid m-0 p-0">
     <div id="home-page" class="bg-danger p-4" >  
         <div class="container pt-3">
@@ -13,7 +14,7 @@
         </div>
     </div>
     <div id="about" class="bg-warning p-4" >
-      BURHANİTO
+     
     </div>
     <div id="contact" class="bg-info p-4" >
             
@@ -21,7 +22,7 @@
     <div id="footer" class="bg-primary p-4" >
             
     </div>
-    
+   
   </div>
   
 </template>
@@ -46,10 +47,10 @@ export default {
     min-height: 10vh;
   }
   #contact {
-    background-color: #bd2b7b;
+    background-color: #ffffff;
   }
   #footer {
-    background-color: #80c216;
+    background-color:  #050101;
   }
 
 </style>
