@@ -42,6 +42,8 @@
                   <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                     <textarea placeholder="Enter Presenter "></textarea>
                   </div>
+                     <label for="date"></label> 
+                     <input type="date" id="date" name="date" /> 
                   <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                     <button type="button" class="btn btn-danger wrn-btn">
                       Schedule
@@ -82,11 +84,11 @@ export default {};
 }
 .welcome-msg{
   margin: 150px 100px;
-  color:rgb(229, 229, 16);
-  text-decoration: overline underline;
+  color:rgb(75, 73, 72);
+  text-decoration: none;
   text-transform: uppercase;
-  text-shadow: 1px 1px 2px black, 0 0 25px rgb(132, 0, 255), 0 0 5px rgb(131, 16, 177);
-  font-family: "Brush Script MT", cursive;
+  text-shadow: 1px 1px 2px black, 0 0 25px rgb(102, 100, 98), 0 0 5px rgb(199, 190, 177);
+  font-family:"Avenir", Helvetica, Arial, sans-serif, cursive;
   font-size: 50px;
 }
 textarea {
@@ -112,6 +114,20 @@ button {
   justify-content: center;
   display: flex;
   font-size: 1rem;
+}
+label{
+  border-radius: 0.5rem;
+  border-collapse: collapse;
+  border-style: #000 1px solid;
+  resize: none;
+  margin: 0.5rem;
+  padding: 0.3rem;
+  width: 15rem;
+  display: flex;
+  font-size: 1rem;
+  align-self: center;
+
+ 
 }
 </style>
 
