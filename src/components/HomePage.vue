@@ -8,7 +8,7 @@
             type="button"
             class="navbar-toggler"
             data-bs-toggle="collapse"
-            data-bs-target="#navbarCollapse"
+            data-bvetur.config.jss-target="#navbarCollapse"
           >
             <span class="navbar-toggler-icon"></span>
           </button>
