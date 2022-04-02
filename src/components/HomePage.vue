@@ -24,7 +24,7 @@
       </nav>
 
       <h1 class="welcome-msg">
-        Welcome Tankut
+       :) GOZUM KANADI BERKE ASKMM :)
       </h1>
 
       <section class="search-sec">
@@ -85,7 +85,7 @@ export default {};
   color:rgb(229, 229, 16);
   text-decoration: overline underline;
   text-transform: uppercase;
-  text-shadow: 1px 1px 2px black, 0 0 25px rgb(255, 0, 17), 0 0 5px rgb(139, 0, 30);
+  text-shadow: 1px 1px 2px black, 0 0 25px rgb(132, 0, 255), 0 0 5px rgb(131, 16, 177);
   font-family: "Brush Script MT", cursive;
   font-size: 50px;
 }
