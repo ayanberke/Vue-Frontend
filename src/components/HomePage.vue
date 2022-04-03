@@ -24,7 +24,9 @@
       </nav>
 
       <h1 class="welcome-msg">
-       :) GOZUM KANADI BERKE ASKMM :)
+        <h1>OPTIMIZE YOUR SCHEDULE</h1>
+        <h1>WITH CONFY</h1>
+        <h1>WE VALUE YOUR TIME</h1>
       </h1>
 
       <section class="search-sec">
@@ -84,12 +86,13 @@ export default {};
 }
 .welcome-msg{
   margin: 150px 100px;
-  color:rgb(75, 73, 72);
+  color:rgb(24, 198, 82);
   text-decoration: none;
   text-transform: uppercase;
-  text-shadow: 1px 1px 2px black, 0 0 25px rgb(102, 100, 98), 0 0 5px rgb(199, 190, 177);
-  font-family:"Avenir", Helvetica, Arial, sans-serif, cursive;
+  text-shadow: 1px 1px 2px rgb(7, 7, 5), 0 0 25px rgb(15, 14, 10), 0 0 5px rgb(16, 15, 12);
+  font-family:theinhardt-light,helvetica,sans-serif;
   font-size: 50px;
+  
 }
 textarea {
   border-radius: 0.5rem;
@@ -126,8 +129,6 @@ label{
   display: flex;
   font-size: 1rem;
   align-self: center;
-
- 
 }
 </style>
 
