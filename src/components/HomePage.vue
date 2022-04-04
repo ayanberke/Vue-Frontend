@@ -2,8 +2,8 @@
   <div>
     <div id="home-page">
       <nav id="nav-bar" class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a href="#" class="navbar-brand"> <b>CONFERENCE</b> </a>
+        <div class="container">
+          <a href="#" class="navbar-brand"><img id="icon" src="../assets/logo.png"></a>
           <button
             type="button"
             class="navbar-toggler"
@@ -17,7 +17,6 @@
               <a href="#" class="nav-item nav-link active"> <b>Home</b> </a>
               <a href="#" class="nav-item nav-link"> <b>About</b> </a>
               <a href="#" class="nav-item nav-link"> <b>Contact</b> </a>
-              <a href="#" class="nav-item nav-link"> <b>Info</b> </a>
             </div>
           </div>
         </div>
@@ -25,7 +24,7 @@
 
       <h1 class="welcome-msg">
         <h1>OPTIMIZE YOUR SCHEDULE</h1>
-        <h1>WITH CONFY</h1>
+        <h1>WITH CONFY</h1> <br>
         <h1>WE VALUE YOUR TIME</h1>
       </h1>
 
@@ -77,21 +76,32 @@ export default {};
   opacity: 0.9;
 }
 #nav-bar {
-  opacity: 0.75;
+  opacity: 0.8;
+
 }
+#icon{
+    margin-left: 3px;
+    display: block;
+    max-width: 100px;
+    opacity:1;
+}
+
 .search-sec div {
   margin: 1rem;
   padding: 1rem;
   display: inline-block;
 }
+
 .welcome-msg{
+  @import url('https://fonts.googleapis.com/css2?family=Kanit:ital@1&display=swap');
   margin: 150px 100px;
   color:rgb(24, 198, 82);
   text-decoration: none;
   text-transform: uppercase;
   text-shadow: 1px 1px 2px rgb(7, 7, 5), 0 0 25px rgb(15, 14, 10), 0 0 5px rgb(16, 15, 12);
-  font-family:theinhardt-light,helvetica,sans-serif;
+  font-family: 'Kanit', sans-serif;
   font-size: 50px;
+  
   
 }
 textarea {
