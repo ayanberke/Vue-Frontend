@@ -44,10 +44,10 @@
                     <textarea placeholder="Enter Building Info"> </textarea>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                    <textarea placeholder="Enter Room No "></textarea>
+                    <textarea placeholder="Enter Number of Room "></textarea>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                    <textarea placeholder="Enter Presenter "></textarea>
+                    <textarea placeholder="Enter Number of Paper "></textarea>
                   </div>
                   <label for="date"></label>
                   <input type="date" id="date" name="date" />
