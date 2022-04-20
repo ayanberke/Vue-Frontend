@@ -55,8 +55,8 @@
                   <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="sessionduration">
                        <textarea placeholder="Enter One Session Duration" v-model="duration"></textarea>
                   </div>
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="keywords">
-                      <select class="form-select form-select-lg mb-1" v-model="selected" >
+                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" >
+                      <select v-model="selected" >
                          <option > Select the keyword </option>
                          <option> Virtual Reality </option>
                          <option > Robot Programming </option>
@@ -64,17 +64,13 @@
                          <option > Human-Robot Interaction (HRI) </option>
                          <option > Augmented Reality </option>
                          <option > Gaze tracking </option>
-                        
-
-
-
                       </select>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="selectdate">
                       <label for="date"></label>
                          <input type="date" id="date" name="date" v-model="selectedDate" />
                   </div>
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="schedule">
+                  <div class="button" id="schedule">
                     <button type="button" class="btn btn-warning wrn-btn btn-lg" v-on:click="postData()"> Schedule </button>
                   </div>
                  </div>
@@ -131,21 +127,14 @@ export default {
       duration:null,
       selectedDate:null,
       selected:" ",
-      
     }
-    
-
   },
   methods: {
     postData(){
       console.log(this.roomCount," ", this.paperCount, " ", this.sessionCount, " ", this.timeInterval," ",this.duration," ", this.selectedDate," ",this.selected);
 
     }
-
-
   }
-
-
 };
 </script>
 
@@ -172,7 +161,22 @@ export default {
   max-width: 110px;
   opacity: 1;
 }
-
+#date{
+  border-radius: 0.5rem;
+  margin: 0.5rem;
+  padding:0.3rem;
+  width: 16rem;
+  height:2rem;
+  position: relative;
+  top: -1.5rem;
+  left: -13px;
+}
+.button {
+  height: 2rem;
+  position: relative;
+  top: -1.5rem;
+  left: -13px
+}
 .search-sec div {
   margin: 1rem;
   position:relative;
@@ -189,18 +193,29 @@ export default {
     0 0 5px rgb(16, 15, 12);
   font-size: 50px;
 }
-textarea,select{
+select{
+  border-radius: 0.5rem;
+  margin: 0.3rem;
+  padding: 0.3rem;
+  width: 16.2rem;
+  height:2.1rem;
+  display:flex;
+  position: relative;
+  top: -1.2rem;
+  left: -0.1rem;
+}
+textarea{
   border-radius: 0.5rem;
   border-collapse: collapse;
   resize: none;
   margin: 0.5rem;
   padding: 0.3rem;
   width: 16rem;
+  height:2rem;
   justify-content:center;
-  display: flex;
+  display:flex;
   font-size: 1rem;
 }
-
 
 </style>
 
