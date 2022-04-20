@@ -154,7 +154,7 @@ export default {};
     0 0 5px rgb(16, 15, 12);
   font-size: 50px;
 }
-textarea{
+textarea,select{
   border-radius: 0.5rem;
   border-collapse: collapse;
   resize: none;
@@ -165,10 +165,7 @@ textarea{
   display: flex;
   font-size: 1rem;
 }
-label{
-  width:100px;
-  display: inline-block;
-}
+
 
 </style>
 
