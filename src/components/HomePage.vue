@@ -40,23 +40,37 @@
             <div class="row">
               <div class="col-lg-12">
                 <div class="row">
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                    <textarea placeholder="Enter Building Info"> </textarea>
+                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="numberofroom">
+                    <textarea placeholder="Enter Number Of Room "> </textarea>
                   </div>
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                    <textarea placeholder="Enter Number of Room "></textarea>
+                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="numberofpaper">
+                    <textarea placeholder="Enter Number of Paper "> </textarea>
                   </div>
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                    <textarea placeholder="Enter Number of Paper "></textarea>
+                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="mumberofsession">
+                    <textarea placeholder="Enter Number of Session "></textarea>
                   </div>
-                  <label for="date"></label>
-                  <input type="date" id="date" name="date" />
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                    <button type="button" class="btn btn-warning wrn-btn btn-lg">
-                      Schedule
-                    </button>
+                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="timeinterval">
+                     <textarea placeholder="Enter Time Interval Of Sessions"></textarea>
                   </div>
-                </div>
+                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="sessionduration">
+                       <textarea placeholder="Enter One Session Duration"></textarea>
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="keywords">
+                      <select class="form-select form-select-lg mb-1" >
+                         <option selected> Select the keyword </option>
+                         <option value="1"> Keyword 1 </option>
+                         <option value="2"> Keyword 2 </option>
+                         <option value="3"> Keyword 3 </option>
+                      </select>
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="selectdate">
+                      <label for="date"></label>
+                         <input type="date" id="date" name="date" />
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="schedule">
+                    <button type="button" class="btn btn-warning wrn-btn btn-lg"> Schedule </button>
+                  </div>
+                 </div>
               </div>
             </div>
           </form>
@@ -68,8 +82,8 @@
             <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
               <h5 class="text-uppercase">Information</h5>
               <p>
-                This is a web-based application that will schedule conferences using optimization. 
-                The application finds the most suitable conference program by optimization. 
+                This is a web-based application that will schedule conferences using optimization.
+                The application finds the most suitable conference program by optimization.
                 Users schedule conferences and can view the scheduling result as a table.
               </p>
             </div>
@@ -77,8 +91,8 @@
               <h5 class="text-uppercase">Mission</h5>
 
               <p>
-                The purpose of the system is to solve problems that organizers face when planning their conferences more quickly and conveniently. 
-                The organizers will collect the information from the presenters and plan the day, time-slots and rooms of the conference with the help of the system. 
+                The purpose of the system is to solve problems that organizers face when planning their conferences more quickly and conveniently.
+                The organizers will collect the information from the presenters and plan the day, time-slots and rooms of the conference with the help of the system.
                 The possibility of conflict and loss of time will be prevented.
 
 
@@ -108,13 +122,15 @@ export default {};
   -moz-background-size: 100% 100%;           /* Firefox 3.6 */
 	-o-background-size: 100% 100%;           /* Opera 9.5 */
 	-webkit-background-size: 100% 100%;           /* Safari 3.0, Chrome */
-	background-size: 100% 100%;   
+	background-size: 100% 100%;
   min-height: 100vh;
   opacity: 0.9;
 }
+
 #nav-bar {
   opacity: 0.9;
 }
+
 #icon {
   margin-left: 3px;
   display: block;
@@ -138,30 +154,21 @@ export default {};
     0 0 5px rgb(16, 15, 12);
   font-size: 50px;
 }
-textarea {
+textarea{
   border-radius: 0.5rem;
   border-collapse: collapse;
-  border-style: #000 1px solid;
   resize: none;
   margin: 0.5rem;
   padding: 0.3rem;
-  width: 15rem;
-  justify-content: center;
+  width: 16rem;
+  justify-content:center;
   display: flex;
   font-size: 1rem;
+}
+label{
+  width:100px;
+  display: inline-block;
 }
 
-label {
-  border-radius: 0.5rem;
-  border-collapse: collapse;
-  border-style: rgb(217, 239, 12) 1px solid;
-  resize: none;
-  margin: 0.5rem;
-  padding: 0.3rem;
-  width: 15rem;
-  display: flex;
-  font-size: 1rem;
-  align-self: center;
-}
 </style>
 
