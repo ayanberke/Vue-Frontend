@@ -33,29 +33,27 @@
         <br />
         <h1>WE VALUE YOUR TIME</h1>
       </h1>
-    
-      
 
       <section class="search-sec">
         <div class="container">
           <form action="#" method="post" novalidate="novalidate">
-            <div class="row"
-            v-for="(Papers, index) in Papers"
-            :key="index"
-            >
+            <div class="row">
               <div class="col-lg-12">
                 <div class="row">
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="authorname">
-                    <input type="text" class="form-control" placeholder="Author Name"  v-model="Papers.authorName"
-                 name="Papers[][authorName]">
+                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="numberofroom">
+                    <textarea placeholder="Enter Number Of Room " v-model="roomCount"> </textarea>
                   </div>
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="presentername">
-                    <input type="text" class="form-control" placeholder="Presenter  Name" v-model="Papers.presenterName"
-                 name="Papers[][presenterName]">
+                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="numberofpaper">
+                    <textarea placeholder="Enter Number of Paper " v-model="paperCount" > </textarea>
                   </div>
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="titlename">
-                    <input type="text" class="form-control" placeholder="Title Name" v-model="Papers.titleName"
-                 name="Papers[][titleName]">
+                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="mumberofsession">
+                    <textarea placeholder="Enter Number of Session " v-model="sessionCount"></textarea>
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="timeinterval">
+                     <textarea placeholder="Enter Time Interval Of Sessions" v-model="timeInterval" ></textarea>
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="sessionduration">
+                       <textarea placeholder="Enter One Session Duration" v-model="duration"></textarea>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="keywords">
                       <select class="form-select form-select-lg mb-1" v-model="selected" >
@@ -67,33 +65,23 @@
                          <option > Augmented Reality </option>
                          <option > Gaze tracking </option>
                         
+
+
+
                       </select>
                   </div>
-                  <div class="col-sm-2 text-left">
-        <button
-                type="button"
-                class="btn btn-light"
-                @click.prevent="removeAttendee(index)"
-                v-show="quantity > 1"
-                >
-          <span aria-hidden="true">×</span>
-          Remove
-        </button>
-      </div>
-      <div class="button" id="schedule">
-                    <button type="button" class="btn btn-warning wrn-btn btn-lg" @click="goToConstraints"> Next </button>
+                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="selectdate">
+                      <label for="date"></label>
+                         <input type="date" id="date" name="date" v-model="selectedDate" />
                   </div>
-      
-                  
                   <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="schedule">
-                    <button type="button" class="btn btn-warning wrn-btn btn-lg" @click.prevent="addPaper"> Add Paper </button>
+                    <button type="button" class="btn btn-warning wrn-btn btn-lg" v-on:click="postData()"> Sumbit Your Paper </button>
                   </div>
                  </div>
               </div>
             </div>
           </form>
         </div>
-        
       </section>
       <footer class="bg-light text-center text-lg-start">
         <div class="container p-4">
@@ -136,10 +124,9 @@ export default {
 
   data (){
     return{
-      Papers: [{ authorName: '', presenterName: '',titleName:'' }],
-      //authorName:null,
-      //presenterName:null,
-      //titleName:null,
+      roomCount:null,
+      paperCount:null,
+      sessionCount:null,
       timeInterval:null,
       duration:null,
       selectedDate:null,
@@ -153,24 +140,10 @@ export default {
     postData(){
       console.log(this.roomCount," ", this.paperCount, " ", this.sessionCount, " ", this.timeInterval," ",this.duration," ", this.selectedDate," ",this.selected);
 
-    },
-     addPaper: function (event) {
-        event.preventDefault();
-        this.Papers.push({
-          authorName: '',
-          presenterName: '',
-          titleName:'',
-        });
-     },
-        removePaper: function (index) {
-        this.Papers.splice(index, 1);
-      },
-       goToConstraints(){
-      this.$router.push('/constraints'); 
+    }
 
-    }
-      
-    }
+
+  }
 
 
 };

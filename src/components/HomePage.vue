@@ -41,8 +41,11 @@
                 <div class="row">
                   
                   
+                  
+                  
+
                   <div class="button" id="schedule">
-                    <button type="button" class="btn btn-warning wrn-btn btn-lg" @click="goToPapers"> Submit Your Paper </button>
+                    <button type="button" class="btn btn-warning wrn-btn btn-lg" @click="goToPapers"> Sumbit Your Paper </button>
                   </div>
                  </div>
             </div>
