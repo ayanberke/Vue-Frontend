@@ -33,21 +33,64 @@
         <br />
         <h1>WE VALUE YOUR TIME</h1>
       </h1>
+    
+      
 
       <section class="search-sec">
         <div class="container">
           <form action="#" method="post" novalidate="novalidate">
-            <div class="row">
+            <div class="row"
+            v-for="(Papers, index) in Papers"
+            :key="index"
+            >
+              <div class="col-lg-12">
                 <div class="row">
-                  <button type = "button" class = "btn btn-primary btn-lg btn-block"  @click="goToPapers()">
-       Submit Your Paper
-   </button>
-                 
+                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="authorname">
+                    <input type="text" class="form-control" placeholder="Author Name"  v-model="Papers.authorName"
+                 name="Papers[][authorName]">
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="presentername">
+                    <input type="text" class="form-control" placeholder="Presenter  Name" v-model="Papers.presenterName"
+                 name="Papers[][presenterName]">
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="titlename">
+                    <input type="text" class="form-control" placeholder="Title Name" v-model="Papers.titleName"
+                 name="Papers[][titleName]">
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="keywords">
+                      <select class="form-select form-select-lg mb-1" v-model="selected" >
+                         <option > Select the keyword </option>
+                         <option> Virtual Reality </option>
+                         <option > Robot Programming </option>
+                         <option > Mixed Reality </option>
+                         <option > Human-Robot Interaction (HRI) </option>
+                         <option > Augmented Reality </option>
+                         <option > Gaze tracking </option>
+                        
+                      </select>
+                  </div>
+                  <div class="col-sm-2 text-left">
+        <button
+                type="button"
+                class="btn btn-light"
+                @click.prevent="removeAttendee(index)"
+                v-show="quantity > 1"
+                >
+          <span aria-hidden="true">×</span>
+          Remove
+        </button>
+      </div>
+      
                   
+                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="schedule">
+                    <button type="button" class="btn btn-warning wrn-btn btn-lg" @click.prevent="addPaper"> Add Paper </button>
+                  </div>
                  </div>
+              </div>
             </div>
           </form>
         </div>
+        
       </section>
       <footer class="bg-light text-center text-lg-start">
         <div class="container p-4">
@@ -90,9 +133,10 @@ export default {
 
   data (){
     return{
-      roomCount:null,
-      paperCount:null,
-      sessionCount:null,
+      Papers: [{ authorName: '', presenterName: '',titleName:'' }],
+      //authorName:null,
+      //presenterName:null,
+      //titleName:null,
       timeInterval:null,
       duration:null,
       selectedDate:null,
@@ -107,13 +151,19 @@ export default {
       console.log(this.roomCount," ", this.paperCount, " ", this.sessionCount, " ", this.timeInterval," ",this.duration," ", this.selectedDate," ",this.selected);
 
     },
-    goToPapers(){
-      this.$router.push('/papers'); 
-
+     addPaper: function (event) {
+        event.preventDefault();
+        this.Papers.push({
+          authorName: '',
+          presenterName: '',
+          titleName:'',
+        });
+     },
+        removePaper: function (index) {
+        this.Papers.splice(index, 1);
+      },
+      
     }
-
-
-  }
 
 
 };
