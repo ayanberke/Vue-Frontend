@@ -39,38 +39,10 @@
           <form action="#" method="post" novalidate="novalidate">
             <div class="row">
                 <div class="row">
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="numberofroom">
-                    <textarea placeholder="Enter Number Of Room " v-model="roomCount"> </textarea>
-                  </div>
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="numberofpaper">
-                    <textarea placeholder="Enter Number of Paper " v-model="paperCount" > </textarea>
-                  </div>
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="mumberofsession">
-                    <textarea placeholder="Enter Number of Session " v-model="sessionCount"></textarea>
-                  </div>
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="timeinterval">
-                     <textarea placeholder="Enter Time Interval Of Sessions" v-model="timeInterval" ></textarea>
-                  </div>
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="sessionduration">
-                       <textarea placeholder="Enter One Session Duration" v-model="duration"></textarea>
-                  </div>
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" >
-                      <select v-model="selected" >
-                         <option > Select the keyword </option>
-                         <option> Virtual Reality </option>
-                         <option > Robot Programming </option>
-                         <option > Mixed Reality </option>
-                         <option > Human-Robot Interaction (HRI) </option>
-                         <option > Augmented Reality </option>
-                         <option > Gaze tracking </option>
-                      </select>
-                  </div>
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="selectdate">
-                      <label for="date"></label>
-                         <input type="date" id="date" name="date" v-model="selectedDate" />
-                  </div>
+                  
+                  
                   <div class="button" id="schedule">
-                    <button type="button" class="btn btn-warning wrn-btn btn-lg" v-on:click="postData()"> Schedule </button>
+                    <button type="button" class="btn btn-warning wrn-btn btn-lg" @click="goToPapers"> Submit Your Paper </button>
                   </div>
                  </div>
             </div>
