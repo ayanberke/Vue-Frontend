@@ -20,7 +20,6 @@
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav">
               <a href="#" class="nav-item nav-link active"> <b>Home</b> </a>
-              <a href="#" class="nav-item nav-link"> <b>Conferences</b> </a>
               <a href="#" class="nav-item nav-link"> <b>About Us</b> </a>
             </div>
           </div>
@@ -39,13 +38,8 @@
           <form action="#" method="post" novalidate="novalidate">
             <div class="row">
                 <div class="row">
-                  
-                  
-                  
-                  
-
                   <div class="button" id="schedule">
-                    <button type="button" class="btn btn-warning wrn-btn btn-lg" @click="goToPapers"> Sumbit Your Paper </button>
+                    <button type="button" class="btn btn-warning wrn-btn btn-lg" @click="goToPapers"> Submit Your Paper </button>
                   </div>
                  </div>
             </div>
@@ -108,7 +102,7 @@ export default {
 
     },
     goToPapers(){
-      this.$router.push('/papers'); 
+      this.$router.push('/papers');
 
     }
   }
@@ -138,20 +132,10 @@ export default {
   max-width: 110px;
   opacity: 1;
 }
-#date{
-  border-radius: 0.5rem;
-  margin: 0.5rem;
-  padding:0.3rem;
-  width: 16rem;
-  height:2rem;
-  position: relative;
-  top: -1.5rem;
-  left: -13px;
-}
 .button {
   height: 2rem;
   position: relative;
-  top: -1.5rem;
+  top: -8rem;
   left: -13px
 }
 .search-sec div {

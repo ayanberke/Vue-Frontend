@@ -20,20 +20,11 @@
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav">
               <a href="#" class="nav-item nav-link active"> <b>Home</b> </a>
-              <a href="#" class="nav-item nav-link"> <b>Conferences</b> </a>
               <a href="#" class="nav-item nav-link"> <b>About Us</b> </a>
             </div>
           </div>
         </div>
       </nav>
-
-      <h1 class="welcome-msg">
-        <h1>OPTIMIZE YOUR SCHEDULE WITH</h1>
-        <h1>CONFY</h1>
-        <br />
-        <h1>WE VALUE YOUR TIME</h1>
-      </h1>
-
       <section class="search-sec">
         <div class="container">
           <form action="#" method="post" novalidate="novalidate">
@@ -58,23 +49,27 @@
                   <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="parallelsessioncount">
                     <textarea placeholder=" Enter Parallel Session Count " v-model="sessionCount"></textarea>
                   </div>
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="startdate">
-                    <textarea placeholder=" Enter Start Date " v-model="sessionCount"></textarea>
+                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="numberofbreak">
+                    <textarea placeholder="Enter Number Of Break Time" v-model="timeInterval" ></textarea>
                   </div>
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="enddate">
-                    <textarea placeholder=" Enter End Date " v-model="sessionCount"></textarea>
+                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="sessionduration">
+                    <textarea placeholder="Enter One Session Duration" v-model="duration"></textarea>
                   </div>
-
                   <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="breaktime">
                     <textarea placeholder=" Enter Break Time" v-model="sessionCount"></textarea>
                   </div>
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="numberofbreak">
-                     <textarea placeholder="Enter Number Of Break Time" v-model="timeInterval" ></textarea>
+                  <div class="sdate" id="startdate">
+                    <label> Start Date </label>
+                    <input type="date" name="" max="" id="startdate"><br></br>
                   </div>
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="sessionduration">
-                       <textarea placeholder="Enter One Session Duration" v-model="duration"></textarea>
+                  <div class="edate" id="enddate">
+                    <label> End Date </label>
+                    <input type="date" name="" max="" id="enddate"><br></br>
                   </div>
-                  <div class="button" id="schedule">
+                  <div class="buttonprev" id="prev">
+                    <button type="button" class="btn btn-warning wrn-btn btn-lg" > Previous Page </button>
+                  </div>
+                  <div class="buttonsch" id="schedule">
                     <button type="button" class="btn btn-warning wrn-btn btn-lg" v-on:click="postData()"> Schedule </button>
                   </div>
                  </div>
@@ -143,8 +138,6 @@ export default {
 };
 </script>
 
-
-
 <style scoped>
 #home-page {
   background: url("../assets/conference.jpg") no-repeat center center;
@@ -166,21 +159,37 @@ export default {
   max-width: 110px;
   opacity: 1;
 }
-#date{
+.sdate{
   border-radius: 0.5rem;
   margin: 0.5rem;
   padding:0.3rem;
   width: 16rem;
   height:2rem;
   position: relative;
-  top: -1.5rem;
-  left: -13px;
+  top: -0.5rem;
+  right: 220px;
 }
-.button{
+.edate{
+  border-radius: 0.5rem;
+  margin: 0.5rem;
+  padding:0.3rem;
+  width: 16rem;
+  height:2rem;
+  position: relative;
+  top: -0.5rem;
+  left: -175px;
+}
+.buttonprev{
   height: 2rem;
   position: relative;
-  top: -1.5rem;
-  left: -13px
+  top: -0.5rem;
+  left: -100px
+}
+.buttonsch{
+  height: 2rem;
+  position: relative;
+  top: -4.5rem;
+  right: -100px
 }
 .search-sec div {
   margin: 1rem;

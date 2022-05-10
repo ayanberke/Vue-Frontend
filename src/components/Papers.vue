@@ -20,7 +20,6 @@
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav">
               <a href="#" class="nav-item nav-link active"> <b>Home</b> </a>
-              <a href="#" class="nav-item nav-link"> <b>Conferences</b> </a>
               <a href="#" class="nav-item nav-link"> <b>About Us</b> </a>
             </div>
           </div>
@@ -28,13 +27,7 @@
       </nav>
 
       <h1 class="welcome-msg">
-        <h1>OPTIMIZE YOUR SCHEDULE WITH</h1>
-        <h1>CONFY</h1>
-        <br />
-        <h1>WE VALUE YOUR TIME</h1>
       </h1>
-    
-      
 
       <section class="search-sec">
         <div class="container">
@@ -58,18 +51,17 @@
                  name="Papers[][titleName]">
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="keywords">
-                      <select class="form-select form-select-lg mb-1" v-model="selected" >
-                         <option > Select the keyword </option>
-                         <option> Virtual Reality </option>
-                         <option > Robot Programming </option>
-                         <option > Mixed Reality </option>
-                         <option > Human-Robot Interaction (HRI) </option>
-                         <option > Augmented Reality </option>
-                         <option > Gaze tracking </option>
-                        
-                      </select>
+                    <select name="keywords" >
+                      <option value=" Select keywords"> Select keywords </option>
+                      <option value=" Virtual Reality ">Virtual Reality</option>
+                      <option value=" Robot Programming " >Robot Programming</option>
+                      <option value=" Mixed Reality ">Mixed Reality</option>
+                      <option value=" Human-Robot Interaction (HRI)" >Human-Robot Interaction (HRI)</option>
+                      <option value=" Augmented Reality" >Augmented Reality</option>
+                      <option value=" Gaze tracking ">Gaze tracking</option>
+                    </select>
                   </div>
-                  <div class="col-sm-2 text-left">
+
         <button
                 type="button"
                 class="btn btn-light"
@@ -79,21 +71,17 @@
           <span aria-hidden="true">×</span>
           Remove
         </button>
+       <div class="abutton" id="addpaper">
+        <button type="buttonadd" class="btn btn-warning wrn-btn btn-lg" onclick="javascript:eraseText();"> Add Paper </button></div>
+      <div class="nbutton" id="next">
+        <button type="buttonnext" class="btn btn-warning wrn-btn btn-lg" @click="goToConstraints"> Next </button></div>
+
       </div>
-      <div class="button" id="schedule">
-                    <button type="button" class="btn btn-warning wrn-btn btn-lg" @click="goToConstraints"> Next </button>
-                  </div>
-      
-                  
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="schedule">
-                    <button type="button" class="btn btn-warning wrn-btn btn-lg" @click.prevent="addPaper"> Add Paper </button>
-                  </div>
-                 </div>
               </div>
             </div>
           </form>
         </div>
-        
+
       </section>
       <footer class="bg-light text-center text-lg-start">
         <div class="container p-4">
@@ -144,9 +132,9 @@ export default {
       duration:null,
       selectedDate:null,
       selected:" ",
-      
+
     }
-    
+
 
   },
   methods: {
@@ -166,10 +154,9 @@ export default {
         this.Papers.splice(index, 1);
       },
        goToConstraints(){
-      this.$router.push('/constraints'); 
+      this.$router.push('/constraints');
 
     }
-      
     }
 
 
@@ -204,6 +191,18 @@ export default {
   margin: 1rem;
   position:relative;
   display: inline-block;
+}
+.abutton {
+  height: 2rem;
+  position: relative;
+  top: -1rem;
+  left: -100px;
+}
+.nbutton{
+  height: 2rem;
+  position: relative;
+  top: -5rem;
+  right: -80px
 }
 
 .welcome-msg {
