@@ -41,33 +41,33 @@
                     <textarea placeholder="Enter Number of Session " v-model="sessionCount"></textarea>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="sessionstarttime">
-                    <textarea placeholder="Session Start Time " v-model="sessionCount"></textarea>
+                    <textarea placeholder="Session Start Time " v-model="sessionstarttime"></textarea>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="sessionendtime">
-                    <textarea placeholder="Session End Time " v-model="sessionCount"></textarea>
+                    <textarea placeholder="Session End Time " v-model="sessionendtime"></textarea>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="parallelsessioncount">
-                    <textarea placeholder=" Enter Parallel Session Count " v-model="sessionCount"></textarea>
+                    <textarea placeholder=" Enter Parallel Session Count " v-model="parallelsessionCount"></textarea>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="numberofbreak">
-                    <textarea placeholder="Enter Number Of Break Time" v-model="timeInterval" ></textarea>
+                    <textarea placeholder="Enter Number Of Break Time" v-model="breakCount" ></textarea>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="sessionduration">
                     <textarea placeholder="Enter One Session Duration" v-model="duration"></textarea>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="breaktime">
-                    <textarea placeholder=" Enter Break Time" v-model="sessionCount"></textarea>
+                    <textarea placeholder=" Enter Break Time" v-model="breaktime"></textarea>
                   </div>
-                  <div class="sdate" id="startdate">
+                  <div class="sdate" >
                     <label> Start Date </label>
                     <input type="date" name="" max="" id="startdate"><br></br>
                   </div>
-                  <div class="edate" id="enddate">
+                  <div class="edate" >
                     <label> End Date </label>
                     <input type="date" name="" max="" id="enddate"><br></br>
                   </div>
                   <div class="buttonprev" id="prev">
-                    <button type="button" class="btn btn-warning wrn-btn btn-lg" > Previous Page </button>
+                    <button type="button" class="btn btn-warning wrn-btn btn-lg" @click="goToPapers"> Previous Page </button>
                   </div>
                   <div class="buttonsch" id="schedule">
                     <button type="button" class="btn btn-warning wrn-btn btn-lg" v-on:click="postData()"> Schedule </button>
@@ -125,15 +125,25 @@ export default {
       timeInterval:null,
       duration:null,
       selectedDate:null,
+      sessionstarttime:null,
+      sessionendtime:null,
+      parallelsessionCount:null,
+      breakCount:null,
+      breaktime:null,
       selected:" ",
-
     }
   },
+
   methods: {
     postData(){
       console.log(this.roomCount," ", this.paperCount, " ", this.sessionCount, " ", this.timeInterval," ",this.duration," ", this.selectedDate," ",this.selected);
 
+    },
+    goToPapers(){
+      this.$router.push('/papers');
+
     }
+
   }
 };
 </script>
