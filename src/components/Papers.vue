@@ -26,62 +26,126 @@
         </div>
       </nav>
 
-      <h1 class="welcome-msg">
-      </h1>
+      <h1 class="welcome-msg"></h1>
 
-      <section class="search-sec">
-        <div class="container">
-          <form action="#" method="post" novalidate="novalidate">
-            <div class="row"
-            v-for="(Papers, index) in Papers"
-            :key="index"
+      <div class="col-xl-8 col-lg-6 col-md-12 col-sm-12 col-12 mx-auto my-5">
+        <div class="card">
+          <div class="card-body table-responsive">
+            <table id="coffe-list" class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <td>Authors</td>
+                  <td>Presenter</td>
+                  <td>Title of Papers</td>
+                  <td>Keywords</td>
+                  <td># of Paper</td>
+                </tr>
+              </thead>
+
+              <tr>
+                <td>
+                  <input
+                    method="post"
+                    methodname="sizes"
+                    id="coffe-id"
+                    placeholder="Enter Names and Surnames"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    placeholder="Enter Name and Surname"
+                    id="size-id"
+                    name="amount"
+                    required
+                  />
+                </td>
+                <td id="descr">
+                  <input
+                    type="text"
+                    placeholder="Enter a Title"
+                    id="amount-id"
+                    name="amount"
+                    required
+                  />
+                </td>
+
+                <td>
+                  <select name="coffe-names" id="keyword-id">
+                    <option name="Select Keyword" value="Select Keyword">
+                      Select Keyword
+                    </option>
+                    <option name="Robotics" value="Robotics">Robotics</option>
+                    <option
+                      name="Artifical Intelligence"
+                      value="Artifical Intelligence"
+                    >
+                      Artifical Intelligence
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tbody id="coffe-list-body"></tbody>
+              <tbody class="thead-dark">
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+
+                  <td>
+                    <div id="total-cost">
+                      <p>0</p>
+                    </div>
+                  </td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <button id="add-coffe" class="btn offset-lg-6btn btn-blue mb-3"
             >
-              <div class="col-lg-12">
-                <div class="row">
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="authorname">
-                    <input type="text" class="form-control" placeholder="Author Name"  v-model="Papers.authorName"
-                 name="Papers[][authorName]">
-                  </div>
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="presentername">
-                    <input type="text" class="form-control" placeholder="Presenter  Name" v-model="Papers.presenterName"
-                 name="Papers[][presenterName]">
-                  </div>
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="titlename">
-                    <input type="text" class="form-control" placeholder="Title Name" v-model="Papers.titleName"
-                 name="Papers[][titleName]">
-                  </div>
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="keywords">
-                    <select name="keywords" >
-                      <option value=" Select keywords"> Select keywords </option>
-                      <option value=" Virtual Reality ">Virtual Reality</option>
-                      <option value=" Robot Programming " >Robot Programming</option>
-                      <option value=" Mixed Reality ">Mixed Reality</option>
-                      <option value=" Human-Robot Interaction (HRI)" >Human-Robot Interaction (HRI)</option>
-                      <option value=" Augmented Reality" >Augmented Reality</option>
-                      <option value=" Gaze tracking ">Gaze tracking</option>
-                    </select>
-                  </div>
+              Add Paper
+            </button>
+            <br />
+          </div>
 
-        <button
-                type="button"
-                class="btn btn-light"
-                @click.prevent="removeAttendee(index)"
-                v-show="quantity > 1"
+          <span id="result"></span>
+
+          <form method="post">
+            <div class="row">
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3"></div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3"></div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3"></div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+                <button
+                  style="width: 100px"
+                  type="submit"
+                  id="sbm-btn"
+                  class="btn-sm col-md-3 offset-md-3btn btn-blue mb-3"
+                  @click="goToConstraints"
                 >
-          <span aria-hidden="true">×</span>
-          Remove
-        </button>
-       <div class="abutton" id="addpaper">
-        <button type="buttonadd" class="btn btn-warning wrn-btn btn-lg" onclick="javascript:eraseText();"> Add Paper </button></div>
-      <div class="nbutton" id="next">
-        <button type="buttonnext" class="btn btn-warning wrn-btn btn-lg" @click="goToConstraints"> Next </button></div>
-
-      </div>
+                  Define Constraints
+                </button>
+                <input type="hidden" id="str" name="str" value="" />
               </div>
             </div>
           </form>
         </div>
+      </div>
 
+      <section class="search-sec">
+        <div class="container">
+          <form action="#" method="post" novalidate="novalidate">
+            <div class="row" v-for="(Papers, index) in Papers" :key="index">
+              <div class="col-lg-12">
+                <div class="row">
+                  <!-- eski kısımları sildim eklediğimi dışarıya ekledim-B -->
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
       </section>
       <footer class="bg-light text-center text-lg-start">
         <div class="container p-4">
@@ -89,20 +153,22 @@
             <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
               <h5 class="text-uppercase">Information</h5>
               <p>
-                This is a web-based application that will schedule conferences using optimization.
-                The application finds the most suitable conference program by optimization.
-                Users schedule conferences and can view the scheduling result as a table.
+                This is a web-based application that will schedule conferences
+                using optimization. The application finds the most suitable
+                conference program by optimization. Users schedule conferences
+                and can view the scheduling result as a table.
               </p>
             </div>
             <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
               <h5 class="text-uppercase">Mission</h5>
 
               <p>
-                The purpose of the system is to solve problems that organizers face when planning their conferences more quickly and conveniently.
-                The organizers will collect the information from the presenters and plan the day, time-slots and rooms of the conference with the help of the system.
-                The possibility of conflict and loss of time will be prevented.
-
-
+                The purpose of the system is to solve problems that organizers
+                face when planning their conferences more quickly and
+                conveniently. The organizers will collect the information from
+                the presenters and plan the day, time-slots and rooms of the
+                conference with the help of the system. The possibility of
+                conflict and loss of time will be prevented.
               </p>
             </div>
           </div>
@@ -121,46 +187,94 @@
 
 <script>
 export default {
-
-  data (){
-    return{
-      Papers: [{ authorName: '', presenterName: '',titleName:'' }],
-      //authorName:null,
-      //presenterName:null,
-      //titleName:null,
-      timeInterval:null,
-      duration:null,
-      selectedDate:null,
-      selected:" ",
-
-    }
-
-
-  },
   methods: {
-    postData(){
-      console.log(this.roomCount," ", this.paperCount, " ", this.sessionCount, " ", this.timeInterval," ",this.duration," ", this.selectedDate," ",this.selected);
+    remove_element(id) {
+      var rtn = 0;
 
+      docCounter -= 1;
+
+      return rtn;
     },
-     addPaper: function (event) {
-        event.preventDefault();
-        this.Papers.push({
-          authorName: '',
-          presenterName: '',
-          titleName:'',
-        });
-     },
-        removePaper: function (index) {
-        this.Papers.splice(index, 1);
-      },
-       goToConstraints(){
-      this.$router.push('/constraints');
+    doThing(currentButton) {
+      console.log("ID IS" + currentButton);
+      var rmv = document.getElementById("coffe" + currentButton);
+      rmv.parentNode.removeChild(rmv);
+      remove_element(currentButton);
+      printCost();
+    },
 
-    }
-    }
-
-
+    goToConstraints() {
+      this.$router.push("/constraints");
+    },
+  },
 };
+
+let counter = 0;
+let total_cost = [];
+let docCounter = 0;
+
+document.addEventListener("DOMContentLoaded", function () {
+  function totalCostFunc() {
+    return docCounter;
+  }
+
+  function printCost() {
+    var x = totalCostFunc();
+    document.getElementById("total-cost").innerHTML = `<p>${x}</p>`;
+  }
+
+  document.getElementById("add-coffe").addEventListener("click", () => {
+    var coffeid = "coffe" + counter;
+    var sizeid = "size" + counter;
+    var amount = "amount" + counter;
+    var cost = "cost" + counter;
+    let coffeNameVal = document.getElementById("coffe-id").value;
+    let sizeVal = document.getElementById("size-id").value;
+    let amountVal = document.getElementById("amount-id").value;
+    let keywordVal = document.getElementById("keyword-id").value;
+
+    var coffe_cost = 0;
+    var CoffeId = 0;
+    var description = "";
+
+    document.getElementById("coffe-list-body").innerHTML += `
+ 
+                    <tr id=${coffeid}>
+                        <td>
+                        <p>${coffeNameVal}</p>
+                        </td>
+                        <td>
+                        <p>${sizeVal}</p>
+                        </td>
+                        <td>
+                        <p>${amountVal}</p>
+                        </td>
+                        <td>
+                        <p >${keywordVal}</p>
+                        </td>
+                        <td>
+                            <p></p>
+ 
+                        </td>
+                        <td id=${cost}>
+                        </td>
+                     </tr>`;
+    //document.getElementById(cost).innerHTML += "<button  class='btn btn-blue btn-sm   ' style=' width: 50px; height: 30px;'  type = 'button'  id = '" + counter +"' v-on:click=\"dothing > - </button> ";
+    //document.getElementById(counter).addEventListener("click",doThing( document.getElementById(counter)),false)
+    //document.getElementById(cost).innerHTML += "<input  class='btn btn-blue btn-sm   ' style=' width: 50px; height: 30px;'  type = 'button' value = '-'  id = '" + counter + "' onclick = doThing(this)>";
+
+    document.getElementById(cost).innerHTML +=
+      "<input  class='btn btn-blue btn-sm   ' style=' width: 50px; height: 30px;'  type = 'button' value = '-'  id = '" +
+      counter +
+      "' onclick = doThing(" +
+      counter +
+      ")>";
+
+    counter += 1;
+    docCounter += 1;
+    printCost();
+  });
+});
 </script>
 
 
@@ -168,10 +282,10 @@ export default {
 <style scoped>
 #home-page {
   background: url("../assets/conference.jpg") no-repeat center center;
-  -moz-background-size: 100% 100%;           /* Firefox 3.6 */
-	-o-background-size: 100% 100%;           /* Opera 9.5 */
-	-webkit-background-size: 100% 100%;           /* Safari 3.0, Chrome */
-	background-size: 100% 100%;
+  -moz-background-size: 100% 100%; /* Firefox 3.6 */
+  -o-background-size: 100% 100%; /* Opera 9.5 */
+  -webkit-background-size: 100% 100%; /* Safari 3.0, Chrome */
+  background-size: 100% 100%;
   min-height: 100vh;
   opacity: 0.9;
 }
@@ -189,7 +303,7 @@ export default {
 
 .search-sec div {
   margin: 1rem;
-  position:relative;
+  position: relative;
   display: inline-block;
 }
 .abutton {
@@ -198,16 +312,17 @@ export default {
   top: -1rem;
   left: -100px;
 }
-.nbutton{
+.nbutton {
   height: 2rem;
   position: relative;
   top: -5rem;
-  right: -80px
+  right: -80px;
 }
 
 .welcome-msg {
-  @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-  font-family: 'Permanent Marker', cursive;  margin: 150px 100px;
+  @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+  font-family: "Permanent Marker", cursive;
+  margin: 150px 100px;
   color: rgb(232, 164, 16);
   text-decoration: none;
   text-transform: uppercase;
@@ -215,18 +330,31 @@ export default {
     0 0 5px rgb(16, 15, 12);
   font-size: 50px;
 }
-textarea,select{
+textarea,
+select {
   border-radius: 0.5rem;
   border-collapse: collapse;
   resize: none;
   margin: 0.5rem;
   padding: 0.3rem;
   width: 16rem;
-  justify-content:center;
+  justify-content: center;
   display: flex;
   font-size: 1rem;
 }
 
+.btn-blue {
+  background-color: #1a237e;
+  width: 150px;
+  color: #fff;
+  border-radius: 2px;
+}
 
+.btn-blue:hover {
+  background-color: #1a23de;
+  color: #fff;
+
+  cursor: pointer;
+}
 </style>
 
