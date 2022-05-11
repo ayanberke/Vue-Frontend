@@ -9,12 +9,7 @@
           <a href="#" class="navbar-brand"
             ><img id="icon" src="../assets/logo.png"
           /></a>
-          <button
-            type="button"
-            class="navbar-toggler"
-            data-bs-toggle="collapse"
-            data-bvetur.config.jss-target="#navbarCollapse"
-          >
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bvetur.config.jss-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -31,7 +26,8 @@
       <div class="col-xl-8 col-lg-6 col-md-12 col-sm-12 col-12 mx-auto my-5">
         <div class="card">
           <div class="card-body table-responsive">
-            <table id="coffe-list" class="table">
+            <table id="conference-list" class="table">
+
               <thead class="thead-dark">
                 <tr>
                   <td>Authors</td>
@@ -40,53 +36,36 @@
                   <td>Keywords</td>
                   <td># of Paper</td>
                 </tr>
+
               </thead>
+
 
               <tr>
                 <td>
-                  <input
-                    method="post"
-                    methodname="sizes"
-                    id="coffe-id"
-                    placeholder="Enter Names and Surnames"
-                  />
+                  <input method="post" methodname="sizes" id="author-id" placeholder="Enter Names and Surnames"/>
                 </td>
                 <td>
-                  <input
-                    type="text"
-                    placeholder="Enter Name and Surname"
-                    id="size-id"
-                    name="amount"
-                    required
-                  />
+                  <input type="text" placeholder="Enter Name and Surname" id="presenter-id" name="presenter" required/>
                 </td>
                 <td id="descr">
-                  <input
-                    type="text"
-                    placeholder="Enter a Title"
-                    id="amount-id"
-                    name="amount"
-                    required
-                  />
+                  <input type="text" placeholder="Enter a Title" id="tittlepapers" name="tittlepapers" required/>
                 </td>
 
                 <td>
-                  <select name="coffe-names" id="keyword-id">
-                    <option name="Select Keyword" value="Select Keyword">
-                      Select Keyword
-                    </option>
-                    <option name="Robotics" value="Robotics">Robotics</option>
-                    <option
-                      name="Artifical Intelligence"
-                      value="Artifical Intelligence"
-                    >
-                      Artifical Intelligence
-                    </option>
+                  <select name="keyword-id" id="keyword-id">
+                    <option name="Select Keyword" value="Select Keyword">Select Keyword</option>
+                    <option name="Robot Programming" value="Robot Programming">Robot Programming</option>
+                    <option name="Artifical Intelligence" value="Artifical Intelligence"> Artifical Intelligence</option>
+                    <option name="Virtual Reality" value="Virtual Reality">Virtual Reality</option>
+                    <option name="Mixed Reality" value="Mixed Reality">Mixed Reality</option>
+                    <option name="Human-Robot Interaction(HRI)" value="Human-Robot Interaction(HRI)">Human-Robot Interaction(HRI)</option>
+                    <option name="Augmented Reality" value="MAugmented Reality">Augmented Reality</option>
+                    <option name="Gaze Tracking" value="Gaze Tracking">Gaze Tracking</option>
                   </select>
                 </td>
               </tr>
               <tbody id="coffe-list-body"></tbody>
-              <tbody class="thead-dark">
+              <tbody class="col-lg-6 col-md-12 mb-4 mb-md-0">
                 <tr>
                   <td></td>
                   <td></td>
@@ -94,20 +73,14 @@
                   <td></td>
 
                   <td>
-                    <div id="total-cost">
-                      <p>0</p>
-                    </div>
+                    <div id="numberofpaper"><p>0</p></div>
                   </td>
                   <td></td>
                 </tr>
               </tbody>
             </table>
-
-            <button id="add-coffe" class="btn offset-lg-6btn btn-blue mb-3"
-            >
-              Add Paper
-            </button>
-            <br />
+            <div class="addpaper" id="addpaper">
+              <button id="add-paper" class="btn btn-warning wrn-btn btn-lg">Add Paper </button><br /> </div>
           </div>
 
           <span id="result"></span>
@@ -118,15 +91,8 @@
               <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3"></div>
               <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3"></div>
               <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
-                <button
-                  style="width: 100px"
-                  type="submit"
-                  id="sbm-btn"
-                  class="btn-sm col-md-3 offset-md-3btn btn-blue mb-3"
-                  @click="goToConstraints"
-                >
-                  Define Constraints
-                </button>
+                <div class="defineconst" id="schedule">
+                <button type="submit" id="sbm-btn" class="btn btn-warning wrn-btn btn-lg" @click="goToConstraints">Next</button> </div>
                 <input type="hidden" id="str" name="str" value="" />
               </div>
             </div>
@@ -238,7 +204,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var description = "";
 
     document.getElementById("coffe-list-body").innerHTML += `
- 
+
                     <tr id=${coffeid}>
                         <td>
                         <p>${coffeNameVal}</p>
@@ -254,7 +220,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         </td>
                         <td>
                             <p></p>
- 
+
                         </td>
                         <td id=${cost}>
                         </td>
@@ -306,54 +272,66 @@ document.addEventListener("DOMContentLoaded", function () {
   position: relative;
   display: inline-block;
 }
-.abutton {
-  height: 2rem;
+.addpaper{
+  height: 2.2rem;
   position: relative;
-  top: -1rem;
-  left: -100px;
+  top: -0.5rem;
+  left: -120px;
+
 }
-.nbutton {
-  height: 2rem;
+.defineconst {
+  height: 2.2rem;
   position: relative;
-  top: -5rem;
-  right: -80px;
+  top: -3.7rem;
+  right: 250px;
+}
+.card-body{
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  display: inline-block;
+  width:fit-content;
+  height:fit-content;
 }
 
 .welcome-msg {
   @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
   font-family: "Permanent Marker", cursive;
   margin: 150px 100px;
-  color: rgb(232, 164, 16);
+  color: rgb(232, 156, 16);
   text-decoration: none;
   text-transform: uppercase;
   text-shadow: 1px 1px 2px rgb(7, 7, 5), 0 0 25px rgb(15, 14, 10),
     0 0 5px rgb(16, 15, 12);
   font-size: 50px;
 }
-textarea,
-select {
+textarea,select {
   border-radius: 0.5rem;
   border-collapse: collapse;
   resize: none;
   margin: 0.5rem;
   padding: 0.3rem;
+  height:2rem;
   width: 16rem;
   justify-content: center;
   display: flex;
   font-size: 1rem;
+
 }
 
-.btn-blue {
-  background-color: #1a237e;
-  width: 150px;
+.btn {
+  background-color: rgb(232, 156, 16);
   color: #fff;
   border-radius: 2px;
+  overflow: hidden;
+  display: inline-block;
+  width:fit-content;
+  height:fit-content;
 }
 
-.btn-blue:hover {
-  background-color: #1a23de;
-  color: #fff;
-
+.btn:hover {
+  background-color: rgb(232, 156, 16);
+  color: #ffffff;
   cursor: pointer;
 }
 </style>

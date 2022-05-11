@@ -40,11 +40,13 @@
                   <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="numberofsession">
                     <textarea placeholder="Enter Number of Session " v-model="sessionCount"></textarea>
                   </div>
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="sessionstarttime">
-                    <textarea placeholder="Session Start Time " v-model="sessionstarttime"></textarea>
+                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" >
+                    <label> <b>Start Time</b> </label>
+                    <input type="time" name="appt" min="00:00" max="23:59" required  id="sessionstarttime"  v-model="sessionstarttime">
                   </div>
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="sessionendtime">
-                    <textarea placeholder="Session End Time " v-model="sessionendtime"></textarea>
+                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" >
+                    <label> <b>End Time</b> </label>
+                    <input type=time placeholder="Session End Time " id="sessionendtime"v-model="sessionendtime">
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="parallelsessioncount">
                     <textarea placeholder=" Enter Parallel Session Count " v-model="parallelsessionCount"></textarea>
@@ -59,12 +61,12 @@
                     <textarea placeholder=" Enter Break Time" v-model="breaktime"></textarea>
                   </div>
                   <div class="sdate" >
-                    <label> Start Date </label>
-                    <input type="date" name="" max="" id="startdate"><br></br>
+                    <label> <b>Start Date</b> </label>
+                    <input type="date" name="" max="" id="startdate">
                   </div>
                   <div class="edate" >
-                    <label> End Date </label>
-                    <input type="date" name="" max="" id="enddate"><br></br>
+                    <label> <b>End Date</b> </label>
+                    <input type="date" name="" max="" id="enddate">
                   </div>
                   <div class="buttonprev" id="prev">
                     <button type="button" class="btn btn-warning wrn-btn btn-lg" @click="goToPapers"> Previous Page </button>
@@ -177,7 +179,9 @@ export default {
   height:2rem;
   position: relative;
   top: -0.5rem;
-  right: 220px;
+  right: 145px;
+  justify-content: center;
+  display: flex;
 }
 .edate{
   border-radius: 0.5rem;
@@ -187,7 +191,7 @@ export default {
   height:2rem;
   position: relative;
   top: -0.5rem;
-  left: -175px;
+  left: -145px;
 }
 .buttonprev{
   height: 2rem;
@@ -205,17 +209,6 @@ export default {
   margin: 1rem;
   position:relative;
   display: inline-block;
-}
-
-.welcome-msg {
-  @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-  font-family: 'Permanent Marker', cursive;  margin: 150px 100px;
-  color: rgb(232, 164, 16);
-  text-decoration: none;
-  text-transform: uppercase;
-  text-shadow: 1px 1px 2px rgb(7, 7, 5), 0 0 25px rgb(15, 14, 10),
-    0 0 5px rgb(16, 15, 12);
-  font-size: 50px;
 }
 select{
   border-radius: 0.5rem;
@@ -240,5 +233,16 @@ textarea{
   display:flex;
   font-size: 1rem;
 }
+input[type=date],input[type=time]{
+  border-radius: 0.5rem;
+  resize: none;
+  margin: 0.5rem;
+  padding: 0.3rem;
+  width: 9.2rem;
+  height:2rem;
+  justify-content:center;
+  font-size: 1rem;
+}
+
 
 </style>
