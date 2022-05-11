@@ -46,7 +46,7 @@
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-12 p-0" >
                     <label> <b>End Time</b> </label>
-                    <input type=time placeholder="Session End Time " id="sessionendtime"v-model="sessionendtime">
+                    <input type=time placeholder="Session End Time " id="sessionendtime" v-model="sessionendtime">
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="parallelsessioncount">
                     <textarea placeholder=" Enter Parallel Session Count " v-model="parallelsessionCount"></textarea>
@@ -142,7 +142,7 @@ export default {
 
     },
     goToPapers(){
-      this.$router.push('/papers');
+      this.$router.push("/papers");
 
     }
 
