@@ -58,7 +58,8 @@
                     <textarea placeholder="Enter One Session Duration" v-model="duration"></textarea>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="breaktime">
-                    <textarea placeholder=" Enter Break Time" v-model="breaktime"></textarea>
+                    <label> <b>Break minute</b> </label>
+                    <input type="time" id="appt" min="0" name="appt" v-model="breaktime">
                   </div>
                   <div class="sdate" >
                     <label> <b>Start Date</b> </label>

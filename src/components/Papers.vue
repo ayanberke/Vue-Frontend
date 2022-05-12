@@ -74,16 +74,36 @@
                 </td>
 
                 <td>
-                  <select name="keyword-names" id="keyword-id" v-model="keyword">
-                    <option name="Select Keyword" value="Select Keyword">
-                      Select Keyword
-                    </option>
+                  <select
+                    name="keyword-names"
+                    id="keyword-id"
+                    v-model="keyword"
+                  >
+                  
                     <option name="Robotics" value="Robotics">Robotics</option>
                     <option
                       name="Artifical Intelligence"
                       value="Artifical Intelligence"
                     >
                       Artifical Intelligence
+                    </option>
+                    <option name="Virtual Reality" value="Virtual Reality">
+                      Virtual Reality
+                    </option>
+                    <option name="Mixed Reality" value="Mixed Reality">
+                      Mixed Reality
+                    </option>
+                    <option
+                      name="Human-Robot Interaction(HRI)"
+                      value="Human-Robot Interaction(HRI)"
+                    >
+                      Human-Robot Interaction(HRI)
+                    </option>
+                    <option name="Augmented Reality" value="MAugmented Reality">
+                      Augmented Reality
+                    </option>
+                    <option name="Gaze Tracking" value="Gaze Tracking">
+                      Gaze Tracking
                     </option>
                   </select>
                 </td>
@@ -106,7 +126,10 @@
               </tbody>
             </table>
 
-            <button id="add-paper" class="btn offset-lg-6btn btn-blue mb-3" @click="createPost"
+            <button
+              id="add-paper"
+              class="btn offset-lg-6btn btn-blue mb-3"
+              @click="createPost"
             >
               Add Paper
             </button>
@@ -189,46 +212,34 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 export default {
-    data(){
-
-return{
-    authorName:null,
-    presenterName:null,
-    titleName:null,
-    keyword:null,
-}
-    },
+  data() {
+    return {
+      authorName: [null],
+      presenterName: null,
+      titleName: null,
+      keyword: null,
+    };
+  },
   methods: {
-    
-    createPost(){
-        axios.post(
-            '/paper/create',
+    createPost() {
+      axios
+        .post("http://localhost:8081/paper/create", {
+          authors: [
             {
-                
-  "authors": [
-      {
-          "name": this.authorName,
-          "surname": ""
-      },
-      
-  ],
-  "constraint":null,
-  "presenter":this.presenterName,
-  "title":this.titleName,
-  "keyword":this.keyword,
-
-
+              name: this.authorName,
+              surname: "",
             },
-        ).then(response=>
-        {
-        console.log(response);
-    }).
-    catch(error => {
-    console.log(error.response);
-
-    })
+          ],
+          constraint: null,
+          presenter: this.presenterName,
+          title: this.titleName,
+          keyword: this.keyword,
+        })
+        .then((response) => {
+          console.log(response);
+        });
     },
 
     remove_element(id) {
