@@ -38,8 +38,14 @@
           <form action="#" method="post" novalidate="novalidate">
             <div class="row">
                 <div class="row">
+                  <div class="button" id="paper">
+                    <button type="button" class="btn btn-warning wrn-btn btn-lg" @click="goToPapers"> Papers </button>
+                  </div>
                   <div class="button" id="schedule">
-                    <button type="button" class="btn btn-warning wrn-btn btn-lg" @click="goToPapers"> Submit Your Paper </button>
+                    <button type="button" class="btn btn-warning wrn-btn btn-lg" @click="goToSchedule"> Schedule </button>
+                  </div>
+                  <div class="button" id="schedule">
+                    <button type="button" class="btn btn-warning wrn-btn btn-lg" @click="goToConstraints"> Constraints </button>
                   </div>
                  </div>
             </div>
@@ -104,7 +110,14 @@ export default {
     goToPapers(){
       this.$router.push('/papers');
 
-    }
+    },
+    goToConstraints(){
+      this.$router.push('/constraints');
+
+    },
+    goToSchedule(){
+      this.$router.push('/schedule')
+    },
   }
 };
 </script>
