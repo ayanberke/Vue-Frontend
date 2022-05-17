@@ -68,7 +68,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 export default {
     data(){
 
@@ -102,14 +102,15 @@ return{
 
 
             },
-        ).then(response=>
-        {
-        console.log(response);
-    }).
-    catch(error => {
-    console.log(error.response);
-
-    })
+          ],
+          constraint: null,
+          presenter: this.presenterName,
+          title: this.titleName,
+          keyword: this.keyword,
+        })
+        .then((response) => {
+          console.log(response);
+        });
     },
 
     remove_element(id) {
