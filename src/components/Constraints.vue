@@ -7,87 +7,87 @@
             <div class="row">
               <div class="col-lg-12">
                 <div class="row">
-          <b-card no-body>
-            <b-tabs v-model="tabIndex" card>
-              <b-tab title="DAY 1" :title-link-class="linkClass(0)">
-                <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="parallelsessioncount">
-                  <textarea placeholder=" Enter Parallel Session Count " v-model="parallelsessionCount"></textarea>
+                  <b-card no-body>
+                    <b-tabs v-model="tabIndex" card>
+                      <b-tab title="DAY 1" :title-link-class="linkClass(0)">
+                        <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="parallelsessioncount">
+                          <textarea placeholder=" Enter Parallel Session Count " v-model="parallelsessionCount"></textarea>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 p-0" >
+                          <label> <b>Start Time</b> </label>
+                          <input type="time" name="appt" min="00:00" max="23:59" required  id="stime"  v-model="sessionstarttime"></div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 p-0" >
+                          <label> <b>End Time</b> </label>
+                          <input type=time placeholder="Session End Time " id="etime" v-model="sessionendtime">
+                        </div>
+                        <div class="buttonsave" id="save">
+                          <button type="button" class="btn btn-warning wrn-btn btn-lg" > Save </button>
+                        </div>
+                      </b-tab>
+                      <b-tab title="DAY 2" :title-link-class="linkClass(1)">
+                        <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="parallelsessioncount2">
+                          <textarea placeholder=" Enter Parallel Session Count " v-model="parallelsessionCount"></textarea>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 p-0" >
+                          <label> <b>Start Time</b> </label>
+                          <input type="time" name="appt" min="00:00" max="23:59" required  id="stime2"  v-model="sessionstarttime"></div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 p-0" >
+                          <label> <b>End Time</b> </label>
+                          <input type=time placeholder="Session End Time " id="etime2" v-model="sessionendtime">
+                        </div>
+                        <div class="buttonsave" id="save2">
+                          <button type="button" class="btn btn-warning wrn-btn btn-lg" > Save </button>
+                        </div>
+                      </b-tab>
+                      <b-tab title="DAY 3" :title-link-class="linkClass(2)">
+                        <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="parallelsessioncount3">
+                          <textarea placeholder=" Enter Parallel Session Count " v-model="parallelsessionCount"></textarea>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 p-0" >
+                          <label> <b>Start Time</b> </label>
+                          <input type="time" name="appt" min="00:00" max="23:59" required  id="stime3"  v-model="sessionstarttime"></div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 p-0" >
+                          <label> <b>End Time</b> </label>
+                          <input type=time placeholder="Session End Time " id="etime3" v-model="sessionendtime">
+                        </div>
+                        <div class="buttonsave" id="save3">
+                          <button type="button" class="btn btn-warning wrn-btn btn-lg" > Save </button>
+                        </div>
+                      </b-tab>
+                      <b-tab title="DAY 4" :title-link-class="linkClass(3)">
+                        <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="parallelsessioncount4">
+                          <textarea placeholder=" Enter Parallel Session Count " v-model="parallelsessionCount"></textarea>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 p-0" >
+                          <label> <b>Start Time</b> </label>
+                          <input type="time" name="appt" min="00:00" max="23:59" required  id="stime4"  v-model="sessionstarttime"></div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 p-0" >
+                          <label> <b>End Time</b> </label>
+                          <input type=time placeholder="Session End Time " id="etime4" v-model="sessionendtime">
+                        </div>
+                        <div class="buttonsave" id="save4">
+                          <button type="button" class="btn btn-warning wrn-btn btn-lg" > Save </button>
+                        </div>
+                      </b-tab>
+                      <b-tab title="DAY 5" :title-link-class="linkClass(4)">
+                        <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="parallelsessioncount5">
+                          <textarea placeholder=" Enter Parallel Session Count " v-model="parallelsessionCount"></textarea>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 p-0" >
+                          <label> <b>Start Time</b> </label>
+                          <input type="time" name="appt" min="00:00" max="23:59" required  id="stime5"  v-model="sessionstarttime"></div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 p-0" >
+                          <label> <b>End Time</b> </label>
+                          <input type=time placeholder="Session End Time " id="etime5" v-model="sessionendtime">
+                        </div>
+                        <div class="buttonsave" id="save5">
+                          <button type="button" class="btn btn-warning wrn-btn btn-lg" > Save </button>
+                        </div>
+                      </b-tab>
+                    </b-tabs>
+                  </b-card>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-12 p-0" >
-                  <label> <b>Start Time</b> </label>
-                  <input type="time" name="appt" min="00:00" max="23:59" required  id="stime"  v-model="sessionstarttime"></div>
-                <div class="col-lg-3 col-md-3 col-sm-12 p-0" >
-                  <label> <b>End Time</b> </label>
-                  <input type=time placeholder="Session End Time " id="etime" v-model="sessionendtime">
-                </div>
-                <div class="buttonsave" id="save">
-                  <button type="button" class="btn btn-warning wrn-btn btn-lg" > Save </button>
-                </div>
-              </b-tab>
-              <b-tab title="DAY 2" :title-link-class="linkClass(1)">
-                <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="parallelsessioncount2">
-                  <textarea placeholder=" Enter Parallel Session Count " v-model="parallelsessionCount"></textarea>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-12 p-0" >
-                  <label> <b>Start Time</b> </label>
-                  <input type="time" name="appt" min="00:00" max="23:59" required  id="stime2"  v-model="sessionstarttime"></div>
-                <div class="col-lg-3 col-md-3 col-sm-12 p-0" >
-                  <label> <b>End Time</b> </label>
-                  <input type=time placeholder="Session End Time " id="etime2" v-model="sessionendtime">
-                </div>
-                <div class="buttonsave" id="save2">
-                  <button type="button" class="btn btn-warning wrn-btn btn-lg" > Save </button>
-                </div>
-              </b-tab>
-              <b-tab title="DAY 3" :title-link-class="linkClass(2)">
-                <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="parallelsessioncount3">
-                  <textarea placeholder=" Enter Parallel Session Count " v-model="parallelsessionCount"></textarea>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-12 p-0" >
-                  <label> <b>Start Time</b> </label>
-                  <input type="time" name="appt" min="00:00" max="23:59" required  id="stime3"  v-model="sessionstarttime"></div>
-                <div class="col-lg-3 col-md-3 col-sm-12 p-0" >
-                  <label> <b>End Time</b> </label>
-                  <input type=time placeholder="Session End Time " id="etime3" v-model="sessionendtime">
-                </div>
-                <div class="buttonsave" id="save3">
-                  <button type="button" class="btn btn-warning wrn-btn btn-lg" > Save </button>
-                </div>
-              </b-tab>
-              <b-tab title="DAY 4" :title-link-class="linkClass(3)">
-                <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="parallelsessioncount4">
-                  <textarea placeholder=" Enter Parallel Session Count " v-model="parallelsessionCount"></textarea>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-12 p-0" >
-                  <label> <b>Start Time</b> </label>
-                  <input type="time" name="appt" min="00:00" max="23:59" required  id="stime4"  v-model="sessionstarttime"></div>
-                <div class="col-lg-3 col-md-3 col-sm-12 p-0" >
-                  <label> <b>End Time</b> </label>
-                  <input type=time placeholder="Session End Time " id="etime4" v-model="sessionendtime">
-                </div>
-                <div class="buttonsave" id="save4">
-                  <button type="button" class="btn btn-warning wrn-btn btn-lg" > Save </button>
-                </div>
-              </b-tab>
-              <b-tab title="DAY 5" :title-link-class="linkClass(4)">
-                <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="parallelsessioncount5">
-                  <textarea placeholder=" Enter Parallel Session Count " v-model="parallelsessionCount"></textarea>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-12 p-0" >
-                  <label> <b>Start Time</b> </label>
-                  <input type="time" name="appt" min="00:00" max="23:59" required  id="stime5"  v-model="sessionstarttime"></div>
-                <div class="col-lg-3 col-md-3 col-sm-12 p-0" >
-                  <label> <b>End Time</b> </label>
-                  <input type=time placeholder="Session End Time " id="etime5" v-model="sessionendtime">
-                </div>
-                <div class="buttonsave" id="save5">
-                  <button type="button" class="btn btn-warning wrn-btn btn-lg" > Save </button>
-                </div>
-              </b-tab>
-            </b-tabs>
-          </b-card>
-        </div>
-      </div>
+              </div>
             </div>
           </form>
         </div>
@@ -130,9 +130,9 @@ export default {
 #home-page {
   background: url("../assets/conference.jpg") no-repeat center center;
   -moz-background-size: 100% 100%;           /* Firefox 3.6 */
-	-o-background-size: 100% 100%;           /* Opera 9.5 */
-	-webkit-background-size: 100% 100%;           /* Safari 3.0, Chrome */
-	background-size: 100% 100%;
+  -o-background-size: 100% 100%;           /* Opera 9.5 */
+  -webkit-background-size: 100% 100%;           /* Safari 3.0, Chrome */
+  background-size: 100% 100%;
   min-height: 100vh;
   opacity: 0.9;
 }
@@ -190,6 +190,4 @@ input[type=time]{
   justify-content:center;
   font-size: 1rem;
 }
-
-
 </style>
