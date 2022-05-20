@@ -41,11 +41,11 @@
                   <div class="button" id="paper">
                     <button type="button" class="btn btn-warning wrn-btn btn-lg" @click="goToPapers"> Papers </button>
                   </div>
-                  <div class="button" id="schedule">
-                    <button type="button" class="btn btn-warning wrn-btn btn-lg" @click="goToSchedule"> Schedule </button>
+                  <div class="button" id="constraints">
+                    <button type="button" class="btn btn-warning wrn-btn btn-lg" @click="goToSchedule"> Constraints   </button>
                   </div>
                   <div class="button" id="schedule">
-                    <button type="button" class="btn btn-warning wrn-btn btn-lg" @click="goToConstraints"> Constraints </button>
+                    <button type="button" class="btn btn-warning wrn-btn btn-lg" @click="goToConstraints"> Schedule </button>
                   </div>
                  </div>
             </div>
@@ -85,7 +85,7 @@
         </div>
       </footer>
     </div>
-    
+
   </div>
 </template>
 
