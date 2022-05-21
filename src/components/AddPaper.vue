@@ -229,7 +229,10 @@ export default {
     let data = JSON.stringify(paperValues);
     console.log(data);
      axios
-        .post('http://localhost:8081/paper/create', data)
+        .post('http://localhost:8081/paper/create', data,{
+        headers:{
+        'Content-Type': 'application/json'
+        }})
         .then(response => {
           console.log(response);
         })
