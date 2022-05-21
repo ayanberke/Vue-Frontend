@@ -229,7 +229,7 @@ export default {
     let data = JSON.stringify(paperValues);
     console.log(data);
      axios
-        .post("/paper/create", data)
+        .post('http://localhost:8081/paper/create', data)
         .then(response => {
           console.log(response);
         })
