@@ -70,7 +70,7 @@
 <script>
 import axios from "axios";
 export default {
-    created(){
+    beforeMount(){
       this.getPapers()
     },
     data(){
