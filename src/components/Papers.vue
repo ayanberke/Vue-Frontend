@@ -68,7 +68,11 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
+    created(){
+      this.getPapers()
+    },
     data(){
 
 return{
@@ -79,6 +83,15 @@ return{
 }
     },
   methods: {
+    getPapers(){
+      axios.get('http://localhost:8081/paper/getAll'
+  )
+  .then(function (response) {
+    console.log(response);
+  })
+      
+
+    },
 
     goToConstraints() {
       this.$router.push("/constraints");

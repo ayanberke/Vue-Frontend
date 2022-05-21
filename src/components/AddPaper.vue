@@ -86,9 +86,9 @@
                     multiple
                     :select-size="4"
                   ></b-form-select>
-                  <div class="mt-3">
+                  <!--<div class="mt-3">
                     Selected Keywords: <strong>{{ selected }}</strong>
-                  </div>
+                  </div> -->
                 </div>
               </div>
          
@@ -173,11 +173,7 @@ export default {
       ]
     };
   },
-  computed: {
-    quantity: function() {
-      return this.items.length;
-    }
-  },
+
   methods: {
     createPost() {
       axios
@@ -239,6 +235,7 @@ export default {
         .catch(error => {
           console.log(error.response);
         });
+        window.location.reload();
     },
 
     goToConstraints() {
