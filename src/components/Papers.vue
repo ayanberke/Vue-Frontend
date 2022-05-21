@@ -36,22 +36,20 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Paper Title</th>
-      <th scope="col">Date</th>
+      <th scope="col">Authors</th>
+      <th scope="col">Presenters</th>
+      <th scope="col">Title</th>
+      <th scope="col">Keywords</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Learning robot motor skills with mixed reality </td>
-      <td>17.05.2022</td>
+    <tr v-for="(paper,index) in papers" :key="index">
+      <td v-text="paper.author"></td>
+      <td v-text="paper.presenter"></td>
+      <td v-text="paper.title"></td>
+      <td v-text="paper.keyword"></td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Towards Foveated Rendering For Immersive Remote Telerobotics </td>
-      <td>17.05.2022</td>
-
-    </tr>
+    
 
   </tbody>
 </table>
@@ -70,16 +68,11 @@
 <script>
 import axios from "axios";
 export default {
-    beforeMount(){
-      this.getPapers()
-    },
+   
     data(){
 
 return{
-    authorName:[],
-    presenterName:null,
-    titleName:null,
-    keyword:null,
+    paper:[]
 }
     },
   methods: {
@@ -88,6 +81,8 @@ return{
   )
   .then(function (response) {
     console.log(response);
+    this.paper = response.data;
+    
   })
       
 
@@ -100,6 +95,9 @@ return{
       this.$router.push("/addpaper");
     },
   },
+   mounted(){
+      this.getPapers()
+    },
 };
 
 </script>
