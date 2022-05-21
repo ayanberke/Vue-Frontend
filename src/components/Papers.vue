@@ -79,11 +79,11 @@ return{
     getPapers(){
       axios.get('http://localhost:8081/paper/getAll'
   )
-  .then(function (response) {
-    console.log(response);
-    this.papers = response;
-    
-  })
+  .then(response => {
+      this.papers=response.data;
+      
+    }
+    )
       
 
     },
