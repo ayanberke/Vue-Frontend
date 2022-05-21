@@ -72,7 +72,7 @@ export default {
     data(){
 
 return{
-    paper:[]
+    papers:[]
 }
     },
   methods: {
@@ -81,7 +81,7 @@ return{
   )
   .then(function (response) {
     console.log(response);
-    this.paper = response.data;
+    this.papers = response;
     
   })
       
