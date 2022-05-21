@@ -30,299 +30,220 @@
 
       <div class="col-xl-8 col-lg-6 col-md-12 col-sm-12 col-12 mx-auto my-5">
         <div class="card">
-          <div class="card-body table-responsive">
-            <table id="paper-list" class="table">
-              <thead class="thead-dark">
-                <tr>
-                  <td>Authors</td>
-                  <td>Presenter</td>
-                  <td>Title of Papers</td>
-                  <td>Keywords</td>
-                  <td># of Paper</td>
-                </tr>
-              </thead>
-
-              <tr>
-                <td>
-                  <input
-                    method="post"
-                    methodname="authorname"
-                    id="author-name"
-                    placeholder="Enter Names and Surnames"
-                    v-model="authorName"
-                  />
-                </td>
-                <td>
-                  <input
-                    type="text"
-                    placeholder="Enter Name and Surname"
-                    id="presenter-name"
-                    name="presentername"
-                    v-model="presenterName"
-                    required
-                  />
-                </td>
-                <td id="descr">
-                  <input
-                    type="text"
-                    placeholder="Enter a Title"
-                    id="title-name"
-                    name="titlename"
-                    v-model="titleName"
-                    required
-                  />
-                </td>
-
-                <td>
-                  <select name="keyword-names" id="keyword-id" v-model="keyword">
-                    <option name="Select Keyword" value="Select Keyword">
-                      Select Keyword
-                    </option>
-                    <option name="Robotics" value="Robotics">Robotics</option>
-                    <option
-                      name="Artifical Intelligence"
-                      value="Artifical Intelligence"
-                    >
-                      Artifical Intelligence
-                    </option>
-                  </select>
-                </td>
-              </tr>
-              <tbody id="paper-list-body"></tbody>
-              <tbody class="thead-dark">
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-
-                  <td>
-                    <div id="total-cost">
-                      <p>0</p>
-                    </div>
-                  </td>
-                  <td></td>
-                </tr>
-              </tbody>
-            </table>
-
-            <button id="add-paper" class="btn offset-lg-6btn btn-blue mb-3" @click="createPost"
-            >
-              Add Paper
-            </button>
-            <br />
-          </div>
-
-          <span id="result"></span>
-
-          <form method="post">
-            <div class="row">
-              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3"></div>
-              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3"></div>
-              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3"></div>
-              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
-                <button
-                  style="width: 100px"
-                  type="submit"
-                  id="sbm-btn"
-                  class="btn-sm col-md-3 offset-md-3btn btn-blue mb-3"
-                  @click="goToConstraints"
-                >
-                  Define Constraints
-                </button>
-                <input type="hidden" id="str" name="str" value="" />
+          <div
+            class="row justify-content-center"
+            v-for="(item, index) in items"
+            :key="index"
+          >
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label class="sr-only">Author Name</label>
+                <input
+                  class="form-control"
+                  aria-describedby="authorname"
+                  id="authorname"
+                  placeholder="Enter name"
+                  name="items[][authorName]"
+                  required
+                />
               </div>
             </div>
-          </form>
-        </div>
-      </div>
 
-      <section class="search-sec">
-        <div class="container">
-          <form action="#" method="post" novalidate="novalidate">
-            <div class="row" v-for="(Papers, index) in Papers" :key="index">
-              <div class="col-lg-12">
-                <div class="row">
-                  <!-- eski kısımları sildim eklediğimi dışarıya ekledim-B -->
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label class="sr-only">Presenter Name</label>
+                <input
+                  class="form-control"
+                  aria-describedby="presentername"
+                  id="presentername"
+                  placeholder="Enter presenter name"
+                  name="items[][presenterName]"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label class="sr-only">Title</label>
+                <input
+                  class="form-control"
+                  aria-describedby="Title"
+                  id="titlename"
+                  placeholder="Enter title"
+                  name="items[][titleName]"
+                  required
+                />
+              </div>
+            </div>
+           
+              <div class="col-sm-3">
+                <div class="form-group">
+                <label class="sr-only">Keywords</label>
+                  <b-form-select
+                    v-model="selected"
+                    :options="options"
+                    multiple
+                    :select-size="4"
+                  ></b-form-select>
+                  <div class="mt-3">
+                    Selected Keywords: <strong>{{ selected }}</strong>
+                  </div>
                 </div>
               </div>
-            </div>
-          </form>
-        </div>
-      </section>
-      <footer class="bg-light text-center text-lg-start">
-        <div class="container p-4">
-          <div class="row">
-            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-              <h5 class="text-uppercase">Information</h5>
-              <p>
-                This is a web-based application that will schedule conferences
-                using optimization. The application finds the most suitable
-                conference program by optimization. Users schedule conferences
-                and can view the scheduling result as a table.
-              </p>
-            </div>
-            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-              <h5 class="text-uppercase">Mission</h5>
+         
 
-              <p>
-                The purpose of the system is to solve problems that organizers
-                face when planning their conferences more quickly and
-                conveniently. The organizers will collect the information from
-                the presenters and plan the day, time-slots and rooms of the
-                conference with the help of the system. The possibility of
-                conflict and loss of time will be prevented.
-              </p>
+            <div class="col-sm-2 text-left">
+              <button
+                type="button"
+                class="btn btn-light"
+                @click.prevent="removeAttendee(index)"
+                v-show="quantity > 1"
+              >
+                <span aria-hidden="true">×</span>
+                Remove
+              </button>
             </div>
           </div>
+          <div class="row justify-content-center">
+            <div class="col-sm-6"></div>
+      <!--       <div class="col-sm-2">
+               <button
+                type="button"
+                class="btn btn-secondary"
+                @click.prevent="addAttendee"
+              >
+                Add New Paper
+              </button> 
+            </div> -->
+          </div>
+          <!-- <input
+                    method="post"
+                    methodname="authorname"
+                    id="itemForm"
+                    v-on:keyup.enter="addItem"
+                    placeholder="Enter Names and Surnames"
+                    v-model="authorName"
+                  />-->
+
+          <!--<button v-on:click="addItem">Add Paper</button>-->
         </div>
-        <div
-          class="text-center p-3"
-          style="background-color: rgba(0, 0, 0, 0.2)"
-        >
-          © 2022 Copyright:
-          <a class="text-dark" href="https://mdbootstrap.com/">confy.com</a>
-        </div>
-      </footer>
+        <ul></ul>
+
+        <span id="result"></span>
+
+          <div class="row">
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3"></div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3"></div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3"></div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+              <button
+                style="width: 100px"
+                type="submit"
+                id="sbm-btn"
+                class="btn-sm col-md-3 offset-md-3btn btn-blue mb-3"
+                @click="savePapers"
+              >
+                Save
+              </button>
+              <input type="hidden" id="str" name="str" value="" />
+            </div>
+          </div> 
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
+let counter = 0;
 export default {
-    data(){
-
-return{
-    authorName:[],
-    presenterName:null,
-    titleName:null,
-    keyword:null,
-}
-    },
+  data() {
+    return {
+      items: [
+        { authorName: "", presenterName: "", titleName: "", keyword: "" }
+      ],
+      papers: [{ aName: "", pName: "", tName: "", kName: "" }],
+      selected: ["Robotics"], // Array reference
+      options: [
+        { value: "Robotics", text: "Robotics" },
+        { value: "Machine Learning", text: "Machine Learning" },
+        { value: "Artificial Intelligence", text: "Artificial Intelligence" },
+        { value: "Human Interactıon", text: "Human Interactıon" }
+      ]
+    };
+  },
+  computed: {
+    quantity: function() {
+      return this.items.length;
+    }
+  },
   methods: {
+    createPost() {
+      axios
+        .post("/paper/create", paperValues)
+        .then(response => {
+          console.log(response);
+        })
+        .catch(error => {
+          console.log(error.response);
+        });
+    },
+
+    addAttendee: function(event) {
+      event.preventDefault();
+      var authorid = "authorname" + counter;
+      var presname = "presentername" + counter;
+      var titname = "titlename" + counter;
+
+      this.items.push({
+        authorName: authorid,
+        presenterName: presname,
+        titleName: titname,
+        keyword: ""
+      });
+      this.papers.aName = document.getElementById("authorname").value;
+      this.papers.pName = document.getElementById("presentername").value;
+      this.papers.tName = document.getElementById("titlename").value;
+      this.papers.kName = document.getElementById("keywordname").value;
+      console.log(this.papers);
+      counter += 1;
+      console.log(counter);
+    },
+    removeAttendee: function(index) {
+      this.items.splice(index, 1);
+    },
     
-    createPost(){
-        axios.post(
+    savePapers: function(event) {
+    console.log("test");
+    let author= document.getElementById("authorname").value;
+    let presenter = document.getElementById("presentername").value;
+    let title = document.getElementById("titlename").value;
+    let keywords = this.selected;
 
-            '/paper/create',
-            {
-
-                
-  "authors": [
-      {
-          "name": this.authorName,
-          "surname": ""
-      },
-      
-  ],
-  "constraint":null,
-  "presenter":this.presenterName,
-  "title":this.titleName,
-  "keyword":this.keyword,
-
-
-            },
-        ).then(response=>
-        {
-        console.log(response);
-    }).
-    catch(error => {
-    console.log(error.response);
-
-    })
-    },
-
-    remove_element(id) {
-      var rtn = 0;
-
-      docCounter -= 1;
-
-      return rtn;
-    },
-    doThing(currentButton) {
-      console.log("ID IS" + currentButton);
-      var rmv = document.getElementById("authorname" + currentButton);
-      rmv.parentNode.removeChild(rmv);
-      remove_element(currentButton);
-      printCost();
+    const paperValues = new Object();
+    paperValues.author = author;
+    paperValues.presenter = presenter;
+    paperValues.title = title;
+    paperValues.keyword = keywords.toString(); 
+    let data = JSON.stringify(paperValues);
+    console.log(data);
+     axios
+        .post("/paper/create", data)
+        .then(response => {
+          console.log(response);
+        })
+        .catch(error => {
+          console.log(error.response);
+        });
     },
 
     goToConstraints() {
       this.$router.push("/constraints");
-    },
-  },
+    }
+  }
 };
-
-let counter = 0;
-let total_cost = [];
-let docCounter = 0;
-
-document.addEventListener("DOMContentLoaded", function () {
-  function totalCostFunc() {
-    return docCounter;
-  }
-
-  function printCost() {
-    var x = totalCostFunc();
-    document.getElementById("total-cost").innerHTML = `<p>${x}</p>`;
-  }
-
-  document.getElementById("add-paper").addEventListener("click", () => {
-    var authorid = "authorname" + counter;
-    var presenterid = "presentername" + counter;
-    var titleid = "titlename" + counter;
-    var cost = "cost" + counter;
-    let authornameval = document.getElementById("author-name").value;
-    let sizeVal = document.getElementById("presenter-name").value;
-    let amountVal = document.getElementById("title-name").value;
-    let keywordVal = document.getElementById("keyword-id").value;
-
-    var coffe_cost = 0;
-    var CoffeId = 0;
-    var description = "";
-
-    document.getElementById("paper-list-body").innerHTML += `
- 
-                    <tr id=${authorid}>
-                        <td>
-                        <p>${authornameval}</p>
-                        </td>
-                        <td>
-                        <p>${sizeVal}</p>
-                        </td>
-                        <td>
-                        <p>${amountVal}</p>
-                        </td>
-                        <td>
-                        <p >${keywordVal}</p>
-                        </td>
-                        <td>
-                            <p></p>
- 
-                        </td>
-                        <td id=${cost}>
-                        </td>
-                     </tr>`;
-    //document.getElementById(cost).innerHTML += "<button  class='btn btn-blue btn-sm   ' style=' width: 50px; height: 30px;'  type = 'button'  id = '" + counter +"' v-on:click=\"dothing > - </button> ";
-    //document.getElementById(counter).addEventListener("click",doThing( document.getElementById(counter)),false)
-    //document.getElementById(cost).innerHTML += "<input  class='btn btn-blue btn-sm   ' style=' width: 50px; height: 30px;'  type = 'button' value = '-'  id = '" + counter + "' onclick = doThing(this)>";
-
-    document.getElementById(cost).innerHTML +=
-      "<input  class='btn btn-blue btn-sm   ' style=' width: 50px; height: 30px;'  type = 'button' value = '-'  id = '" +
-      counter +
-      "' onclick = doThing(" +
-      counter +
-      ")>";
-
-    counter += 1;
-    docCounter += 1;
-    printCost();
-  });
-});
 </script>
-
-
 
 <style scoped>
 #home-page {

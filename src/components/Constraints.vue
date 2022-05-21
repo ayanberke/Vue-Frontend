@@ -154,7 +154,7 @@ export default {
 .search-sec div {
   margin: 1rem;
   position:relative;
-  display: inline-block;
+  
 }
 select{
   border-radius: 0.5rem;
