@@ -32,12 +32,12 @@
 
     <div class="container">
 
-    <table class="table table-dark ">
+    <table class="table table-light ">
   <thead>
     <tr>
    
       <th scope="col">Authors</th>
-      <th scope="col">Presenters</th>
+      <th scope="col">Presenter</th>
       <th scope="col">Title</th>
       <th scope="col">Keywords</th>
     </tr>
@@ -103,7 +103,7 @@ return{
 </script>
 <style scoped>
 #home-page {
-  background: url("../assets/conference.jpg") no-repeat center center;
+  background: url("../assets/pencil.jpg") no-repeat center center;
   -moz-background-size: 100% 100%; /* Firefox 3.6 */
   -o-background-size: 100% 100%; /* Opera 9.5 */
   -webkit-background-size: 100% 100%; /* Safari 3.0, Chrome */
@@ -140,5 +140,14 @@ select {
   display: flex;
   font-size: 1rem;
 }
-
+.Paperlist-msg {
+  @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+  font-family: 'Permanent Marker', cursive;  margin: 150px 100px;
+  color: rgb(246, 246, 246);
+  text-decoration: none;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 2px rgb(7, 7, 5), 0 0 25px rgb(15, 14, 10),
+    0 0 5px rgb(16, 15, 12);
+  font-size: 50px;
+}
 </style>
