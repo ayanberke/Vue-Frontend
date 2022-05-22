@@ -121,15 +121,24 @@
         <span id="result"></span>
 
           <div class="row">
-            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3"></div>
-            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3"></div>
-            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3"></div>
-            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+            <div class="col-xl-12 col-lg-5 col-md-5 col-sm-5"></div>
+            <div class="col-xl-12 col-lg-5 col-md-5 col-sm-5"></div>
+            <div class="col-xl-12 col-lg-5 col-md-5 col-sm-5"></div>
+            <div class="col-xl-12 col-lg-5 col-md-5 col-sm-5">
+               <button
+                style="width: 100px"
+                type="submit"
+                id="sbm-btn"
+                class="btn-lg col-md-5 offset-md-3btn btn-blue mb-5"
+                @click="goBackPaper"
+              >
+              Previous
+              </button>
               <button
                 style="width: 100px"
                 type="submit"
                 id="sbm-btn"
-                class="btn-lg col-md-3 offset-md-3btn btn-blue mb-3"
+                class="btn-lg col-md-5 offset-md-3btn btn-blue mb-5"
                 @click="savePapers"
               >
                 Save
@@ -196,6 +205,10 @@ export default {
     },
     removeAttendee: function(index) {
       this.items.splice(index, 1);
+    },
+    goBackPaper(){
+      this.$router.push("/papers");
+
     },
     
     savePapers: function(event) {
