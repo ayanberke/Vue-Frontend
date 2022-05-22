@@ -35,7 +35,7 @@
     <table class="table table-light ">
   <thead>
     <tr>
-   
+      
       <th scope="col">Authors</th>
       <th scope="col">Presenter</th>
       <th scope="col">Title</th>
@@ -48,6 +48,7 @@
       <td v-text="paper.presenter"></td>
       <td v-text="paper.title"></td>
       <td v-text="paper.keyword"></td>
+      <td><button id="button" class="btn btn-secondary">remove</button></td>
     </tr>
     
 
@@ -56,6 +57,7 @@
        <div class="buttonadd" id="add">
                     <button type="button" class="btn btn-secondary btn-lg" @click="goToAddPaperPage" > Add Paper </button>
                   </div>
+                  
 
     </div>
 

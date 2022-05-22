@@ -92,18 +92,6 @@
                 </div>
               </div>
          
-
-            <div class="col-sm-2 text-left">
-              <button
-                type="button"
-                class="btn btn-light"
-                @click.prevent="removeAttendee(index)"
-                v-show="quantity > 1"
-              >
-                <span aria-hidden="true">×</span>
-                Remove
-              </button>
-            </div>
           </div>
           <div class="row justify-content-center">
             <div class="col-sm-6"></div>
@@ -141,7 +129,7 @@
                 style="width: 100px"
                 type="submit"
                 id="sbm-btn"
-                class="btn-sm col-md-3 offset-md-3btn btn-blue mb-3"
+                class="btn-lg col-md-3 offset-md-3btn btn-blue mb-3"
                 @click="savePapers"
               >
                 Save
