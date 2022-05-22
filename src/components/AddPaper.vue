@@ -284,7 +284,7 @@ export default {
   @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
   font-family: "Permanent Marker", cursive;
   margin: 150px 100px;
-  color: rgb(232, 164, 16);
+  color: rgb(246, 245, 244);
   text-decoration: none;
   text-transform: uppercase;
   text-shadow: 1px 1px 2px rgb(7, 7, 5), 0 0 25px rgb(15, 14, 10),
