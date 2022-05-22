@@ -103,7 +103,7 @@ return{
 </script>
 <style scoped>
 #home-page {
-  background: url("../assets/pencil.jpg") no-repeat center center;
+  background: url("../assets/conference.jpg") no-repeat center center;
   -moz-background-size: 100% 100%; /* Firefox 3.6 */
   -o-background-size: 100% 100%; /* Opera 9.5 */
   -webkit-background-size: 100% 100%; /* Safari 3.0, Chrome */
