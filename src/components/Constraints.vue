@@ -365,7 +365,7 @@ export default {
     let sessioncount= document.getElementById("session2").value;
     let startime = document.getElementById("stime2").value;
     let endtime = document.getElementById("etime2").value;
-    let day1 =1;
+    let day1 =2;
     let presentationduration='30';
     let sessionno = 2;
 
@@ -412,7 +412,7 @@ export default {
     let sessioncount= document.getElementById("session3").value;
     let startime = document.getElementById("stime3").value;
     let endtime = document.getElementById("etime3").value;
-    let day1 =1;
+    let day1 =3;
     let presentationduration='30';
     let sessionno = 3;
 
@@ -459,7 +459,7 @@ export default {
     let sessioncount= document.getElementById("session4").value;
     let startime = document.getElementById("stime4").value;
     let endtime = document.getElementById("etime4").value;
-    let day1 =1;
+    let day1 =4;
     let presentationduration='30';
     let sessionno = 4;
 
@@ -506,7 +506,7 @@ export default {
     let sessioncount= document.getElementById("session5").value;
     let startime = document.getElementById("stime5").value;
     let endtime = document.getElementById("etime5").value;
-    let day1 =1;
+    let day1 =5;
     let presentationduration='30';
     let sessionno = 5;
 
