@@ -347,6 +347,7 @@
 
 
 <script>
+import axios from "axios";
 
 export default {
   data() {
@@ -378,16 +379,7 @@ export default {
     //stime= startime.toString();
     //atime = andtime.toString();
 
-    this.constraints.push({
-      day_no:day1,
-      parallel_session_count:sessioncount,
-      presentation_duration:presentationduration,
-      start_time:startime,
-      end_time:endtime});
-    
 
-    let data = JSON.stringify(this.constraints);
-    console.log(data);
 
      axios
         .post('http://localhost:8081/constraint/create', {
