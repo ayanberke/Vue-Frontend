@@ -35,7 +35,7 @@
     <table class="table table-dark ">
   <thead>
     <tr>
-      <th scope="col">#</th>
+   
       <th scope="col">Authors</th>
       <th scope="col">Presenters</th>
       <th scope="col">Title</th>
