@@ -19,7 +19,7 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav">
-              <a href="#" class="nav-item nav-link active"> <b>Home</b> </a>
+              <a href="#" class="nav-item nav-link active" @click="goToHome"> <b>Home</b> </a> 
               <a href="#" class="nav-item nav-link"> <b>About Us</b> </a>
             </div>
           </div>
@@ -48,14 +48,14 @@
       <td v-text="paper.presenter"></td>
       <td v-text="paper.title"></td>
       <td v-text="paper.keyword"></td>
-      <td><button id="button" class="btn btn-secondary">remove</button></td>
+      <td ><button id="button" class="btn btn-secondary btn-dark">remove</button></td>
     </tr>
     
 
   </tbody>
 </table>
        <div class="buttonadd" id="add">
-                    <button type="button" class="btn btn-secondary btn-lg" @click="goToAddPaperPage" > Add Paper </button>
+                    <button type="button" class="btn btn-secondary btn-lg btn-dark" @click="goToAddPaperPage" > Add Paper </button>
                   </div>
                   
 
@@ -95,6 +95,9 @@ return{
     },
     goToAddPaperPage(){
       this.$router.push("/addpaper");
+    },
+    goToHome(){
+      this.$router.push('/');
     },
   },
    mounted(){

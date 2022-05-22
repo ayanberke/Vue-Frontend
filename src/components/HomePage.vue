@@ -39,7 +39,7 @@
             <div class="row">
                 <div class="row">
                   <div class="button" id="paper">
-                    <button type="button" class="btn btn-warning wrn-btn btn-lg" @click="goToPapers"> Papers </button>
+                    <button type="button" class="btn btn-warning wrn-btn btn-lg" @click="goToPapers"> Paper List </button>
                   </div>
                   <div class="button" id="constraints">
                     <button type="button" class="btn btn-warning wrn-btn btn-lg" @click="goToConstraints"> Constraints   </button>

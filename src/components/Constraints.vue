@@ -1,6 +1,31 @@
 <template>
   <div>
     <div id="home-page">
+      <nav
+        id="nav-bar"
+        class="navbar navbar-expand-lg sticky-top navbar-light bg-white"
+      >
+        <div class="container">
+          <a href="#" class="navbar-brand"
+            ><img id="icon" src="../assets/logo.png"
+          /></a>
+          <button
+            type="button"
+            class="navbar-toggler"
+            data-bs-toggle="collapse"
+            data-bvetur.config.jss-target="#navbarCollapse"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav">
+              <a href="#" class="nav-item nav-link active" @click="goToHome"> <b>Home</b> </a> 
+              <a href="#" class="nav-item nav-link" @click="goToPapers"> <b>Paper List</b> </a>
+              <a href="#" class="nav-item nav-link"> <b>About Us</b> </a>
+            </div>
+          </div>
+        </div>
+      </nav>
       <section class="search-sec">
         <div class="container">
           <form action="#" method="post" novalidate="novalidate">
@@ -113,6 +138,9 @@ export default {
     }
   },
   methods: {
+    goToPapers(){
+      this.$router.push('/papers');
+    },
     linkClass(idx) {
       if (this.tabIndex === idx) {
         return ['bg-primary', 'text-light']
@@ -189,5 +217,21 @@ input[type=time]{
   height:2rem;
   justify-content:center;
   font-size: 1rem;
+}
+#nav-bar {
+  opacity: 0.9;
+}
+
+#icon {
+  margin-left: 3px;
+  display: block;
+  max-width: 110px;
+  opacity: 1;
+}
+
+.search-sec div {
+  margin: 1rem;
+  position: relative;
+  display: inline-block;
 }
 </style>

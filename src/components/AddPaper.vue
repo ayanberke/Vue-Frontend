@@ -19,16 +19,17 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav">
-              <a href="#" class="nav-item nav-link active"> <b>Home</b> </a>
+              <a href="#" class="nav-item nav-link active" @click="goToHome"> <b>Home</b> </a>
+              <a href="#" class="nav-item nav-link" @click="goToPapers"> <b>Paper List</b> </a>
               <a href="#" class="nav-item nav-link"> <b>About Us</b> </a>
             </div>
           </div>
         </div>
       </nav>
 
-      <h1 class="welcome-msg"></h1>
+      <h1 class="welcome-msg"> Enter Paper Info </h1>
 
-      <div class="col-xl-8 col-lg-6 col-md-12 col-sm-12 col-12 mx-auto my-5">
+      <div class="col-xl-8 col-lg-6 col-md-12 col-sm-12 col-12 mx-auto my-5 ">
         <div class="card">
           <div
             class="row justify-content-center"
@@ -37,12 +38,12 @@
           >
             <div class="col-sm-3">
               <div class="form-group">
-                <label class="sr-only">Author Name</label>
+                <label class="sr-only">Author Names and Surnames</label>
                 <input
                   class="form-control"
                   aria-describedby="authorname"
                   id="authorname"
-                  placeholder="Enter name"
+                  placeholder="Enter multiple authors with comma"
                   name="items[][authorName]"
                   required
                 />
@@ -51,12 +52,12 @@
 
             <div class="col-sm-3">
               <div class="form-group">
-                <label class="sr-only">Presenter Name</label>
+                <label class="sr-only">Presenter Name and Surname</label>
                 <input
                   class="form-control"
                   aria-describedby="presentername"
                   id="presentername"
-                  placeholder="Enter presenter name"
+                  placeholder="Enter a presenter"
                   name="items[][presenterName]"
                   required
                 />
@@ -70,7 +71,7 @@
                   class="form-control"
                   aria-describedby="Title"
                   id="titlename"
-                  placeholder="Enter title"
+                  placeholder="Enter title of the paper"
                   name="items[][titleName]"
                   required
                 />
@@ -79,7 +80,7 @@
            
               <div class="col-sm-3">
                 <div class="form-group">
-                <label class="sr-only">Keywords</label>
+                <label class="sr-only">Select Keywords</label>
                   <b-form-select
                     v-model="selected"
                     :options="options"
@@ -129,7 +130,7 @@
                 style="width: 100px"
                 type="submit"
                 id="sbm-btn"
-                class="btn-lg col-md-3 offset-md-3btn btn-blue mb-3"
+                class="btn-lg col-md-3 offset-md-3btn btn-light mb-3"
                 @click="savePapers"
               >
                 Save
@@ -228,14 +229,20 @@ export default {
 
     goToConstraints() {
       this.$router.push("/constraints");
-    }
+    },
+    goToPapers(){
+      this.$router.push('/papers');
+    },
+    goToHome(){
+      this.$router.push('/');
+    },
   }
 };
 </script>
 
 <style scoped>
 #home-page {
-  background: url("../assets/conference.jpg") no-repeat center center;
+  background: url("../assets/background/pencil.jpg") no-repeat center center;
   -moz-background-size: 100% 100%; /* Firefox 3.6 */
   -o-background-size: 100% 100%; /* Opera 9.5 */
   -webkit-background-size: 100% 100%; /* Safari 3.0, Chrome */
@@ -277,7 +284,7 @@ export default {
   @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
   font-family: "Permanent Marker", cursive;
   margin: 150px 100px;
-  color: rgb(232, 164, 16);
+  color: rgb(243, 242, 240);
   text-decoration: none;
   text-transform: uppercase;
   text-shadow: 1px 1px 2px rgb(7, 7, 5), 0 0 25px rgb(15, 14, 10),
