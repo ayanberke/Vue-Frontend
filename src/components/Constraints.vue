@@ -367,7 +367,7 @@ export default {
     let endtime = document.getElementById("etime2").value;
     let day1 =1;
     let presentationduration='30';
-    let sessionno = 1;
+    let sessionno = 2;
 
     
     //stime= startime.toString();
@@ -414,7 +414,7 @@ export default {
     let endtime = document.getElementById("etime3").value;
     let day1 =1;
     let presentationduration='30';
-    let sessionno = 1;
+    let sessionno = 3;
 
     
     //stime= startime.toString();
@@ -461,7 +461,7 @@ export default {
     let endtime = document.getElementById("etime4").value;
     let day1 =1;
     let presentationduration='30';
-    let sessionno = 1;
+    let sessionno = 4;
 
     
     //stime= startime.toString();
@@ -508,7 +508,7 @@ export default {
     let endtime = document.getElementById("etime5").value;
     let day1 =1;
     let presentationduration='30';
-    let sessionno = 1;
+    let sessionno = 5;
 
     
     //stime= startime.toString();
