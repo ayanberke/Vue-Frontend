@@ -20,6 +20,7 @@
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav">
               <a href="#" class="nav-item nav-link active" @click="goToHome"> <b>Home</b> </a> 
+              <a href="#" class="nav-item nav-link" @click="goToConstraints"> <b>Constraints</b> </a>
               <a href="#" class="nav-item nav-link"> <b>About Us</b> </a>
             </div>
           </div>
@@ -39,7 +40,7 @@
       <th scope="col">Presenter</th>
       <th scope="col">Title</th>
       <th scope="col">Keywords</th>
-      <th scope="col"> </th>
+      <td ><button id="button" class="btn btn-secondary btn-dark">Remove All</button></td>
     </tr>
   </thead>
   <tbody>
@@ -48,7 +49,7 @@
       <td v-text="paper.presenter"></td>
       <td v-text="paper.title"></td>
       <td v-text="paper.keyword"></td>
-      <td ><button id="button" class="btn btn-secondary btn-dark">remove</button></td>
+      <td ><button id="button" class="btn btn-secondary btn-dark">Remove</button></td>
     </tr>
     
 

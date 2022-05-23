@@ -21,6 +21,7 @@
             <div class="navbar-nav">
               <a href="#" class="nav-item nav-link active" @click="goToHome"> <b>Home</b> </a>
               <a href="#" class="nav-item nav-link" @click="goToPapers"> <b>Paper List</b> </a>
+              <a href="#" class="nav-item nav-link" @click="goToConstraints"> <b>Constraints</b> </a>
               <a href="#" class="nav-item nav-link"> <b>About Us</b> </a>
             </div>
           </div>
@@ -135,6 +136,7 @@
               >
                 Save
               </button>
+              
               <input type="hidden" id="str" name="str" value="" />
             </div>
           </div> 

@@ -1,6 +1,31 @@
 <template>
   <div>
     <div id="home-page">
+      <nav
+        id="nav-bar"
+        class="navbar navbar-expand-lg sticky-top navbar-light bg-white"
+      >
+        <div class="container">
+          <a href="#" class="navbar-brand"
+            ><img id="icon" src="../assets/logo.png"
+          /></a>
+          <button
+            type="button"
+            class="navbar-toggler"
+            data-bs-toggle="collapse"
+            data-bvetur.config.jss-target="#navbarCollapse"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav">
+              <a href="#" class="nav-item nav-link active" @click="goToHome"> <b>Home</b> </a>
+              <a href="#" class="nav-item nav-link" @click="goToPapers"> <b>Paper List</b> </a>
+              <a href="#" class="nav-item nav-link"> <b>About Us</b> </a>
+            </div>
+          </div>
+        </div>
+      </nav>
       <section class="search-sec">
         <div class="container">
             <div class="row">
@@ -13,23 +38,24 @@
                           class="col-lg-3 col-md-3 col-sm-12 p-0"
                           style="float:left;"
                         >
-                        <label> <b>Parallel Session Count</b> </label>
+                        <label> <b>Number of Parallel Sessions </b> </label>
                           <input
                             type="text"
-                            placeholder=" Enter Parallel Session Count "
+                            placeholder=" Enter a number"
                             id="session1"
-                            name="session-1"
+                            name="session1"
                           />
                         </div>
+                        
                         <div
                           class="col-lg-3 col-md-3 col-sm-12 p-0"
                           style="float:left;"
                         >
-                          <label> <b>Start Time</b> </label>
+                          <label> <b>Session Start Time</b> </label>
                           <input
                           
                           type="text"
-                          placeholder="start time"
+                          placeholder="Enter start time"
                             name="appt"
                             required
                             id="stime1"
@@ -41,7 +67,7 @@
                           class="col-lg-3 col-md-3 col-sm-12 p-0"
                           style="float:left;"
                         >
-                          <label> <b>End Time</b> </label>
+                          <label> <b>Session End Time</b> </label>
                           <input
                             type="text"
                             placeholder="Session End Time "
@@ -52,7 +78,7 @@
                         <div class="buttonsave" id="save1" style="float:left;">
                           <button
                             type="button"
-                            class="btn btn-warning wrn-btn btn-lg"
+                            class="btn btn-warning wrn-btn btn-lg bg-light"
                             @click="saveArray1"
                           >
                             Save
@@ -66,11 +92,10 @@
                           id="parallelsessioncount2"
                           style="float:left;"
                         >
-                        <label> <b>Parallel Session Count</b> </label>
+                        <label> <b>Number of Parallel Sessions</b> </label>
                           <input
                             type="text"
-                            placeholder=" Enter Parallel Session Count "
-                            v-model="parallelsessionCount"
+                            placeholder=" Enter a number "
                             id="session2"
                             name="session2"
                           />
@@ -79,7 +104,7 @@
                           class="col-lg-3 col-md-3 col-sm-12 p-0"
                           style="float:left;"
                         >
-                          <label> <b>Start Time</b> </label>
+                          <label> <b>Session Start Time</b> </label>
                           <input
                             type="text"
                             name="appt"
@@ -94,7 +119,7 @@
                           class="col-lg-3 col-md-3 col-sm-12 p-0"
                           style="float:left;"
                         >
-                          <label> <b>End Time</b> </label>
+                          <label> <b>Session End Time</b> </label>
                           <input
                             type="text"
                             placeholder="Session End Time "
@@ -105,7 +130,7 @@
                         <div class="buttonsave" id="save2" style="float:left;">
                           <button
                             type="button"
-                            class="btn btn-warning wrn-btn btn-lg"
+                            class="btn btn-warning wrn-btn btn-lg bg-light"
                             @click="saveArray2"
                           >
                             Save
@@ -119,11 +144,10 @@
                           id="parallelsessioncount3"
                           style="float:left;"
                         >
-                        <label> <b>Parallel Session Count</b> </label>
+                        <label> <b>Number of Parallel Sessions</b> </label>
                           <input
                             type="text"
-                            placeholder=" Enter Parallel Session Count "
-                            v-model="parallelsessionCount"
+                            placeholder=" Enter a number "
                             id="session3"
                             name="session3"
                           />
@@ -132,7 +156,7 @@
                           class="col-lg-3 col-md-3 col-sm-12 p-0"
                           style="float:left;"
                         >
-                          <label> <b>Start Time</b> </label>
+                          <label> <b>Session Start Time</b> </label>
                           <input
                             type="text"
                             
@@ -146,7 +170,7 @@
                           class="col-lg-3 col-md-3 col-sm-12 p-0"
                           style="float:left;"
                         >
-                          <label> <b>End Time</b> </label>
+                          <label> <b>Session End Time</b> </label>
                           <input
                             type="text"
                             placeholder="Session End Time "
@@ -157,7 +181,7 @@
                         <div class="buttonsave" id="save3" style="float:left;">
                           <button
                             type="button"
-                            class="btn btn-warning wrn-btn btn-lg"
+                            class="btn btn-warning wrn-btn btn-lg bg-light"
                             @click="saveArray3"
                           >
                             Save
@@ -171,11 +195,10 @@
                           id="parallelsessioncount4"
                           style="float:left;"
                         >
-                        <label> <b>Parallel Session Count</b> </label>
+                        <label> <b>Number of Parallel Sessions</b> </label>
                           <input
                             type="text"
-                            placeholder=" Enter Parallel Session Count "
-                            v-model="parallelsessionCount"
+                            placeholder=" Enter a number "
                             id="session4"
                             name="session4"
                           />
@@ -184,7 +207,7 @@
                           class="col-lg-3 col-md-3 col-sm-12 p-0"
                           style="float:left;"
                         >
-                          <label> <b>Start Time</b> </label>
+                          <label> <b>Session Start Time</b> </label>
                           <input
                             type="text"
                             
@@ -197,7 +220,7 @@
                           class="col-lg-3 col-md-3 col-sm-12 p-0"
                           style="float:left;"
                         >
-                          <label> <b>End Time</b> </label>
+                          <label> <b>Session End Time</b> </label>
                           <input
                             type="text"
                             placeholder="Session End Time "
@@ -208,7 +231,7 @@
                         <div class="buttonsave" id="save4" style="float:left;">
                           <button
                             type="button"
-                            class="btn btn-warning wrn-btn btn-lg"
+                            class="btn btn-warning wrn-btn btn-lg bg-light"
                             @click="saveArray4"
                           >
                             Save
@@ -223,11 +246,10 @@
                           id="parallelsessioncount5"
                           style="float:left;"
                         >
-                        <label> <b>Parallel Session Count</b> </label>
+                        <label> <b>Number of Parallel Sessions</b> </label>
                           <input
                             type="text"
-                            placeholder=" Enter Parallel Session Count "
-                            v-model="parallelsessionCount"
+                            placeholder=" Enter a number "
                             id="session5"
                             name="session5"
                           />
@@ -236,7 +258,7 @@
                           class="col-lg-3 col-md-3 col-sm-12 p-0"
                           style="float:left;"
                         >
-                          <label> <b>Start Time</b> </label>
+                          <label> <b>Session Start Time</b> </label>
                           <input
                             type="text"
                           
@@ -250,7 +272,7 @@
                           class="col-lg-3 col-md-3 col-sm-12 p-0"
                           style="float:left;"
                         >
-                          <label> <b>End Time</b> </label>
+                          <label> <b>Session End Time</b> </label>
                           <input
                             type="text"
                             placeholder="Session End Time "
@@ -261,7 +283,7 @@
                         <div class="buttonsave" id="save5" style="float:left;">
                           <button
                             type="button"
-                            class="btn btn-warning wrn-btn btn-lg"
+                            class="btn btn-warning wrn-btn btn-lg bg-light"
                             @click="saveArray5"
                           >
                             Save
@@ -287,6 +309,7 @@
           </div>
         </b-modal>
       </div>-->
+      
     </div>
   </div>
 </template>
@@ -306,6 +329,20 @@ export default {
     };
   },
   methods: {
+    goToPapers(){
+      this.$router.push('/papers');
+
+    },
+    goToHome(){
+      this.$router.push('/');
+    },
+    goToConstraints(){
+      this.$router.push('/constraints');
+
+    },
+    goToSchedule(){
+      this.$router.push('/schedule')
+    },
     linkClass(idx) {
       if (this.tabIndex === idx) {
         return ["bg-primary", "text-light"];
@@ -552,7 +589,7 @@ export default {
 
 <style scoped>
 #home-page {
-  background: url("../assets/conference.jpg") no-repeat center center;
+  background: url("../assets/background/constraint.jpg") no-repeat center center;
   -moz-background-size: 100% 100%; /* Firefox 3.6 */
   -o-background-size: 100% 100%; /* Opera 9.5 */
   -webkit-background-size: 100% 100%; /* Safari 3.0, Chrome */
@@ -575,9 +612,11 @@ export default {
   left: 10px;
 }
 
-.search-sec div {
-  margin: 1rem;
+.search-sec {
+  margin: 15rem;
   position: relative;
+  text-align: center;
+  
 }
 select {
   border-radius: 0.5rem;
@@ -611,5 +650,14 @@ input[type="time"] {
   height: 2rem;
   justify-content: center;
   font-size: 1rem;
+}
+#icon {
+  margin-left: 3px;
+  display: block;
+  max-width: 110px;
+  opacity: 1;
+}
+#nav-bar {
+  opacity: 0.9;
 }
 </style>

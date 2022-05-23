@@ -45,7 +45,7 @@
                     <button type="button" class="btn btn-warning wrn-btn btn-lg" @click="goToConstraints"> Constraints   </button>
                   </div>
                   <div class="button" id="schedule">
-                    <button type="button" class="btn btn-warning wrn-btn btn-lg" @click="goToSchedule"> Schedule </button>
+                    <button type="button" class="btn btn-warning wrn-btn btn-lg" @click="goToSchedule"> Schedule</button>
                   </div>
                  </div>
             </div>
@@ -127,7 +127,7 @@ export default {
 
 <style scoped>
 #home-page {
-  background: url("../assets/conference2.jpg") no-repeat center center;
+  background: url("../assets/background/optimize2.jpg") no-repeat center center;
   -moz-background-size: 100% 100%;           /* Firefox 3.6 */
 	-o-background-size: 100% 100%;           /* Opera 9.5 */
 	-webkit-background-size: 100% 100%;           /* Safari 3.0, Chrome */
