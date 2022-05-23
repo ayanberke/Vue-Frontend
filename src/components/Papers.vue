@@ -35,11 +35,11 @@
     <table class="table table-light ">
   <thead>
     <tr>
-      
       <th scope="col">Authors</th>
       <th scope="col">Presenter</th>
       <th scope="col">Title</th>
       <th scope="col">Keywords</th>
+      <th scope="col"> </th>
     </tr>
   </thead>
   <tbody>

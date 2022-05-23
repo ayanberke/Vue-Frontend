@@ -338,9 +338,6 @@ export default {
     "startTime": startime,
     "endTime": endtime,
     "presentationDuration": presentationduration
-
-        
-         
         },
         {
         headers:{
@@ -367,7 +364,7 @@ export default {
     let endtime = document.getElementById("etime2").value;
     let day1 =2;
     let presentationduration='30';
-    let sessionno = 2;
+    let sessionno = 1;
 
     
     //stime= startime.toString();
@@ -414,7 +411,7 @@ export default {
     let endtime = document.getElementById("etime3").value;
     let day1 =3;
     let presentationduration='30';
-    let sessionno = 3;
+    let sessionno = 1;
 
     
     //stime= startime.toString();
@@ -461,7 +458,7 @@ export default {
     let endtime = document.getElementById("etime4").value;
     let day1 =4;
     let presentationduration='30';
-    let sessionno = 4;
+    let sessionno = 1;
 
     
     //stime= startime.toString();
@@ -508,7 +505,7 @@ export default {
     let endtime = document.getElementById("etime5").value;
     let day1 =5;
     let presentationduration='30';
-    let sessionno = 5;
+    let sessionno = 1;
 
     
     //stime= startime.toString();
