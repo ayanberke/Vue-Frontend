@@ -160,7 +160,7 @@ export default {
         { value: "Robotics", text: "Robotics" },
         { value: "Machine Learning", text: "Machine Learning" },
         { value: "Artificial Intelligence", text: "Artificial Intelligence" },
-        { value: "Human Interactıon", text: "Human Interactıon" }
+        { value: "Human Interaction", text: "Human Interaction" }
       ]
     };
   },

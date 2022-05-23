@@ -123,8 +123,6 @@ export default {
 };
 </script>
 
-
-
 <style scoped>
 #home-page {
   background: url("../assets/background/optimize2.jpg") no-repeat center center;

@@ -19,51 +19,62 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav">
-              <a href="#" class="nav-item nav-link active" @click="goToHome"> <b>Home</b> </a> 
-              <a href="#" class="nav-item nav-link" @click="goToConstraints"> <b>Constraints</b> </a>
+              <a href="#" class="nav-item nav-link active" @click="goToHome">
+                <b>Home</b>
+              </a>
+              <a href="#" class="nav-item nav-link" @click="goToConstraints">
+                <b>Constraints</b>
+              </a>
               <a href="#" class="nav-item nav-link"> <b>About Us</b> </a>
             </div>
           </div>
         </div>
       </nav>
 
-      <h1 class="Paperlist-msg">
-        <h1>Paper List</h1>
+      <h1 >
+        <h1 class="Paperlist-msg">Paper List</h1>
+        <button
+            type="button"
+            class="btn btn-secondary btn-lg btn-dark"
+            @click="goToAddPaperPage"
+          >
+            Add Paper
+          </button>
       </h1>
 
-    <div class="container">
-
-    <table class="table table-light ">
-  <thead>
-    <tr>
-      <th scope="col">Authors</th>
-      <th scope="col">Presenter</th>
-      <th scope="col">Title</th>
-      <th scope="col">Keywords</th>
-      <td ><button id="button" class="btn btn-secondary btn-dark">Remove All</button></td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr v-for="(paper,index) in papers" :key="index">
-      <td v-text="paper.author"></td>
-      <td v-text="paper.presenter"></td>
-      <td v-text="paper.title"></td>
-      <td v-text="paper.keyword"></td>
-      <td ><button id="button" class="btn btn-secondary btn-dark">Remove</button></td>
-    </tr>
-    
-
-  </tbody>
-</table>
-       <div class="buttonadd" id="add">
-                    <button type="button" class="btn btn-secondary btn-lg btn-dark" @click="goToAddPaperPage" > Add Paper </button>
-                  </div>
-                  
-
-    </div>
-
-
-
+      <div class="container">
+        <table class="table table-light table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Authors</th>
+              <th scope="col">Presenter</th>
+              <th scope="col">Title</th>
+              <th scope="col">Keywords</th>
+              <td>
+                <button id="button" class="btn btn-secondary btn-dark">
+                  Remove All
+                </button>
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(paper, index) in papers" :key="index">
+              <td v-text="paper.author"></td>
+              <td v-text="paper.presenter"></td>
+              <td v-text="paper.title"></td>
+              <td v-text="paper.keyword"></td>
+              <td>
+                <button id="button" class="btn btn-secondary btn-dark">
+                  Remove
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="buttonadd" id="add">
+          
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -71,41 +82,32 @@
 <script>
 import axios from "axios";
 export default {
-   
-    data(){
-
-return{
-    papers:[]
-}
-    },
+  data() {
+    return {
+      papers: [],
+    };
+  },
   methods: {
-    getPapers(){
-      axios.get('http://localhost:8081/paper/getAll'
-  )
-  .then(response => {
-      this.papers=response.data;
-      
-    }
-    )
-      
-
+    getPapers() {
+      axios.get("http://localhost:8081/paper/getAll").then((response) => {
+        this.papers = response.data;
+      });
     },
 
     goToConstraints() {
       this.$router.push("/constraints");
     },
-    goToAddPaperPage(){
+    goToAddPaperPage() {
       this.$router.push("/addpaper");
     },
-    goToHome(){
-      this.$router.push('/');
+    goToHome() {
+      this.$router.push("/");
     },
   },
-   mounted(){
-      this.getPapers()
-    },
+  mounted() {
+    this.getPapers();
+  },
 };
-
 </script>
 <style scoped>
 #home-page {
@@ -147,8 +149,9 @@ select {
   font-size: 1rem;
 }
 .Paperlist-msg {
-  @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-  font-family: 'Permanent Marker', cursive;  margin: 150px 100px;
+  @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+  font-family: "Permanent Marker", cursive;
+  margin: 150px 100px;
   color: rgb(246, 246, 246);
   text-decoration: none;
   text-transform: uppercase;
