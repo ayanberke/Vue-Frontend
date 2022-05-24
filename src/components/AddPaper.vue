@@ -202,7 +202,6 @@ export default {
     },
     
     savePapers: function(event) {
-    console.log("test");
     let author= document.getElementById("authorname").value;
     let presenter = document.getElementById("presentername").value;
     let title = document.getElementById("titlename").value;

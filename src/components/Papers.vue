@@ -51,7 +51,7 @@
               <th scope="col">Title</th>
               <th scope="col">Keywords</th>
               <td>
-                <button id="button" class="btn btn-secondary btn-dark">
+                <button id="button" class="btn btn-secondary btn-dark" @click="deleteAllPapers">
                   Remove All
                 </button>
               </td>
@@ -64,7 +64,8 @@
               <td v-text="paper.title"></td>
               <td v-text="paper.keyword"></td>
               <td>
-                <button id="button" class="btn btn-secondary btn-dark">
+                <button  id="button" class="btn btn-secondary btn-dark"
+                @click="deletePaper">
                   Remove
                 </button>
               </td>
@@ -88,10 +89,50 @@ export default {
     };
   },
   methods: {
+    deleteAllPapers: function(event) {
+     axios
+        .delete('http://localhost:8081/paper/deleteAll',{
+        headers:{
+        'Content-Type': 'application/json'
+        }})
+        .then(response => {
+          console.log(response);
+        })
+        .catch(error => {
+          console.log(error.response);
+        });
+        window.location.reload();
+    },
     getPapers() {
       axios.get("http://localhost:8081/paper/getAll").then((response) => {
         this.papers = response.data;
       });
+    },
+    deletePaper: function(event) {
+    let author= document.getElementById("authorname").value;
+    let presenter = document.getElementById("presentername").value;
+    let title = document.getElementById("titlename").value;
+    let keywords = this.selected;
+
+    const paperValues = new Object();
+    paperValues.author = author;
+    paperValues.presenter = presenter;
+    paperValues.title = title;
+    paperValues.keyword = keywords.toString(); 
+    let data = JSON.stringify(paperValues);
+    console.log(data);
+     axios
+        .delete('http://localhost:8081/paper/deleteByTitle', data,{
+        headers:{
+        'Content-Type': 'application/json'
+        }})
+        .then(response => {
+          console.log(response);
+        })
+        .catch(error => {
+          console.log(error.response);
+        });
+        window.location.reload();
     },
 
     goToConstraints() {
