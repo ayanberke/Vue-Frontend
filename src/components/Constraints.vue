@@ -56,7 +56,7 @@
                   <th scope="col">Session Start Time</th>
                   <th scope="col">Session End Time</th>
                   <td>
-                    <button id="button" class="btn btn-secondary btn-dark">
+                    <button id="button" class="btn btn-secondary btn-dark" @click="deleteAllConstraints">
                       Remove All
                     </button>
                   </td>
@@ -107,6 +107,20 @@ export default {
       axios.get("http://localhost:8081/constraint/getAll").then((response) => {
         this.papers = response.data;
       });
+    },
+    deleteAllConstraints: function(event) {
+     axios
+        .delete('http://localhost:8081/constraint/deleteAll',{
+        headers:{
+        'Content-Type': 'application/json'
+        }})
+        .then(response => {
+          console.log(response);
+        })
+        .catch(error => {
+          console.log(error.response);
+        });
+        window.location.reload();
     },
     goToPapers() {
       this.$router.push("/papers");
