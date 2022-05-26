@@ -65,7 +65,7 @@
               <tbody>
                 <tr v-for="(paper, index) in papers" :key="index">
                   <td v-text="paper.dayNo"></td>
-                  <td v-text="paper.parallelSessionNo"></td>
+                  <td v-text="paper.parallelSessionCount"></td>
                   <td v-text="paper.presentationDuration"></td>
                   <td v-text="paper.sessionNo"></td>
                   <td v-text="paper.startTime"></td>
