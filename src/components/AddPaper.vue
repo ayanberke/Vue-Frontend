@@ -33,7 +33,7 @@
                 <b>Constraints</b>
               </a>
               <a href="#" class="nav-item nav-link active" @click="goToAboutUs">
-                <b>About us</b>
+                <b>About Us</b>
               </a>
             </div>
           </div>
@@ -51,7 +51,7 @@
           >
             <div class="col-sm-10">
               <div class="form-group " >
-                <label > <b>Author's Names and Surnames </b></label>
+                <label > <b style="float: right">Author's Names and Surnames </b></label>
                 <input
                   class="form-control"
                   aria-describedby="authorname"
@@ -65,7 +65,7 @@
 
             <div class="col-sm-10">
               <div class="form-group">
-                <label > <b>Title </b></label>
+                <label > <b style="float: right">Title </b></label>
                 <input
                   class="form-control"
                   aria-describedby="Title"
@@ -77,9 +77,9 @@
               </div>
             </div>
 
-            <div class="col-sm-5">
-              <div class="form-group">
-                <label > <b> Presenter Name and Surname </b></label>
+            <div class="col-sm-5 " >
+              <div class="form-group" >
+                <label > <b style="float: right"> Presenter Name and Surname </b></label>
                 <input
                 
                   class="form-control"

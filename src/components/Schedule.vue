@@ -29,7 +29,7 @@
                 <b>Constraints</b>
               </a>
               <a href="#" class="nav-item nav-link active" @click="goToAboutUs">
-                <b>About us</b>
+                <b>About Us</b>
               </a>
             </div>
           </div>

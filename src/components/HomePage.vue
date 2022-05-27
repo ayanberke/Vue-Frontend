@@ -20,7 +20,7 @@
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav">
               <a href="#" class="nav-item nav-link active" @click="goToHome"> <b>Home</b> </a>
-              <a href="#" class="nav-item nav-link active" @click="goToAboutUs"> <b>About us</b> </a>
+              <a href="#" class="nav-item nav-link active" @click="goToAboutUs"> <b>About Us</b> </a>
             </div>
           </div>
         </div>
