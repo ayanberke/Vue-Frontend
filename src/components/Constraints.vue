@@ -22,17 +22,27 @@
               <a href="#" class="nav-item nav-link active" @click="goToHome">
                 <b>Home</b>
               </a>
-              <a href="#" class="nav-item nav-link" @click="goToPapers">
+              <a href="#" class="nav-item nav-link active" @click="goToPapers">
                 <b>Paper List</b>
               </a>
-              <a href="#" class="nav-item nav-link"> <b>About Us</b> </a>
+              <a
+                href="#"
+                class="nav-item nav-link active"
+                @click="goToConstraints"
+              >
+                <b>Constraints</b>
+              </a>
+
+              <a href="#" class="nav-item nav-link active" @click="goToAboutUs">
+                <b>About us</b>
+              </a>
             </div>
           </div>
         </div>
       </nav>
-      
+
       <section class="search-sec">
-        <h1 >
+        <h1>
           <h1 class="Paperlist-msg">Constraint List</h1>
           <button
             type="button"
@@ -42,9 +52,8 @@
             Add Constraint
           </button>
         </h1>
-        
+
         <div class="container">
-          
           <div class="row">
             <table class="table table-light table-bordered">
               <thead>
@@ -56,7 +65,11 @@
                   <th scope="col">Session Start Time</th>
                   <th scope="col">Session End Time</th>
                   <td>
-                    <button id="button" class="btn btn-secondary btn-dark" @click="deleteAllConstraints">
+                    <button
+                      id="button"
+                      class="btn btn-secondary btn-dark"
+                      @click="deleteAllConstraints"
+                    >
                       Remove All
                     </button>
                   </td>
@@ -82,7 +95,14 @@
           </div>
         </div>
       </section>
+      
     </div>
+    <footer class="bg-light text-center text-lg-start">
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0)">
+        © 2022 Copyright:
+        <a class="text-dark" href="https://confy.com/">confy.com</a>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -108,19 +128,20 @@ export default {
         this.papers = response.data;
       });
     },
-    deleteAllConstraints: function(event) {
-     axios
-        .delete('http://localhost:8081/constraint/deleteAll',{
-        headers:{
-        'Content-Type': 'application/json'
-        }})
-        .then(response => {
+    deleteAllConstraints: function (event) {
+      axios
+        .delete("http://localhost:8081/constraint/deleteAll", {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+        .then((response) => {
           console.log(response);
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error.response);
         });
-        window.location.reload();
+      window.location.reload();
     },
     goToPapers() {
       this.$router.push("/papers");
@@ -131,8 +152,14 @@ export default {
     goToAddConstraintPage() {
       this.$router.push("/addconstraint");
     },
+    goToConstraints() {
+      this.$router.push("/constraints");
+    },
     goToSchedule() {
       this.$router.push("/schedule");
+    },
+    goToAboutUs() {
+      this.$router.push("/aboutus");
     },
     linkClass(idx) {
       if (this.tabIndex === idx) {
@@ -362,11 +389,11 @@ export default {
   -webkit-background-size: 100% 100%; /* Safari 3.0, Chrome */
   background-size: 100% 100%;
   min-height: 100vh;
-  opacity: 0.9;
+  opacity:1;
 }
 
 #nav-bar {
-  opacity: 0.9;
+  opacity: 1;
 }
 
 #icon {

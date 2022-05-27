@@ -19,55 +19,53 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav">
-              <a href="#" class="nav-item nav-link active" @click="goToHome"> <b>Home</b> </a>
-              <a href="#" class="nav-item nav-link" @click="goToPapers"> <b>Paper List</b> </a>
-              <a href="#" class="nav-item nav-link" @click="goToConstraints"> <b>Constraints</b> </a>
-              <a href="#" class="nav-item nav-link"> <b>About Us</b> </a>
+              <a href="#" class="nav-item nav-link active" @click="goToHome">
+                <b>Home</b>
+              </a>
+              <a href="#" class="nav-item nav-link active" @click="goToPapers">
+                <b>Paper List</b>
+              </a>
+              <a
+                href="#"
+                class="nav-item nav-link active"
+                @click="goToConstraints"
+              >
+                <b>Constraints</b>
+              </a>
+              <a href="#" class="nav-item nav-link active" @click="goToAboutUs">
+                <b>About us</b>
+              </a>
             </div>
           </div>
         </div>
       </nav>
 
-      <h1 class="welcome-msg"> Enter Paper Info </h1>
+      <h1 class="welcome-msg">Enter Paper Info</h1>
 
-      <div class="col-xl-8 col-lg-6 col-md-12 col-sm-12 col-12 mx-auto my-5 ">
+      <div class="col-xl-8 col-lg-6 col-md-12 col-sm-12 col-12 mx-auto my-5">
         <div class="card">
           <div
             class="row justify-content-center"
             v-for="(item, index) in items"
             :key="index"
           >
-            <div class="col-sm-3">
-              <div class="form-group">
-                <label class="sr-only">Author Names and Surnames</label>
+            <div class="col-sm-10">
+              <div class="form-group " >
+                <label > <b>Author's Names and Surnames </b></label>
                 <input
                   class="form-control"
                   aria-describedby="authorname"
                   id="authorname"
-                  placeholder="Enter multiple authors with comma"
+                  placeholder="You can enter multiple authors seperated with comma"
                   name="items[][authorName]"
                   required
                 />
               </div>
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-sm-10">
               <div class="form-group">
-                <label class="sr-only">Presenter Name and Surname</label>
-                <input
-                  class="form-control"
-                  aria-describedby="presentername"
-                  id="presentername"
-                  placeholder="Enter a presenter"
-                  name="items[][presenterName]"
-                  required
-                />
-              </div>
-            </div>
-
-            <div class="col-sm-3">
-              <div class="form-group">
-                <label class="sr-only">Title</label>
+                <label > <b>Title </b></label>
                 <input
                   class="form-control"
                   aria-describedby="Title"
@@ -78,26 +76,37 @@
                 />
               </div>
             </div>
-           
-              <div class="col-sm-3">
-                <div class="form-group">
-                <label class="sr-only">Select Keywords</label>
-                  <b-form-select
-                    v-model="selected"
-                    :options="options"
-                    multiple
-                    :select-size="4"
-                  ></b-form-select>
-                  <!--<div class="mt-3">
-                    Selected Keywords: <strong>{{ selected }}</strong>
-                  </div> -->
-                </div>
+
+            <div class="col-sm-5">
+              <div class="form-group">
+                <label > <b> Presenter Name and Surname </b></label>
+                <input
+                
+                  class="form-control"
+                  aria-describedby="presentername"
+                  id="presentername"
+                  placeholder="Enter a presenter"
+                  name="items[][presenterName]"
+                  required
+                />
               </div>
-         
+            </div>
+            <div class="col-sm-5" align="center">
+              <div class="form-group ">
+                <label> <b> Select Keywords with CTRL</b> </label>
+                <b-form-select
+                  v-model="selected"
+                  :options="options"
+                  multiple
+                  :select-size="5"
+                ></b-form-select>
+              
+              </div>
+            </div>
           </div>
           <div class="row justify-content-center">
             <div class="col-sm-6"></div>
-      <!--       <div class="col-sm-2">
+            <!--       <div class="col-sm-2">
                <button
                 type="button"
                 class="btn btn-secondary"
@@ -122,26 +131,32 @@
 
         <span id="result"></span>
 
-          <div class="row">
-            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3"></div>
-            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3"></div>
-            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3"></div>
-            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
-              <button
-                style="width: 100px"
-                type="submit"
-                id="sbm-btn"
-                class="btn-lg col-md-3 offset-md-3btn btn-light mb-3"
-                @click="savePapers"
-              >
-                Save
-              </button>
-              
-              <input type="hidden" id="str" name="str" value="" />
-            </div>
-          </div> 
+        <div class="row">
+          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3"></div>
+          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3"></div>
+          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3"></div>
+          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+            <button
+              style="width: 100px"
+              type="submit"
+              id="sbm-btn"
+              class="btn-lg position-absolute bottom-20 start-50 translate-middle-x btn-dark "
+              @click="savePapers"
+            >
+              Save
+            </button>
+
+            <input type="hidden" id="str" name="str" value="" />
+          </div>
+        </div>
       </div>
     </div>
+    <footer class="bg-light text-center text-lg-start">
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0)">
+        © 2022 Copyright:
+        <a class="text-dark" href="https://confy.com/">confy.com</a>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -152,16 +167,22 @@ export default {
   data() {
     return {
       items: [
-        { authorName: "", presenterName: "", titleName: "", keyword: "" }
+        { authorName: "", presenterName: "", titleName: "", keyword: "" },
       ],
       papers: [{ aName: "", pName: "", tName: "", kName: "" }],
-      selected: ["Robotics"], // Array reference
+      selected: [""], // Array reference
       options: [
-        { value: "Robotics", text: "Robotics" },
-        { value: "Machine Learning", text: "Machine Learning" },
         { value: "Artificial Intelligence", text: "Artificial Intelligence" },
-        { value: "Human Interaction", text: "Human Interaction" }
-      ]
+        { value: "Augmented Reality", text: "Augmented Reality" },
+        { value: "Health", text: "Health" },
+        { value: "Human Interaction", text: "Human Interaction" },
+        { value: "Machine Learning", text: "Machine Learning" },
+        { value: "Mixed-Reality", text: "Mixed-Reality" },
+        { value: "Robotics", text: "Robotics" },
+        { value: "Science", text: "Science" },
+        { value: "Virtual Reality", text: "Virtual Reality" },
+        
+      ],
     };
   },
 
@@ -169,15 +190,15 @@ export default {
     createPost() {
       axios
         .post("/paper/create", paperValues)
-        .then(response => {
+        .then((response) => {
           console.log(response);
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error.response);
         });
     },
 
-    addAttendee: function(event) {
+    addAttendee: function (event) {
       event.preventDefault();
       var authorid = "authorname" + counter;
       var presname = "presentername" + counter;
@@ -187,7 +208,7 @@ export default {
         authorName: authorid,
         presenterName: presname,
         titleName: titname,
-        keyword: ""
+        keyword: "",
       });
       this.papers.aName = document.getElementById("authorname").value;
       this.papers.pName = document.getElementById("presentername").value;
@@ -197,47 +218,51 @@ export default {
       counter += 1;
       console.log(counter);
     },
-    removeAttendee: function(index) {
+    removeAttendee: function (index) {
       this.items.splice(index, 1);
     },
-    
-    savePapers: function(event) {
-    let author= document.getElementById("authorname").value;
-    let presenter = document.getElementById("presentername").value;
-    let title = document.getElementById("titlename").value;
-    let keywords = this.selected;
 
-    const paperValues = new Object();
-    paperValues.author = author;
-    paperValues.presenter = presenter;
-    paperValues.title = title;
-    paperValues.keyword = keywords.toString(); 
-    let data = JSON.stringify(paperValues);
-    console.log(data);
-     axios
-        .post('http://localhost:8081/paper/create', data,{
-        headers:{
-        'Content-Type': 'application/json'
-        }})
-        .then(response => {
+    savePapers: function (event) {
+      let author = document.getElementById("authorname").value;
+      let presenter = document.getElementById("presentername").value;
+      let title = document.getElementById("titlename").value;
+      let keywords = this.selected;
+
+      const paperValues = new Object();
+      paperValues.author = author;
+      paperValues.presenter = presenter;
+      paperValues.title = title;
+      paperValues.keyword = keywords.toString();
+      let data = JSON.stringify(paperValues);
+      console.log(data);
+      axios
+        .post("http://localhost:8081/paper/create", data, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+        .then((response) => {
           console.log(response);
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error.response);
         });
-        window.location.reload();
+      window.location.reload();
     },
 
     goToConstraints() {
       this.$router.push("/constraints");
     },
-    goToPapers(){
-      this.$router.push('/papers');
+    goToPapers() {
+      this.$router.push("/papers");
     },
-    goToHome(){
-      this.$router.push('/');
+    goToHome() {
+      this.$router.push("/");
     },
-  }
+    goToAboutUs() {
+      this.$router.push("/aboutus");
+    },
+  },
 };
 </script>
 
@@ -249,11 +274,11 @@ export default {
   -webkit-background-size: 100% 100%; /* Safari 3.0, Chrome */
   background-size: 100% 100%;
   min-height: 100vh;
-  opacity: 0.9;
+  opacity: 1;
 }
 
 #nav-bar {
-  opacity: 0.9;
+  opacity: 1;
 }
 
 #icon {

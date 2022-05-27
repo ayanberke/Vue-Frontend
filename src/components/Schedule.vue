@@ -19,10 +19,18 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav">
-              <a href="#" class="nav-item nav-link active" @click="goToHome"> <b>Home</b> </a>
-              <a href="#" class="nav-item nav-link" @click="goToPapers"> <b>Paper List</b> </a> 
-              <a href="#" class="nav-item nav-link" @click="goToConstraints"> <b>Constraints</b> </a>
-              <a href="#" class="nav-item nav-link"> <b>About Us</b> </a>
+              <a href="#" class="nav-item nav-link active" @click="goToHome">
+                <b>Home</b>
+              </a>
+              <a href="#" class="nav-item nav-link active" @click="goToPapers">
+                <b>Paper List</b>
+              </a>
+              <a href="#" class="nav-item nav-link active" @click="goToConstraints">
+                <b>Constraints</b>
+              </a>
+              <a href="#" class="nav-item nav-link active" @click="goToAboutUs">
+                <b>About us</b>
+              </a>
             </div>
           </div>
         </div>
@@ -31,100 +39,118 @@
       <h1 class="Paperlist-msg">
         <h1>YOUR OPTIMIZED SCHEDULE</h1>
       </h1>
+  
 
-    <div class="container">
-
-    <table class="table table-light ">
-  <thead>
-    <tr>
-      <th scope="col">Authors</th>
-      <th scope="col">Presenter</th>
-      <th scope="col">Title</th>
-      <th scope="col">Keywords</th>
-      <td ><button id="button" class="btn btn-secondary btn-dark">Remove All</button></td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr v-for="(paper,index) in papers" :key="index">
-      <td v-text="paper.author"></td>
-      <td v-text="paper.presenter"></td>
-      <td v-text="paper.title"></td>
-      <td v-text="paper.keyword"></td>
-      <td ><button id="button" class="btn btn-secondary btn-dark">Remove</button></td>
-    </tr>
-    
-
-  </tbody>
-</table>
-       <div class="buttonadd" id="add">
-                    <button type="button" class="btn btn-secondary btn-lg btn-dark" @click="goToAddPaperPage" > Add Paper </button>
-                  </div>
-                  
-
+      <div class="container">
+        <table class="table table-light table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Day</th>
+              <th scope="col">Session</th>
+              <th scope="col">Authors</th>
+              <th scope="col">Presenter</th>
+              <th scope="col">Title</th>
+              <th scope="col">Keywords</th>
+              <th scope="col">Start Time</th>
+              <th scope="col">End Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(paper, index) in papers" :key="index">
+              <td v-text="paper.day"></td>
+              <td v-text="paper.session"></td>
+              <td v-text="paper.author"></td>
+              <td v-text="paper.presenter"></td>
+              <td v-text="paper.title"></td>
+              <td v-text="paper.keyword"></td>
+              <td v-text="paper.startTime"></td>
+              <td v-text="paper.endTime"></td>
+            </tr>
+          </tbody>
+        </table>
+        <button
+          id="button"
+          class="btn-lg btn-secondary btn-dark mb-5"
+          @click="deleteAllPresentations"
+        >
+          Clean Result
+        </button>
+      </div>
     </div>
-
-
-
-    </div>
+    <footer class="bg-light text-center text-lg-start">
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0)">
+        © 2022 Copyright:
+        <a class="text-dark" href="https://confy.com/">confy.com</a>
+      </div>
+    </footer>
   </div>
 </template>
 
 <script>
 import axios from "axios";
 export default {
-   
-    data(){
-
-return{
-    papers:[]
-}
-    },
+  data() {
+    return {
+      papers: [],
+    };
+  },
   methods: {
-    getPapers(){
-      axios.get('http://localhost:8081/paper/getAll'
-  )
-  .then(response => {
-      this.papers=response.data;
-      
-    }
-    )
-      
-
+    getPapers() {
+      axios
+        .get("http://localhost:8081/presentation/getAll")
+        .then((response) => {
+          this.papers = response.data;
+        });
     },
-
+    deleteAllPresentations: function (event) {
+      axios
+        .delete("http://localhost:8081/presentation/deleteAll", {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error.response);
+        });
+      window.location.reload();
+    },
     goToConstraints() {
       this.$router.push("/constraints");
     },
-    goToAddPaperPage(){
+    goToAddPaperPage() {
       this.$router.push("/addpaper");
     },
-    goToHome(){
-      this.$router.push('/');
+    goToHome() {
+      this.$router.push("/");
     },
-    goToPapers(){
-      this.$router.push('/papers');
-
+    goToPapers() {
+      this.$router.push("/papers");
+    },
+    goToAboutUs() {
+      this.$router.push("/aboutus");
     },
   },
-   mounted(){
-      this.getPapers()
-    },
+  mounted() {
+    this.getPapers();
+  },
 };
-
 </script>
 <style scoped>
 #home-page {
-  background: url("../assets/background/papers.jpg") no-repeat center center;
+  background: url("../assets/background/clock.jpg") no-repeat center center;
   -moz-background-size: 100% 100%; /* Firefox 3.6 */
   -o-background-size: 100% 100%; /* Opera 9.5 */
   -webkit-background-size: 100% 100%; /* Safari 3.0, Chrome */
   background-size: 100% 100%;
   min-height: 100vh;
-  opacity: 0.9;
+  opacity: 1;
 }
 
 #nav-bar {
-  opacity: 0.9;
+  opacity: 1;
 }
 
 #icon {
@@ -152,9 +178,10 @@ select {
   font-size: 1rem;
 }
 .Paperlist-msg {
-  @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-  font-family: 'Permanent Marker', cursive;  margin: 150px 100px;
-  color: rgb(246, 246, 246);
+  @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+  font-family: "Permanent Marker", cursive;
+  margin: 150px 100px;
+  color: rgb(217, 105, 1);
   text-decoration: none;
   text-transform: uppercase;
   text-shadow: 1px 1px 2px rgb(7, 7, 5), 0 0 25px rgb(15, 14, 10),

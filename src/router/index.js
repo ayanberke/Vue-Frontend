@@ -6,6 +6,7 @@ import Constraints from '@/components/Constraints'
 import Schedule from '@/components/Schedule'
 import AddPaper from '@/components/AddPaper'
 import AddConstraint from '@/components/AddConstraint'
+import AboutUs from '@/components/AboutUs'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '/constraints',
       name: 'ConstraintPage',
       component: Constraints
+    },
+    {
+      path: '/aboutus',
+      name: 'AboutUsPage',
+      component: AboutUs
     }
   ]
 })

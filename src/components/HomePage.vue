@@ -19,8 +19,8 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav">
-              <a href="#" class="nav-item nav-link active"> <b>Home</b> </a>
-              <a href="#" class="nav-item nav-link"> <b>About Us</b> </a>
+              <a href="#" class="nav-item nav-link active" @click="goToHome"> <b>Home</b> </a>
+              <a href="#" class="nav-item nav-link active" @click="goToAboutUs"> <b>About us</b> </a>
             </div>
           </div>
         </div>
@@ -39,13 +39,13 @@
             <div class="row">
                 <div class="row">
                   <div class="button" id="paper">
-                    <button type="button" class="btn btn-warning wrn-btn btn-lg" @click="goToPapers"> Paper List </button>
+                    <button type="button" class="btn btn-warning wrn-btn btn-lg col-lg-6 col-md-12" @click="goToPapers"> Paper List </button>
                   </div>
                   <div class="button" id="constraints">
-                    <button type="button" class="btn btn-warning wrn-btn btn-lg" @click="goToConstraints"> Constraints   </button>
+                    <button type="button" class="btn btn-warning wrn-btn btn-lg col-lg-6 col-md-12" @click="goToConstraints"> Constraints   </button>
                   </div>
                   <div class="button" id="schedule">
-                    <button type="button" class="btn btn-warning wrn-btn btn-lg" @click="goToSchedule"> Schedule</button>
+                    <button type="button" class="btn btn-warning wrn-btn btn-lg col-lg-6 col-md-12" @click="goToSchedule"> Your Schedule</button>
                   </div>
                  </div>
             </div>
@@ -108,6 +108,12 @@ export default {
       console.log(this.roomCount," ", this.paperCount, " ", this.sessionCount, " ", this.timeInterval," ",this.duration," ", this.selectedDate," ",this.selected);
 
     },
+    goToAboutUs() {
+      this.$router.push("/aboutus");
+    },
+    goToHome() {
+      this.$router.push("/");
+    },
     goToPapers(){
       this.$router.push('/papers');
 
@@ -131,11 +137,11 @@ export default {
 	-webkit-background-size: 100% 100%;           /* Safari 3.0, Chrome */
 	background-size: 100% 100%;
   min-height: 100vh;
-  opacity: 0.9;
+  opacity: 1;
 }
 
 #nav-bar {
-  opacity: 0.9;
+  opacity: 1;
 }
 
 #icon {

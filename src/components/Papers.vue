@@ -22,10 +22,13 @@
               <a href="#" class="nav-item nav-link active" @click="goToHome">
                 <b>Home</b>
               </a>
-              <a href="#" class="nav-item nav-link" @click="goToConstraints">
+              <a href="#" class="nav-item nav-link active" @click="goToPapers">
+                <b>Paper List</b>
+              </a>
+              <a href="#" class="nav-item nav-link active" @click="goToConstraints">
                 <b>Constraints</b>
               </a>
-              <a href="#" class="nav-item nav-link"> <b>About Us</b> </a>
+              <a href="#" class="nav-item nav-link active" @click="goToAboutUs"> <b>About Us</b> </a>
             </div>
           </div>
         </div>
@@ -35,7 +38,7 @@
         <h1 class="Paperlist-msg">Paper List</h1>
         <button
             type="button"
-            class="btn btn-secondary btn-lg btn-dark"
+            class="btn btn-secondary btn-lg btn-dark mb-4"
             @click="goToAddPaperPage"
           >
             Add Paper
@@ -72,11 +75,19 @@
             </tr>
           </tbody>
         </table>
+        
         <div class="buttonadd" id="add">
           
         </div>
       </div>
+      <footer class="bg-light text-center text-lg-start">
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0)">
+        © 2022 Copyright:
+        <a class="text-dark" href="https://confy.com/">confy.com</a>
+      </div>
+    </footer>
     </div>
+    
   </div>
 </template>
 
@@ -138,11 +149,18 @@ export default {
     goToConstraints() {
       this.$router.push("/constraints");
     },
+    goToPapers(){
+      this.$router.push('/papers');
+
+    },
     goToAddPaperPage() {
       this.$router.push("/addpaper");
     },
     goToHome() {
       this.$router.push("/");
+    },
+    goToAboutUs() {
+      this.$router.push("/aboutus");
     },
   },
   mounted() {
@@ -158,11 +176,11 @@ export default {
   -webkit-background-size: 100% 100%; /* Safari 3.0, Chrome */
   background-size: 100% 100%;
   min-height: 100vh;
-  opacity: 0.9;
+  opacity: 1;
 }
 
 #nav-bar {
-  opacity: 0.9;
+  opacity: 1;
 }
 
 #icon {
