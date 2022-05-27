@@ -37,22 +37,13 @@
               <div class="row">
                 <b-card no-body>
                   <b-tabs v-model="tabIndex" card>
-                    <b-tab title="DAY 1" :title-link-class="linkClass(0)">
+                    <b-tab
+                      v-for="i in tabs"
+                      :key="'dyn-tab-' + i"
+                      :title="'DAY ' + i"
+                    >
                       <div
-                        class="col-lg-3 col-md-3 col-sm-12 p-0"
-                        style="float: left"
-                      >
-                        <label> <b>Number of Parallel Sessions </b> </label>
-                        <input
-                          type="text"
-                          placeholder=" Enter a number"
-                          id="session1"
-                          name="session1"
-                        />
-                      </div>
-
-                      <div
-                        class="col-lg-3 col-md-3 col-sm-12 p-0"
+                        class="col-lg-6 col-md-2 col-sm-12 p-2"
                         style="float: left"
                       >
                         <label> <b>Session Start Time</b> </label>
@@ -66,7 +57,7 @@
                       </div>
 
                       <div
-                        class="col-lg-3 col-md-3 col-sm-12 p-0"
+                        class="col-lg-6 col-md-2 col-sm-12 p-2"
                         style="float: left"
                       >
                         <label> <b>Session End Time</b> </label>
@@ -74,206 +65,81 @@
                           type="text"
                           placeholder="Session End Time "
                           id="etime1"
+                          required
                         />
                       </div>
+
+                      <div
+                        class="col-lg-6 col-md-2 col-sm-12 p-2"
+                        style="float: left"
+                      >
+                        <label> <b> # Parallel Sessions </b> </label>
+                        <input
+                          type="text"
+                          placeholder=" Enter a number"
+                          id="session1"
+                          name="session1"
+                          required
+                        />
+                      </div>
+
+                      <div
+                        class="col-lg-6 col-md-2 col-sm-12 p-2"
+                        style="float: left"
+                      >
+                        <label> <b>Session Duration</b> </label>
+                        <input
+                          type="text"
+                          placeholder="Session Duration "
+                          id="dtime1"
+                          required
+                        />
+                      </div>
+
+                      <b-button
+                        id="close"
+                        size="sm"
+                        variant="danger"
+                        class="float-right"
+                        @click="closeTab(i)"
+                      >
+                        Close Day
+                      </b-button>
+
                       <div class="buttonsave" id="save1" style="float: left">
                         <button
                           type="button"
                           class="btn btn-warning wrn-btn btn-lg bg-light"
                           @click="saveArray1"
-                        >
+                        >{{buttonText}}
                           Save
                         </button>
                       </div>
                     </b-tab>
-                    <b-tab title="DAY 2" :title-link-class="linkClass(1)">
-                      <div
-                        class="col-lg-3 col-md-3 col-sm-12 p-0"
-                        id="parallelsessioncount2"
-                        style="float: left"
+                    <template #tabs-end>
+                      <b-nav-item
+                        role="presentation"
+                        @click.prevent="newTab"
+                        href="#"
+                        ><b>+</b></b-nav-item
                       >
-                        <label> <b>Number of Parallel Sessions</b> </label>
-                        <input
-                          type="text"
-                          placeholder=" Enter a number "
-                          id="session2"
-                          name="session2"
-                        />
+                    </template>
+                    <template #empty>
+                      <div class="text-center text-muted">
+                        There are no days here <br />
+                        Open a new day using the <b>+</b> button above.
                       </div>
-                      <div
-                        class="col-lg-3 col-md-3 col-sm-12 p-0"
-                        style="float: left"
-                      >
-                        <label> <b>Session Start Time</b> </label>
-                        <input type="text" name="appt" required id="stime2" />
-                      </div>
-
-                      <div
-                        class="col-lg-3 col-md-3 col-sm-12 p-0"
-                        style="float: left"
-                      >
-                        <label> <b>Session End Time</b> </label>
-                        <input
-                          type="text"
-                          placeholder="Session End Time "
-                          id="etime2"
-                        />
-                      </div>
-                      <div class="buttonsave" id="save2" style="float: left">
-                        <button
-                          type="button"
-                          class="btn btn-warning wrn-btn btn-lg bg-light"
-                          @click="saveArray2"
-                        >
-                          Save
-                        </button>
-                      </div>
-                    </b-tab>
-                    <b-tab title="DAY 3" :title-link-class="linkClass(2)">
-                      <div
-                        class="col-lg-3 col-md-3 col-sm-12 p-0"
-                        id="parallelsessioncount3"
-                        style="float: left"
-                      >
-                        <label> <b>Number of Parallel Sessions</b> </label>
-                        <input
-                          type="text"
-                          placeholder=" Enter a number "
-                          id="session3"
-                          name="session3"
-                        />
-                      </div>
-                      <div
-                        class="col-lg-3 col-md-3 col-sm-12 p-0"
-                        style="float: left"
-                      >
-                        <label> <b>Session Start Time</b> </label>
-                        <input type="text" id="stime3" />
-                      </div>
-
-                      <div
-                        class="col-lg-3 col-md-3 col-sm-12 p-0"
-                        style="float: left"
-                      >
-                        <label> <b>Session End Time</b> </label>
-                        <input
-                          type="text"
-                          placeholder="Session End Time "
-                          id="etime3"
-                        />
-                      </div>
-                      <div class="buttonsave" id="save3" style="float: left">
-                        <button
-                          type="button"
-                          class="btn btn-warning wrn-btn btn-lg bg-light"
-                          @click="saveArray3"
-                        >
-                          Save
-                        </button>
-                      </div>
-                    </b-tab>
-                    <b-tab title="DAY 4" :title-link-class="linkClass(3)">
-                      <div
-                        class="col-lg-3 col-md-3 col-sm-12 p-0"
-                        id="parallelsessioncount4"
-                        style="float: left"
-                      >
-                        <label> <b>Number of Parallel Sessions</b> </label>
-                        <input
-                          type="text"
-                          placeholder=" Enter a number "
-                          id="session4"
-                          name="session4"
-                        />
-                      </div>
-                      <div
-                        class="col-lg-3 col-md-3 col-sm-12 p-0"
-                        style="float: left"
-                      >
-                        <label> <b>Session Start Time</b> </label>
-                        <input type="text" id="stime4" />
-                      </div>
-
-                      <div
-                        class="col-lg-3 col-md-3 col-sm-12 p-0"
-                        style="float: left"
-                      >
-                        <label> <b>Session End Time</b> </label>
-                        <input
-                          type="text"
-                          placeholder="Session End Time "
-                          id="etime4"
-                        />
-                      </div>
-                      <div class="buttonsave" id="save4" style="float: left">
-                        <button
-                          type="button"
-                          class="btn btn-warning wrn-btn btn-lg bg-light"
-                          @click="saveArray4"
-                        >
-                          Save
-                        </button>
-                      </div>
-                    </b-tab>
-                    <b-tab title="DAY 5" :title-link-class="linkClass(4)">
-                      <div
-                        class="col-lg-3 col-md-3 col-sm-12 p-0"
-                        id="parallelsessioncount5"
-                        style="float: left"
-                      >
-                        <label> <b>Number of Parallel Sessions</b> </label>
-                        <input
-                          type="text"
-                          placeholder=" Enter a number "
-                          id="session5"
-                          name="session5"
-                        />
-                      </div>
-                      <div
-                        class="col-lg-3 col-md-3 col-sm-12 p-0"
-                        style="float: left"
-                      >
-                        <label> <b>Session Start Time</b> </label>
-                        <input type="text" id="stime5" />
-                      </div>
-
-                      <div
-                        class="col-lg-3 col-md-3 col-sm-12 p-0"
-                        style="float: left"
-                      >
-                        <label> <b>Session End Time</b> </label>
-                        <input
-                          type="text"
-                          placeholder="Session End Time "
-                          id="etime5"
-                        />
-                      </div>
-                      <div class="buttonsave" id="save5" style="float: left">
-                        <button
-                          type="button"
-                          class="btn btn-warning wrn-btn btn-lg bg-light"
-                          @click="saveArray5"
-                        >
-                          Save
-                        </button>
-                      </div>
-                    </b-tab>
+                    </template>
                   </b-tabs>
                 </b-card>
               </div>
             </div>
-            
           </div>
         </div>
-        
       </section>
-      
     </div>
-    
   </div>
 </template>
-
-
 
 <script>
 import axios from "axios";
@@ -281,12 +147,18 @@ import axios from "axios";
 export default {
   data() {
     return {
+      tabs: [],
+      tabCounter: 1,
       tabIndex: 0,
       modalShow: false,
-      papers: [],
+      papers: []
     };
   },
   methods: {
+    newTab() {
+      this.tabs.push(this.tabCounter++);
+      this.saveArray1();
+    },
     goToPapers() {
       this.$router.push("/papers");
     },
@@ -306,14 +178,26 @@ export default {
         return ["bg-light", "text-info"];
       }
     },
-    saveArray1: function (event) {
+    closeTab(x) {
+      for (let i = 0; i < this.tabs.length; i++) {
+        if (this.tabs[i] === x) {
+          this.tabs.splice(i, 1);
+        }
+      }
+    },
+    saveArray1: function(event) {
       console.log("test");
       let sessioncount = document.getElementById("session1").value;
       let startime = document.getElementById("stime1").value;
       let endtime = document.getElementById("etime1").value;
+      let presentationduration = document.getElementById("dtime1").value;
       let day1 = 1;
-      let presentationduration = "30";
       let sessionno = 1;
+
+      console.log(startime);
+      console.log(endtime);
+      console.log(sessioncount);
+      console.log(presentationduration);
 
       //stime= startime.toString();
       //atime = andtime.toString();
@@ -327,18 +211,18 @@ export default {
             sessionNo: sessionno,
             startTime: startime,
             endTime: endtime,
-            presentationDuration: presentationduration,
+            presentationDuration: presentationduration
           },
           {
             headers: {
-              "Content-Type": "application/json",
-            },
+              "Content-Type": "application/json"
+            }
           }
         )
-        .then((response) => {
+        .then(response => {
           console.log(response);
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error.response);
         });
 
@@ -347,176 +231,9 @@ export default {
       document.getElementById("session1").value = "";
       document.getElementById("stime1").value = "";
       document.getElementById("etime1").value = "";
-    },
-    saveArray2: function (event) {
-      console.log("test");
-      let sessioncount = document.getElementById("session2").value;
-      let startime = document.getElementById("stime2").value;
-      let endtime = document.getElementById("etime2").value;
-      let day1 = 2;
-      let presentationduration = "30";
-      let sessionno = 1;
-
-      //stime= startime.toString();
-      //atime = andtime.toString();
-
-      axios
-        .post(
-          "http://localhost:8081/constraint/create",
-          {
-            dayNo: day1,
-            parallelSessionCount: sessioncount,
-            sessionNo: sessionno,
-            startTime: startime,
-            endTime: endtime,
-            presentationDuration: presentationduration,
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        )
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error.response);
-        });
-
-      sessionno = sessionno + 1;
-
-      document.getElementById("session2").value = "";
-      document.getElementById("stime2").value = "";
-      document.getElementById("etime2").value = "";
-    },
-    saveArray3: function (event) {
-      console.log("test");
-      let sessioncount = document.getElementById("session3").value;
-      let startime = document.getElementById("stime3").value;
-      let endtime = document.getElementById("etime3").value;
-      let day1 = 3;
-      let presentationduration = "30";
-      let sessionno = 1;
-
-      //stime= startime.toString();
-      //atime = andtime.toString();
-
-      axios
-        .post(
-          "http://localhost:8081/constraint/create",
-          {
-            dayNo: day1,
-            parallelSessionCount: sessioncount,
-            sessionNo: sessionno,
-            startTime: startime,
-            endTime: endtime,
-            presentationDuration: presentationduration,
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        )
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error.response);
-        });
-
-      sessionno = sessionno + 1;
-
-      document.getElementById("session3").value = "";
-      document.getElementById("stime3").value = "";
-      document.getElementById("etime3").value = "";
-    },
-    saveArray4: function (event) {
-      console.log("test");
-      let sessioncount = document.getElementById("session4").value;
-      let startime = document.getElementById("stime4").value;
-      let endtime = document.getElementById("etime4").value;
-      let day1 = 4;
-      let presentationduration = "30";
-      let sessionno = 1;
-
-      //stime= startime.toString();
-      //atime = andtime.toString();
-
-      axios
-        .post(
-          "http://localhost:8081/constraint/create",
-          {
-            dayNo: day1,
-            parallelSessionCount: sessioncount,
-            sessionNo: sessionno,
-            startTime: startime,
-            endTime: endtime,
-            presentationDuration: presentationduration,
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        )
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error.response);
-        });
-
-      sessionno = sessionno + 1;
-
-      document.getElementById("session4").value = "";
-      document.getElementById("stime4").value = "";
-      document.getElementById("etime4").value = "";
-    },
-    saveArray5: function (event) {
-      console.log("test");
-      let sessioncount = document.getElementById("session5").value;
-      let startime = document.getElementById("stime5").value;
-      let endtime = document.getElementById("etime5").value;
-      let day1 = 5;
-      let presentationduration = "30";
-      let sessionno = 1;
-
-      //stime= startime.toString();
-      //atime = andtime.toString();
-
-      axios
-        .post(
-          "http://localhost:8081/constraint/create",
-          {
-            dayNo: day1,
-            parallelSessionCount: sessioncount,
-            sessionNo: sessionno,
-            startTime: startime,
-            endTime: endtime,
-            presentationDuration: presentationduration,
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        )
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error.response);
-        });
-
-      sessionno = sessionno + 1;
-
-      document.getElementById("session5").value = "";
-      document.getElementById("stime5").value = "";
-      document.getElementById("etime5").value = "";
-    },
-  },
+      document.getElementById("dtime1").value = "";
+    }
+  }
 };
 </script>
 
@@ -535,8 +252,8 @@ export default {
   height: 3rem;
   width: 3rem;
   position: relative;
-  bottom: -6.5rem;
-  right: 300px;
+  bottom: -3.5rem;
+  right: -350px;
 }
 .showlist {
   height: 3rem;
