@@ -106,11 +106,11 @@
                       <b-button
                         id="close"
                         size="sm"
-                        variant="danger"
+                        variant="dark"
                         class="float-right"
                         @click="closeTab(i)"
                       >
-                        Close Day
+                        Delete Day
                       </b-button>
 
                       <div class="buttonsave" id="save1" style="float: left">
@@ -265,11 +265,10 @@ export default {
 }
 
 .buttonsave {
-  height: 3rem;
-  width: 3rem;
+  
   position: relative;
-  bottom: -3.5rem;
-  right: -350px;
+  bottom: -4.5rem;
+  right: -600px;
 }
 .showlist {
   height: 3rem;

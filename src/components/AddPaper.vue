@@ -43,9 +43,9 @@
       <h1 class="welcome-msg">Enter Paper Info</h1>
 
       <div class=" col-lg-5 mx-auto" >
-        <b-card border-variant="dark" no-body  body-class="text-center" style="max-width: 800px;" >
-          <b-tabs v-model="tabIndex" pills card content-class="mt-3" align="center">
-            <b-tab  title="AUTHOR" active :title-link-class="linkClass(0)">
+        <b-card no-body  body-class="text-center" style="max-width: 800px;"  >
+          <b-tabs v-model="tabIndex" pills card align="center" class="mytitle">
+            <b-tab  title="AUTHORS"  :title-link-class="linkClass(0)">
               <label> <b style="float: right">Author Name </b></label>
               <input
                 class="form-control"
@@ -74,15 +74,16 @@
               >
                 Add Author
               </button>
+              <div class="authorstext">Authors You Have Added:</div>
               <tbody id="author-list-body"></tbody>
               <tbody class="thead-dark">
                 <tr>
                   
-                  <td></td>
+                  
                 </tr>
               </tbody>
             </b-tab>
-            <b-tab title="PRESENTER" :title-link-class="linkClass(1)">
+            <b-tab title="PRESENTER"  :title-link-class="linkClass(1)">
               <label>
                 <b style="float: right">
                   Presenter Name
@@ -125,6 +126,7 @@
                 required
               />
               <br>
+              <br>
             </b-tab>
 
             <b-tab title="KEYWORD" :title-link-class="linkClass(3) ">
@@ -137,6 +139,9 @@
                 :select-size="5"
                 class="mb-5"
               ></b-form-select>
+              <div class="mt-3">Selected Keywords: <strong>{{ selected }}</strong></div>
+              <br>
+              
               </div>
             <button
                 style="width: 150px"
@@ -152,8 +157,11 @@
             
           </b-tabs>
         </b-card>
+        <br>
       </div>
+      
     </div>
+    
     <footer class="bg-light text-center text-lg-start">
       <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0)">
         © 2022 Copyright:
@@ -161,6 +169,7 @@
       </div>
     </footer>
   </div>
+  
 </template>
 
 <script>
@@ -211,15 +220,14 @@ export default {
       let fname = document.getElementById("authorname").value;
       let sname = document.getElementById("authorsurname").value;
 
-      document.getElementById("author-list-body").innerHTML += `
-                    <tr>
-                        <td>
-                        <p>${fname} </p>
-                        </td>
-                        <td>
-                        <p>${sname}</p>
-                        </td>
-                     </tr>`;
+      if (
+        document.getElementById("authorname").value == "" ||
+        document.getElementById("authorsurname").value == "" 
+      ) {
+        return alert("YOU CAN NOT LEAVE NAME OR SURNAME FIELD EMPTY!");
+      }
+
+      document.getElementById("author-list-body").innerHTML +=`${fname} ${sname}, `;
 
       let fullname = fname+sname;
 
@@ -229,7 +237,7 @@ export default {
 
       document.getElementById("authorname").value = '';
       document.getElementById("authorsurname").value = '';
-
+      
 
     },
     addAttendee: function(event) {
@@ -314,7 +322,10 @@ export default {
 #nav-bar {
   opacity: 1;
 }
-
+.authorstext{
+  color: brown;
+text-align: left;
+}
 #icon {
   margin-left: 3px;
   display: block;
@@ -339,16 +350,18 @@ export default {
   top: -5rem;
   right: -80px;
 }
-
+.mytitle{
+  color: rgb(14, 43, 204);
+}
 .welcome-msg {
   @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
   font-family: "Permanent Marker", cursive;
   margin: 150px 100px;
-  color: rgb(248, 241, 241);
+  color: rgb(254, 229, 0);
   text-decoration: none;
   text-transform: uppercase;
   text-shadow: 1px 1px 2px rgb(7, 7, 5), 0 0 25px rgb(15, 14, 10),
-    0 0 5px rgb(16, 15, 12);
+    0 0 5px rgb(250, 250, 250);
   font-size: 50px;
 }
 textarea,
