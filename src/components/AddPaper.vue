@@ -42,113 +42,116 @@
 
       <h1 class="welcome-msg">Enter Paper Info</h1>
 
-      <div class="col-xl-8 col-lg-6 col-md-12 col-sm-12 col-12 mx-auto my-5">
-        <div class="card">
-          <div
-            class="row justify-content-center"
-            v-for="(item, index) in items"
-            :key="index"
-          >
-            <div class="col-sm-10">
-              <div class="form-group " >
-                <label > <b style="float: right">Author's Names and Surnames </b></label>
-                <input
-                  class="form-control"
-                  aria-describedby="authorname"
-                  id="authorname"
-                  placeholder="You can enter multiple authors seperated with comma"
-                  name="items[][authorName]"
-                  required
-                />
-              </div>
-            </div>
-
-            <div class="col-sm-10">
-              <div class="form-group">
-                <label > <b style="float: right">Title </b></label>
-                <input
-                  class="form-control"
-                  aria-describedby="Title"
-                  id="titlename"
-                  placeholder="Enter title of the paper"
-                  name="items[][titleName]"
-                  required
-                />
-              </div>
-            </div>
-
-            <div class="col-sm-5 " >
-              <div class="form-group" >
-                <label > <b style="float: right"> Presenter Name and Surname </b></label>
-                <input
-                
-                  class="form-control"
-                  aria-describedby="presentername"
-                  id="presentername"
-                  placeholder="Enter a presenter"
-                  name="items[][presenterName]"
-                  required
-                />
-              </div>
-            </div>
-            <div class="col-sm-5" align="center">
-              <div class="form-group ">
-                <label> <b> Select Keywords with CTRL</b> </label>
-                <b-form-select
-                  v-model="selected"
-                  :options="options"
-                  multiple
-                  :select-size="5"
-                ></b-form-select>
-              
-              </div>
-            </div>
-          </div>
-          <div class="row justify-content-center">
-            <div class="col-sm-6"></div>
-            <!--       <div class="col-sm-2">
-               <button
+      <div class=" col-lg-5 mx-auto" >
+        <b-card border-variant="dark" no-body  body-class="text-center" style="max-width: 800px;" >
+          <b-tabs v-model="tabIndex" pills card content-class="mt-3" align="center">
+            <b-tab  title="AUTHOR" active :title-link-class="linkClass(0)">
+              <label> <b style="float: right">Author Name </b></label>
+              <input
+                class="form-control"
+                aria-describedby="authorname"
+                id="authorname"
+                placeholder="Enter a name for the author"
+                name="authorname"
+                required
+              />
+              <br>
+              <br>
+              <label> <b style="float: right">Author Surname </b></label>
+              <input
+                class="form-control"
+                aria-describedby="authorsurname"
+                id="authorsurname"
+                placeholder="Enter a surname for the author"
+                name="authorsurname"
+                required
+              />
+              <br>
+              <button
                 type="button"
-                class="btn btn-secondary"
-                @click.prevent="addAttendee"
+                class="btn btn-primary btn-lg mb-4"
+                @click="SaveAuthors"
               >
-                Add New Paper
-              </button> 
-            </div> -->
-          </div>
-          <!-- <input
-                    method="post"
-                    methodname="authorname"
-                    id="itemForm"
-                    v-on:keyup.enter="addItem"
-                    placeholder="Enter Names and Surnames"
-                    v-model="authorName"
-                  />-->
+                Add Author
+              </button>
+              <tbody id="author-list-body"></tbody>
+              <tbody class="thead-dark">
+                <tr>
+                  
+                  <td></td>
+                </tr>
+              </tbody>
+            </b-tab>
+            <b-tab title="PRESENTER" :title-link-class="linkClass(1)">
+              <label>
+                <b style="float: right">
+                  Presenter Name
+                </b></label
+              >
+             
+              <input
+                class="form-control"
+                aria-describedby="presentername"
+                id="presentername"
+                placeholder="Enter a presenter name"
+                name="presentername"
+                required
+              />
+              <br>
+              <br>
+              <label>
+                <b style="float: right">
+                  Presenter Surname
+                </b></label
+              >
+              <input
+                class="form-control"
+                aria-describedby="presentersurname"
+                id="presentersurname"
+                placeholder="Enter a presenter Surname"
+                name="presentersurname"
+                required
+              />
+              <br>
+            </b-tab>
+            <b-tab title="TITLE" :title-link-class="linkClass(2)">
+              <label> <b style="float: right">Title </b></label>
+              <input
+                class="form-control"
+                aria-describedby="Title"
+                id="titlename"
+                placeholder="Enter title of the paper"
+                name="titlename"
+                required
+              />
+              <br>
+            </b-tab>
 
-          <!--<button v-on:click="addItem">Add Paper</button>-->
-        </div>
-        <ul></ul>
-
-        <span id="result"></span>
-
-        <div class="row">
-          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3"></div>
-          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3"></div>
-          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3"></div>
-          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+            <b-tab title="KEYWORD" :title-link-class="linkClass(3) ">
+              <label> <b> Select Keywords with CTRL</b> </label>
+              <div class="col-sm-15" align="center">
+              <b-form-select
+                v-model="selected"
+                :options="options"
+                multiple
+                :select-size="5"
+                class="mb-5"
+              ></b-form-select>
+              </div>
             <button
-              style="width: 100px"
-              type="submit"
-              id="sbm-btn"
-              class="btn-lg position-absolute bottom-20 start-50 translate-middle-x btn-dark "
-              @click="savePapers"
-            >
-              Save
-            </button>
-
-            <input type="hidden" id="str" name="str" value="" />
-          </div>
-        </div>
+                style="width: 150px"
+                type="submit"
+                id="sbm-btn"
+                class="btn-lg btn-primary "
+                @click="savePapers(); say(); "
+              >
+                Save Paper
+              </button>
+              
+            </b-tab>
+            
+          </b-tabs>
+        </b-card>
       </div>
     </div>
     <footer class="bg-light text-center text-lg-start">
@@ -166,10 +169,7 @@ let counter = 0;
 export default {
   data() {
     return {
-      items: [
-        { authorName: "", presenterName: "", titleName: "", keyword: "" },
-      ],
-      papers: [{ aName: "", pName: "", tName: "", kName: "" }],
+      author:[],
       selected: [""], // Array reference
       options: [
         { value: "Artificial Intelligence", text: "Artificial Intelligence" },
@@ -180,25 +180,59 @@ export default {
         { value: "Mixed-Reality", text: "Mixed-Reality" },
         { value: "Robotics", text: "Robotics" },
         { value: "Science", text: "Science" },
-        { value: "Virtual Reality", text: "Virtual Reality" },
-        
-      ],
+        { value: "Virtual Reality", text: "Virtual Reality" }
+      ]
     };
   },
 
   methods: {
-    createPost() {
-      axios
-        .post("/paper/create", paperValues)
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error.response);
-        });
+    linkClass(idx) {
+      if (this.tabIndex === idx) {
+        return ["bg-primary", "text-light"];
+      } else {
+        return ["bg-light", "text-info"];
+      }
     },
+    say: function() {
+      if (
+        //document.getElementById("authorname").value == "" ||
+        //document.getElementById("authorsurname").value == "" ||
+        document.getElementById("presentername").value == "" ||
+        document.getElementById("presentersurname").value == "" ||
+        document.getElementById("tittlename").value == "" ||
+        document.getElementById("keywordname").value == ""
+      ) {
+        return alert("ALL FIELDS MUST BE FILLED IN ORDER TO SAVE THE PAPER!");
+      } else {
+        return alert("YOUR PAPER IS SAVED!");
+      }
+    },
+      SaveAuthors(){
+      let fname = document.getElementById("authorname").value;
+      let sname = document.getElementById("authorsurname").value;
 
-    addAttendee: function (event) {
+      document.getElementById("author-list-body").innerHTML += `
+                    <tr>
+                        <td>
+                        <p>${fname} </p>
+                        </td>
+                        <td>
+                        <p>${sname}</p>
+                        </td>
+                     </tr>`;
+
+      let fullname = fname+sname;
+
+      this.author.push(fullname);
+
+      console.log(this.author);
+
+      document.getElementById("authorname").value = '';
+      document.getElementById("authorsurname").value = '';
+
+
+    },
+    addAttendee: function(event) {
       event.preventDefault();
       var authorid = "authorname" + counter;
       var presname = "presentername" + counter;
@@ -208,7 +242,7 @@ export default {
         authorName: authorid,
         presenterName: presname,
         titleName: titname,
-        keyword: "",
+        keyword: ""
       });
       this.papers.aName = document.getElementById("authorname").value;
       this.papers.pName = document.getElementById("presentername").value;
@@ -218,18 +252,16 @@ export default {
       counter += 1;
       console.log(counter);
     },
-    removeAttendee: function (index) {
-      this.items.splice(index, 1);
-    },
-
-    savePapers: function (event) {
-      let author = document.getElementById("authorname").value;
-      let presenter = document.getElementById("presentername").value;
+    savePapers: function(event) {
+      //let author = document.getElementById("authorname").value;
+      let presentername = document.getElementById("presentername").value;
+      let presentersurname = document.getElementById("presentersurname").value;
+      let presenter = presentername+presentersurname;
       let title = document.getElementById("titlename").value;
       let keywords = this.selected;
 
       const paperValues = new Object();
-      paperValues.author = author;
+      paperValues.author = this.author.toString();
       paperValues.presenter = presenter;
       paperValues.title = title;
       paperValues.keyword = keywords.toString();
@@ -238,18 +270,20 @@ export default {
       axios
         .post("http://localhost:8081/paper/create", data, {
           headers: {
-            "Content-Type": "application/json",
-          },
+            "Content-Type": "application/json"
+          }
         })
-        .then((response) => {
+        .then(response => {
           console.log(response);
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error.response);
         });
       window.location.reload();
     },
-
+    removeAttendee: function(index) {
+      this.items.splice(index, 1);
+    },
     goToConstraints() {
       this.$router.push("/constraints");
     },
@@ -261,8 +295,8 @@ export default {
     },
     goToAboutUs() {
       this.$router.push("/aboutus");
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -310,7 +344,7 @@ export default {
   @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
   font-family: "Permanent Marker", cursive;
   margin: 150px 100px;
-  color: rgb(246, 245, 244);
+  color: rgb(248, 241, 241);
   text-decoration: none;
   text-transform: uppercase;
   text-shadow: 1px 1px 2px rgb(7, 7, 5), 0 0 25px rgb(15, 14, 10),
@@ -330,17 +364,7 @@ select {
   font-size: 1rem;
 }
 
-.btn-blue {
-  background-color: #1a237e;
-  width: 150px;
-  color: #fff;
-  border-radius: 2px;
-}
-
-.btn-blue:hover {
-  background-color: #1a23de;
-  color: #fff;
-
-  cursor: pointer;
+#mytab{
+  background-color: rgb(15, 11, 11);
 }
 </style>

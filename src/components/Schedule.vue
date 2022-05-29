@@ -25,7 +25,11 @@
               <a href="#" class="nav-item nav-link active" @click="goToPapers">
                 <b>Paper List</b>
               </a>
-              <a href="#" class="nav-item nav-link active" @click="goToConstraints">
+              <a
+                href="#"
+                class="nav-item nav-link active"
+                @click="goToConstraints"
+              >
                 <b>Constraints</b>
               </a>
               <a href="#" class="nav-item nav-link active" @click="goToAboutUs">
@@ -35,11 +39,18 @@
           </div>
         </div>
       </nav>
-
-      <h1 class="Paperlist-msg">
-        <h1>YOUR OPTIMIZED SCHEDULE</h1>
+      <h1>
+        <h1 class="Paperlist-msg">
+          <h1>YOUR OPTIMIZED SCHEDULE</h1>
+        </h1>
+        <button
+          type="button"
+          class="btn btn-secondary btn-lg btn-dark mb-4"
+          @click="createPapers"
+        >
+          Optimize
+        </button>
       </h1>
-  
 
       <div class="container">
         <table class="table table-light table-bordered">
@@ -57,14 +68,14 @@
           </thead>
           <tbody>
             <tr v-for="(paper, index) in papers" :key="index">
-              <td v-text="paper.day"></td>
-              <td v-text="paper.session"></td>
-              <td v-text="paper.author"></td>
+              <td v-text="paper.dayNo"></td>
+              <td v-text="paper.sessionNo"></td>
+              <td v-text="paper.authors"></td>
               <td v-text="paper.presenter"></td>
               <td v-text="paper.title"></td>
-              <td v-text="paper.keyword"></td>
-              <td v-text="paper.startTime"></td>
-              <td v-text="paper.endTime"></td>
+              <td v-text="paper.keywords"></td>
+              <td v-text="paper.start_time"></td>
+              <td v-text="paper.end_time"></td>
             </tr>
           </tbody>
         </table>
@@ -101,6 +112,10 @@ export default {
         .then((response) => {
           this.papers = response.data;
         });
+    },
+    createPapers() {
+      axios.post("http://localhost:8081/presentation/create");
+      window.location.reload();
     },
     deleteAllPresentations: function (event) {
       axios
