@@ -43,9 +43,9 @@
       <h1 class="welcome-msg">Enter Paper Info</h1>
 
       <div class="col-lg-5 mx-auto">
-        <b-card no-body body-class="text-center" style="max-width: 800px">
-          <b-tabs v-model="tabIndex" pills card align="center" class="mytitle">
-            <b-tab title="AUTHORS" :title-link-class="linkClass(0)">
+        <b-card no-body >
+          <b-tabs pills card >
+            <b-tab title="AUTHORS" active:title-link-class="linkClass(0)">
               <label> <b style="float: right">Author Name </b></label>
               <input
                 class="form-control"
@@ -80,7 +80,7 @@
                 <tr></tr>
               </tbody>
             </b-tab>
-            <b-tab title="PRESENTER" :title-link-class="linkClass(1)">
+            <b-tab title="PRESENTER" active:title-link-class="linkClass(1)">
               <label> <b style="float: right"> Presenter Name </b></label>
 
               <input
@@ -104,7 +104,7 @@
               />
               <br />
             </b-tab>
-            <b-tab title="TITLE" :title-link-class="linkClass(2)">
+            <b-tab title="TITLE" active:title-link-class="linkClass(2)">
               <label> <b style="float: right">Title </b></label>
               <input
                 class="form-control"
@@ -118,7 +118,7 @@
               <br />
             </b-tab>
 
-            <b-tab title="KEYWORD" :title-link-class="linkClass(3)">
+            <b-tab title="KEYWORD" active:title-link-class="linkClass(3)">
               <label> <b> Select Keywords with CTRL</b> </label>
               <div class="col-sm-15" align="center">
                 <b-form-select

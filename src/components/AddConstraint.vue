@@ -64,6 +64,21 @@
 
                 <br />
 
+                <label>
+                  <b style="float: right">Presentation Duration</b>
+                </label>
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder="Exp = 30"
+                  value="30"
+                  name="appt"
+                  required
+                  id="pduration1"
+                />
+
+                <br />
+
                 <label> <b style="float: right">Session Start Time</b> </label>
                 <input
                   class="form-control"
@@ -119,6 +134,21 @@
                   id="session2"
                   name="session2"
                 />
+                <br />
+
+                <label>
+                  <b style="float: right">Presentation Duration</b>
+                </label>
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder="Exp = 30"
+                  value="30"
+                  name="appt"
+                  required
+                  id="pduration2"
+                />
+
                 <br />
 
                 <label> <b style="float: right">Session Start Time</b> </label>
@@ -177,6 +207,20 @@
                 />
                 <br />
 
+                <label>
+                  <b style="float: right">Presentation Duration</b>
+                </label>
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder="Exp = 30"
+                  value="30"
+                  name="appt"
+                  required
+                  id="pduration3"
+                />
+
+                <br />
                 <label> <b style="float: right">Session Start Time</b> </label>
                 <input
                   class="form-control"
@@ -231,6 +275,20 @@
                 />
                 <br />
 
+                <label>
+                  <b style="float: right">Presentation Duration</b>
+                </label>
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder="Exp = 30"
+                  value="30"
+                  name="appt"
+                  required
+                  id="pduration4"
+                />
+
+                <br />
                 <label> <b style="float: right">Session Start Time</b> </label>
                 <input
                   class="form-control"
@@ -283,6 +341,21 @@
                   id="session5"
                   name="session5"
                 />
+                <br />
+
+                <label>
+                  <b style="float: right">Presentation Duration</b>
+                </label>
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder="Exp = 30"
+                  value="30"
+                  name="appt"
+                  required
+                  id="pduration5"
+                />
+
                 <br />
 
                 <label> <b style="float: right"> Session Start Time</b> </label>
@@ -364,8 +437,8 @@ export default {
       let sessioncount = document.getElementById("session1").value;
       let startime = document.getElementById("stime1").value;
       let endtime = document.getElementById("etime1").value;
+      let presentationduration = document.getElementById("pduration1").value;
       let day1 = 1;
-      let presentationduration = "30";
       let sessionno = 1;
 
       //stime= startime.toString();
@@ -380,18 +453,18 @@ export default {
             sessionNo: sessionno,
             startTime: startime,
             endTime: endtime,
-            presentationDuration: presentationduration,
+            presentationDuration: presentationduration
           },
           {
             headers: {
-              "Content-Type": "application/json",
-            },
+              "Content-Type": "application/json"
+            }
           }
         )
-        .then((response) => {
+        .then(response => {
           console.log(response);
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error.response);
         });
 
@@ -399,19 +472,20 @@ export default {
 
       document.getElementById(
         "author-list-body"
-      ).innerHTML += `{# of parallel session:${sessioncount}, Start time:${startime}, End time:${endtime}}, `;
+      ).innerHTML += `{# of parallel session:${sessioncount}, Presentation duration:${presentationduration}, Start time:${startime}, End time:${endtime}} `;
 
       document.getElementById("session1").value = "";
       document.getElementById("stime1").value = "";
       document.getElementById("etime1").value = "";
+      document.getElementById("pduration1").value = "";
     },
-    saveArray2: function (event) {
+    saveArray2: function(event) {
       console.log("test");
       let sessioncount = document.getElementById("session2").value;
       let startime = document.getElementById("stime2").value;
       let endtime = document.getElementById("etime2").value;
+      let presentationduration = document.getElementById("pduration2").value;
       let day1 = 2;
-      let presentationduration = "30";
       let sessionno = 2;
 
       //stime= startime.toString();
@@ -426,18 +500,18 @@ export default {
             sessionNo: sessionno,
             startTime: startime,
             endTime: endtime,
-            presentationDuration: presentationduration,
+            presentationDuration: presentationduration
           },
           {
             headers: {
-              "Content-Type": "application/json",
-            },
+              "Content-Type": "application/json"
+            }
           }
         )
-        .then((response) => {
+        .then(response => {
           console.log(response);
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error.response);
         });
 
@@ -445,19 +519,20 @@ export default {
 
       document.getElementById(
         "author-list-body2"
-      ).innerHTML += `{# of parallel session:${sessioncount}, Start time:${startime}, End time:${endtime}}, `;
+      ).innerHTML += `{# of parallel session:${sessioncount}, Presentation duration:${presentationduration}, Start time:${startime}, End time:${endtime}}`;
 
       document.getElementById("session2").value = "";
       document.getElementById("stime2").value = "";
       document.getElementById("etime2").value = "";
+      document.getElementById("pduration2").value = "";
     },
-    saveArray3: function (event) {
+    saveArray3: function(event) {
       console.log("test");
       let sessioncount = document.getElementById("session3").value;
       let startime = document.getElementById("stime3").value;
       let endtime = document.getElementById("etime3").value;
+      let presentationduration = document.getElementById("pduration3").value;
       let day1 = 3;
-      let presentationduration = "30";
       let sessionno = 3;
 
       //stime= startime.toString();
@@ -472,38 +547,39 @@ export default {
             sessionNo: sessionno,
             startTime: startime,
             endTime: endtime,
-            presentationDuration: presentationduration,
+            presentationDuration: presentationduration
           },
           {
             headers: {
-              "Content-Type": "application/json",
-            },
+              "Content-Type": "application/json"
+            }
           }
         )
-        .then((response) => {
+        .then(response => {
           console.log(response);
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error.response);
         });
 
       sessionno = sessionno + 1;
 
- document.getElementById(
+      document.getElementById(
         "author-list-body3"
-      ).innerHTML += `{# of parallel session:${sessioncount}, Start time:${startime}, End time:${endtime}}, `;
+      ).innerHTML += `{# of parallel session:${sessioncount}, Presentatin duration:${presentationduration}, Start time:${startime}, End time:${endtime}}, `;
 
       document.getElementById("session3").value = "";
       document.getElementById("stime3").value = "";
       document.getElementById("etime3").value = "";
+      document.getElementById("pduration3").value = "";
     },
-    saveArray4: function (event) {
+    saveArray4: function(event) {
       console.log("test");
       let sessioncount = document.getElementById("session4").value;
       let startime = document.getElementById("stime4").value;
       let endtime = document.getElementById("etime4").value;
+      let presentationduration = document.getElementById("pduration4").value;
       let day1 = 4;
-      let presentationduration = "30";
       let sessionno = 4;
 
       //stime= startime.toString();
@@ -518,37 +594,39 @@ export default {
             sessionNo: sessionno,
             startTime: startime,
             endTime: endtime,
-            presentationDuration: presentationduration,
+            presentationDuration: presentationduration
           },
           {
             headers: {
-              "Content-Type": "application/json",
-            },
+              "Content-Type": "application/json"
+            }
           }
         )
-        .then((response) => {
+        .then(response => {
           console.log(response);
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error.response);
         });
 
       sessionno = sessionno + 1;
-       document.getElementById(
+      document.getElementById(
         "author-list-body4"
-      ).innerHTML += `{# of parallel session:${sessioncount}, Start time:${startime}, End time:${endtime}}, `;
+      ).innerHTML += `{# of parallel session:${sessioncount}, Presentatin duration:${presentationduration}, Start time:${startime}, End time:${endtime}}, `;
 
       document.getElementById("session4").value = "";
       document.getElementById("stime4").value = "";
       document.getElementById("etime4").value = "";
+      document.getElementById("pduration4").value = "";
     },
-    saveArray5: function (event) {
+    saveArray5: function(event) {
       console.log("test");
       let sessioncount = document.getElementById("session5").value;
       let startime = document.getElementById("stime5").value;
       let endtime = document.getElementById("etime5").value;
+      let presentationduration = (document.getElementById("pduration5").value =
+        "");
       let day1 = 5;
-      let presentationduration = "30";
       let sessionno = 5;
 
       //stime= startime.toString();
@@ -563,30 +641,31 @@ export default {
             sessionNo: sessionno,
             startTime: startime,
             endTime: endtime,
-            presentationDuration: presentationduration,
+            presentationDuration: presentationduration
           },
           {
             headers: {
-              "Content-Type": "application/json",
-            },
+              "Content-Type": "application/json"
+            }
           }
         )
-        .then((response) => {
+        .then(response => {
           console.log(response);
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error.response);
         });
 
       sessionno = sessionno + 1;
 
- document.getElementById(
+      document.getElementById(
         "author-list-body5"
-      ).innerHTML += `{# of parallel session:${sessioncount}, Start time:${startime}, End time:${endtime}}, `;
+      ).innerHTML += `{# of parallel session:${sessioncount}, Presentation duration:${presentationduration} ,Start time:${startime}, End time:${endtime}}, `;
 
       document.getElementById("session5").value = "";
       document.getElementById("stime5").value = "";
       document.getElementById("etime5").value = "";
+      document.getElementById("pduration5").value = "";
     },
     goToConstraints() {
       this.$router.push("/constraints");
@@ -599,8 +678,8 @@ export default {
     },
     goToAboutUs() {
       this.$router.push("/aboutus");
-    },
-  },
+    }
+  }
 };
 </script>
 
