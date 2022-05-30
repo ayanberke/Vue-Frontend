@@ -32,119 +32,306 @@
               >
                 <b>Constraints</b>
               </a>
-              <a href="#" class="nav-item nav-link active" @click="goToAboutUs"> <b>About Us</b> </a>
+              <a href="#" class="nav-item nav-link active" @click="goToAboutUs">
+                <b>About Us</b>
+              </a>
             </div>
           </div>
         </div>
       </nav>
-      <section class="search-sec">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="row">
-                <b-card no-body>
-                  <b-tabs v-model="tabIndex" card>
-                    <b-tab
-                      v-for="i in tabs"
-                      :key="'dyn-tab-' + i"
-                      :title="'DAY ' + i"
-                    >
-                      <div
-                        class="col-lg-6 col-md-2 col-sm-12 p-2"
-                        style="float: left"
-                      >
-                        <label> <b>Session Start Time</b> </label>
-                        <input
-                          type="text"
-                          placeholder="Enter start time"
-                          name="appt"
-                          required
-                          id="stime1"
-                        />
-                      </div>
+      <h1 class="welcome-msg">Define Constraints</h1>
 
-                      <div
-                        class="col-lg-6 col-md-2 col-sm-12 p-2"
-                        style="float: left"
-                      >
-                        <label> <b>Session End Time</b> </label>
-                        <input
-                          type="text"
-                          placeholder="Session End Time "
-                          id="etime1"
-                          required
-                        />
-                      </div>
+      <div class="container">
+        <div class="col-lg-5 mx-auto">
+          <b-card
+            no-body
+            body-class="text-center"
+            style="max-width: 800px"
+            class="mytitle2"
+          >
+            <b-tabs v-model="tabIndex" pills card align="center">
+              <b-tab title="DAY 1" :title-link-class="linkClass(0)">
+                <label>
+                  <b style="float: right">Number of Parallel Sessions</b>
+                </label>
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder=" Enter a number "
+                  id="session1"
+                  name="session-1"
+                />
 
-                      <div
-                        class="col-lg-6 col-md-2 col-sm-12 p-2"
-                        style="float: left"
-                      >
-                        <label> <b> # Parallel Sessions </b> </label>
-                        <input
-                          type="text"
-                          placeholder=" Enter a number"
-                          id="session1"
-                          name="session1"
-                          required
-                        />
-                      </div>
+                <br />
 
-                      <div
-                        class="col-lg-6 col-md-2 col-sm-12 p-2"
-                        style="float: left"
-                      >
-                        <label> <b>Session Duration</b> </label>
-                        <input
-                          type="text"
-                          placeholder="Session Duration "
-                          id="dtime1"
-                          required
-                        />
-                      </div>
+                <label> <b style="float: right">Session Start Time</b> </label>
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder="Exp = 13:00"
+                  name="appt"
+                  required
+                  id="stime1"
+                />
 
-                      <b-button
-                        id="close"
-                        size="sm"
-                        variant="dark"
-                        class="float-right"
-                        @click="closeTab(i)"
-                      >
-                        Delete Day
-                      </b-button>
+                <br />
 
-                      <div class="buttonsave" id="save1" style="float: left">
-                        <button
-                          type="button"
-                          class="btn btn-warning wrn-btn btn-lg bg-light"
-                          @click="saveArray1"
-                        >{{buttonText}}
-                          Save
-                        </button>
-                      </div>
-                    </b-tab>
-                    <template #tabs-end>
-                      <b-nav-item
-                        role="presentation"
-                        @click.prevent="newTab"
-                        href="#"
-                        ><b>+</b></b-nav-item
-                      >
-                    </template>
-                    <template #empty>
-                      <div class="text-center text-muted">
-                        There are no days here <br />
-                        Open a new day using the <b>+</b> button above.
-                      </div>
-                    </template>
-                  </b-tabs>
-                </b-card>
-              </div>
-            </div>
-          </div>
+                <label> <b style="float: right">Session End Time</b> </label>
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder="Exp = 15:00"
+                  id="etime1"
+                />
+                <br />
+                <label>
+                  <b class="mytitle" style="float: left"
+                    >Presentation Duration is set to 30 minutes</b
+                  >
+                </label>
+                <br />
+                <br />
+                <tbody id="author-list-body"></tbody>
+                <tbody class="thead-dark">
+                  <tr></tr>
+                </tbody>
+                <br />
+
+                <div class="mb-6" id="save1">
+                  <button
+                    type="button"
+                    class="btn btn-primary wrn-btn btn-lg"
+                    @click="saveArray1"
+                  >
+                    Save the Day
+                  </button>
+                </div>
+              </b-tab>
+              <b-tab title="DAY 2" :title-link-class="linkClass(1)">
+                <label>
+                  <b style="float: right">Number of Parallel Sessions</b>
+                </label>
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder=" Enter a number"
+                  v-model="parallelsessionCount"
+                  id="session2"
+                  name="session2"
+                />
+                <br />
+
+                <label> <b style="float: right">Session Start Time</b> </label>
+                <input
+                  class="form-control"
+                  placeholder="Exp = 13:00"
+                  type="text"
+                  name="appt"
+                  required
+                  id="stime2"
+                />
+                <br />
+
+                <label> <b style="float: right">Session End Time</b> </label>
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder="Exp = 15:00 "
+                  id="etime2"
+                />
+                <br />
+                <label>
+                  <b class="mytitle" style="float: left"
+                    >Presentation Duration is set to 30 minutes</b
+                  >
+                </label>
+                <br />
+                <br />
+                <tbody id="author-list-body2"></tbody>
+                <tbody class="thead-dark">
+                  <tr></tr>
+                </tbody>
+                <br />
+
+                <div class="mb-6" id="save2">
+                  <button
+                    type="button"
+                    class="btn btn-primary wrn-btn btn-lg"
+                    @click="saveArray2"
+                  >
+                    Save the Day
+                  </button>
+                </div>
+              </b-tab>
+              <b-tab title="DAY 3" :title-link-class="linkClass(2)">
+                <label>
+                  <b style="float: right">Number of Parallel Sessions</b>
+                </label>
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder=" Enter a number "
+                  v-model="parallelsessionCount"
+                  id="session3"
+                  name="session3"
+                />
+                <br />
+
+                <label> <b style="float: right">Session Start Time</b> </label>
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder="Exp = 13:00"
+                  id="stime3"
+                />
+                <br />
+
+                <label> <b style="float: right">Session End Time</b> </label>
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder="Exp = 15:00"
+                  id="etime3"
+                />
+                <br />
+                <label>
+                  <b class="mytitle" style="float: left"
+                    >Presentation Duration is set to 30 minutes</b
+                  >
+                </label>
+                <br />
+                <br />
+                <tbody id="author-list-body3"></tbody>
+                <tbody class="thead-dark">
+                  <tr></tr>
+                </tbody>
+                <br />
+
+                <div class="mb-6" id="save3">
+                  <button
+                    type="button"
+                    class="btn btn-primary wrn-btn btn-lg"
+                    @click="saveArray3"
+                  >
+                    Save the Day
+                  </button>
+                </div>
+              </b-tab>
+              <b-tab title="DAY 4" :title-link-class="linkClass(3)">
+                <label>
+                  <b style="float: right">Number of Parallel Sessions</b>
+                </label>
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder=" Enter a number "
+                  v-model="parallelsessionCount"
+                  id="session4"
+                  name="session4"
+                />
+                <br />
+
+                <label> <b style="float: right">Session Start Time</b> </label>
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder="Exp = 13:00"
+                  id="stime4"
+                />
+                <br />
+
+                <label> <b style="float: right">Session End Time</b> </label>
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder="Exp = 15:00"
+                  id="etime4"
+                />
+                <br />
+                <label>
+                  <b class="mytitle" style="float: left"
+                    >Presentation Duration is set to 30 minutes</b
+                  >
+                </label>
+                <br />
+                <br />
+                <tbody id="author-list-body4"></tbody>
+                <tbody class="thead-dark">
+                  <tr></tr>
+                </tbody>
+                <br />
+
+                <div class="mb-6" id="save4">
+                  <button
+                    type="button"
+                    class="btn btn-primary wrn-btn btn-lg"
+                    @click="saveArray4"
+                  >
+                    Save the Day
+                  </button>
+                </div>
+              </b-tab>
+              <b-tab title="DAY 5" :title-link-class="linkClass(4)">
+                <label>
+                  <b style="float: right">Number of Parallel Sessions</b>
+                </label>
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder=" Enter a number "
+                  v-model="parallelsessionCount"
+                  id="session5"
+                  name="session5"
+                />
+                <br />
+
+                <label> <b style="float: right"> Session Start Time</b> </label>
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder="Exp = 13:00"
+                  id="stime5"
+                />
+                <br />
+
+                <label> <b style="float: right">Session End Time</b> </label>
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder="Exp = 15:00"
+                  id="etime5"
+                />
+                <br />
+                <label>
+                  <b class="mytitle" style="float: left"
+                    >Presentation Duration is set to 30 minutes</b
+                  >
+                </label>
+                <br />
+                <br />
+                <tbody id="author-list-body5"></tbody>
+                <tbody class="thead-dark">
+                  <tr></tr>
+                </tbody>
+                <br />
+
+                <div class="mb-6" id="save5">
+                  <button
+                    type="button"
+                    class="btn btn-primary wrn-btn btn-lg"
+                    @click="saveArray5"
+                  >
+                    Save the Day
+                  </button>
+                </div>
+              </b-tab>
+            </b-tabs>
+          </b-card>
         </div>
-      </section>
+      </div>
+      <br />
     </div>
+    <br />
     <footer class="bg-light text-center text-lg-start">
       <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0)">
         © 2022 Copyright:
@@ -160,33 +347,11 @@ import axios from "axios";
 export default {
   data() {
     return {
-      tabs: [],
-      tabCounter: 1,
       tabIndex: 0,
       modalShow: false,
-      papers: []
     };
   },
   methods: {
-    newTab() {
-      this.tabs.push(this.tabCounter++);
-      this.saveArray1();
-    },
-    goToPapers() {
-      this.$router.push("/papers");
-    },
-    goToHome() {
-      this.$router.push("/");
-    },
-    goToConstraints() {
-      this.$router.push("/constraints");
-    },
-    goToSchedule() {
-      this.$router.push("/schedule");
-    },
-    goToAboutUs() {
-      this.$router.push("/aboutus");
-    },
     linkClass(idx) {
       if (this.tabIndex === idx) {
         return ["bg-primary", "text-light"];
@@ -194,26 +359,14 @@ export default {
         return ["bg-light", "text-info"];
       }
     },
-    closeTab(x) {
-      for (let i = 0; i < this.tabs.length; i++) {
-        if (this.tabs[i] === x) {
-          this.tabs.splice(i, 1);
-        }
-      }
-    },
-    saveArray1: function(event) {
+    saveArray1: function (event) {
       console.log("test");
       let sessioncount = document.getElementById("session1").value;
       let startime = document.getElementById("stime1").value;
       let endtime = document.getElementById("etime1").value;
-      let presentationduration = document.getElementById("dtime1").value;
       let day1 = 1;
+      let presentationduration = "30";
       let sessionno = 1;
-
-      console.log(startime);
-      console.log(endtime);
-      console.log(sessioncount);
-      console.log(presentationduration);
 
       //stime= startime.toString();
       //atime = andtime.toString();
@@ -227,35 +380,233 @@ export default {
             sessionNo: sessionno,
             startTime: startime,
             endTime: endtime,
-            presentationDuration: presentationduration
+            presentationDuration: presentationduration,
           },
           {
             headers: {
-              "Content-Type": "application/json"
-            }
+              "Content-Type": "application/json",
+            },
           }
         )
-        .then(response => {
+        .then((response) => {
           console.log(response);
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error.response);
         });
 
       sessionno = sessionno + 1;
 
+      document.getElementById(
+        "author-list-body"
+      ).innerHTML += `{# of parallel session:${sessioncount}, Start time:${startime}, End time:${endtime}}, `;
+
       document.getElementById("session1").value = "";
       document.getElementById("stime1").value = "";
       document.getElementById("etime1").value = "";
-      document.getElementById("dtime1").value = "";
-    }
-  }
+    },
+    saveArray2: function (event) {
+      console.log("test");
+      let sessioncount = document.getElementById("session2").value;
+      let startime = document.getElementById("stime2").value;
+      let endtime = document.getElementById("etime2").value;
+      let day1 = 2;
+      let presentationduration = "30";
+      let sessionno = 2;
+
+      //stime= startime.toString();
+      //atime = andtime.toString();
+
+      axios
+        .post(
+          "http://localhost:8081/constraint/create",
+          {
+            dayNo: day1,
+            parallelSessionCount: sessioncount,
+            sessionNo: sessionno,
+            startTime: startime,
+            endTime: endtime,
+            presentationDuration: presentationduration,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error.response);
+        });
+
+      sessionno = sessionno + 1;
+
+      document.getElementById(
+        "author-list-body2"
+      ).innerHTML += `{# of parallel session:${sessioncount}, Start time:${startime}, End time:${endtime}}, `;
+
+      document.getElementById("session2").value = "";
+      document.getElementById("stime2").value = "";
+      document.getElementById("etime2").value = "";
+    },
+    saveArray3: function (event) {
+      console.log("test");
+      let sessioncount = document.getElementById("session3").value;
+      let startime = document.getElementById("stime3").value;
+      let endtime = document.getElementById("etime3").value;
+      let day1 = 3;
+      let presentationduration = "30";
+      let sessionno = 3;
+
+      //stime= startime.toString();
+      //atime = andtime.toString();
+
+      axios
+        .post(
+          "http://localhost:8081/constraint/create",
+          {
+            dayNo: day1,
+            parallelSessionCount: sessioncount,
+            sessionNo: sessionno,
+            startTime: startime,
+            endTime: endtime,
+            presentationDuration: presentationduration,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error.response);
+        });
+
+      sessionno = sessionno + 1;
+
+ document.getElementById(
+        "author-list-body3"
+      ).innerHTML += `{# of parallel session:${sessioncount}, Start time:${startime}, End time:${endtime}}, `;
+
+      document.getElementById("session3").value = "";
+      document.getElementById("stime3").value = "";
+      document.getElementById("etime3").value = "";
+    },
+    saveArray4: function (event) {
+      console.log("test");
+      let sessioncount = document.getElementById("session4").value;
+      let startime = document.getElementById("stime4").value;
+      let endtime = document.getElementById("etime4").value;
+      let day1 = 4;
+      let presentationduration = "30";
+      let sessionno = 4;
+
+      //stime= startime.toString();
+      //atime = andtime.toString();
+
+      axios
+        .post(
+          "http://localhost:8081/constraint/create",
+          {
+            dayNo: day1,
+            parallelSessionCount: sessioncount,
+            sessionNo: sessionno,
+            startTime: startime,
+            endTime: endtime,
+            presentationDuration: presentationduration,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error.response);
+        });
+
+      sessionno = sessionno + 1;
+       document.getElementById(
+        "author-list-body4"
+      ).innerHTML += `{# of parallel session:${sessioncount}, Start time:${startime}, End time:${endtime}}, `;
+
+      document.getElementById("session4").value = "";
+      document.getElementById("stime4").value = "";
+      document.getElementById("etime4").value = "";
+    },
+    saveArray5: function (event) {
+      console.log("test");
+      let sessioncount = document.getElementById("session5").value;
+      let startime = document.getElementById("stime5").value;
+      let endtime = document.getElementById("etime5").value;
+      let day1 = 5;
+      let presentationduration = "30";
+      let sessionno = 5;
+
+      //stime= startime.toString();
+      //atime = andtime.toString();
+
+      axios
+        .post(
+          "http://localhost:8081/constraint/create",
+          {
+            dayNo: day1,
+            parallelSessionCount: sessioncount,
+            sessionNo: sessionno,
+            startTime: startime,
+            endTime: endtime,
+            presentationDuration: presentationduration,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error.response);
+        });
+
+      sessionno = sessionno + 1;
+
+ document.getElementById(
+        "author-list-body5"
+      ).innerHTML += `{# of parallel session:${sessioncount}, Start time:${startime}, End time:${endtime}}, `;
+
+      document.getElementById("session5").value = "";
+      document.getElementById("stime5").value = "";
+      document.getElementById("etime5").value = "";
+    },
+    goToConstraints() {
+      this.$router.push("/constraints");
+    },
+    goToPapers() {
+      this.$router.push("/papers");
+    },
+    goToHome() {
+      this.$router.push("/");
+    },
+    goToAboutUs() {
+      this.$router.push("/aboutus");
+    },
+  },
 };
 </script>
 
 <style scoped>
 #home-page {
-  background: url("../assets/background/constraint.jpg") no-repeat center center;
+  background: url("../assets/background/pencil.jpg") no-repeat center center;
   -moz-background-size: 100% 100%; /* Firefox 3.6 */
   -o-background-size: 100% 100%; /* Opera 9.5 */
   -webkit-background-size: 100% 100%; /* Safari 3.0, Chrome */
@@ -263,12 +614,8 @@ export default {
   min-height: 100vh;
   opacity: 1;
 }
-
-.buttonsave {
-  
-  position: relative;
-  bottom: -4.5rem;
-  right: -600px;
+.mytitle2 {
+  color: rgb(14, 43, 204);
 }
 .showlist {
   height: 3rem;
@@ -323,5 +670,19 @@ input[type="time"] {
 }
 #nav-bar {
   opacity: 1;
+}
+.welcome-msg {
+  @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+  font-family: "Permanent Marker", cursive;
+  margin: 150px 100px;
+  color: rgb(249, 248, 248);
+  text-decoration: none;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 2px rgb(17, 9, 225), 0 0 25px rgb(15, 15, 10),
+    0 0 5px rgb(250, 250, 250);
+  font-size: 50px;
+}
+.mytitle {
+  color: rgb(218, 4, 4);
 }
 </style>

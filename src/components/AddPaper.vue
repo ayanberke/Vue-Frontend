@@ -42,10 +42,10 @@
 
       <h1 class="welcome-msg">Enter Paper Info</h1>
 
-      <div class=" col-lg-5 mx-auto" >
-        <b-card no-body  body-class="text-center" style="max-width: 800px;"  >
+      <div class="col-lg-5 mx-auto">
+        <b-card no-body body-class="text-center" style="max-width: 800px">
           <b-tabs v-model="tabIndex" pills card align="center" class="mytitle">
-            <b-tab  title="AUTHORS"  :title-link-class="linkClass(0)">
+            <b-tab title="AUTHORS" :title-link-class="linkClass(0)">
               <label> <b style="float: right">Author Name </b></label>
               <input
                 class="form-control"
@@ -55,8 +55,8 @@
                 name="authorname"
                 required
               />
-              <br>
-              <br>
+              <br />
+              <br />
               <label> <b style="float: right">Author Surname </b></label>
               <input
                 class="form-control"
@@ -66,7 +66,7 @@
                 name="authorsurname"
                 required
               />
-              <br>
+              <br />
               <button
                 type="button"
                 class="btn btn-primary btn-lg mb-4"
@@ -77,19 +77,12 @@
               <div class="authorstext">Authors You Have Added:</div>
               <tbody id="author-list-body"></tbody>
               <tbody class="thead-dark">
-                <tr>
-                  
-                  
-                </tr>
+                <tr></tr>
               </tbody>
             </b-tab>
-            <b-tab title="PRESENTER"  :title-link-class="linkClass(1)">
-              <label>
-                <b style="float: right">
-                  Presenter Name
-                </b></label
-              >
-             
+            <b-tab title="PRESENTER" :title-link-class="linkClass(1)">
+              <label> <b style="float: right"> Presenter Name </b></label>
+
               <input
                 class="form-control"
                 aria-describedby="presentername"
@@ -98,13 +91,9 @@
                 name="presentername"
                 required
               />
-              <br>
-              <br>
-              <label>
-                <b style="float: right">
-                  Presenter Surname
-                </b></label
-              >
+              <br />
+              <br />
+              <label> <b style="float: right"> Presenter Surname </b></label>
               <input
                 class="form-control"
                 aria-describedby="presentersurname"
@@ -113,7 +102,7 @@
                 name="presentersurname"
                 required
               />
-              <br>
+              <br />
             </b-tab>
             <b-tab title="TITLE" :title-link-class="linkClass(2)">
               <label> <b style="float: right">Title </b></label>
@@ -125,43 +114,44 @@
                 name="titlename"
                 required
               />
-              <br>
-              <br>
+              <br />
+              <br />
             </b-tab>
 
-            <b-tab title="KEYWORD" :title-link-class="linkClass(3) ">
+            <b-tab title="KEYWORD" :title-link-class="linkClass(3)">
               <label> <b> Select Keywords with CTRL</b> </label>
               <div class="col-sm-15" align="center">
-              <b-form-select
-                v-model="selected"
-                :options="options"
-                multiple
-                :select-size="5"
-                class="mb-5"
-              ></b-form-select>
-              <div class="mt-3">Selected Keywords: <strong>{{ selected }}</strong></div>
-              <br>
-              
+                <b-form-select
+                  v-model="selected"
+                  :options="options"
+                  multiple
+                  :select-size="5"
+                  class="mb-5"
+                ></b-form-select>
+                <div class="mt-3">
+                  Selected Keywords: <strong>{{ selected }}</strong>
+                </div>
+                <br />
               </div>
-            <button
+              <button
                 style="width: 150px"
                 type="submit"
                 id="sbm-btn"
-                class="btn-lg btn-primary "
-                @click="savePapers(); say(); "
+                class="btn-lg btn-primary"
+                @click="
+                  savePapers();
+                  say();
+                "
               >
                 Save Paper
               </button>
-              
             </b-tab>
-            
           </b-tabs>
         </b-card>
-        <br>
+        <br />
       </div>
-      
     </div>
-    
+
     <footer class="bg-light text-center text-lg-start">
       <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0)">
         © 2022 Copyright:
@@ -169,7 +159,6 @@
       </div>
     </footer>
   </div>
-  
 </template>
 
 <script>
@@ -178,7 +167,7 @@ let counter = 0;
 export default {
   data() {
     return {
-      author:[],
+      author: [],
       selected: [""], // Array reference
       options: [
         { value: "Artificial Intelligence", text: "Artificial Intelligence" },
@@ -189,8 +178,8 @@ export default {
         { value: "Mixed-Reality", text: "Mixed-Reality" },
         { value: "Robotics", text: "Robotics" },
         { value: "Science", text: "Science" },
-        { value: "Virtual Reality", text: "Virtual Reality" }
-      ]
+        { value: "Virtual Reality", text: "Virtual Reality" },
+      ],
     };
   },
 
@@ -202,7 +191,7 @@ export default {
         return ["bg-light", "text-info"];
       }
     },
-    say: function() {
+    say: function () {
       if (
         //document.getElementById("authorname").value == "" ||
         //document.getElementById("authorsurname").value == "" ||
@@ -216,31 +205,31 @@ export default {
         return alert("YOUR PAPER IS SAVED!");
       }
     },
-      SaveAuthors(){
+    SaveAuthors() {
       let fname = document.getElementById("authorname").value;
       let sname = document.getElementById("authorsurname").value;
 
       if (
         document.getElementById("authorname").value == "" ||
-        document.getElementById("authorsurname").value == "" 
+        document.getElementById("authorsurname").value == ""
       ) {
         return alert("YOU CAN NOT LEAVE NAME OR SURNAME FIELD EMPTY!");
       }
 
-      document.getElementById("author-list-body").innerHTML +=`${fname} ${sname}, `;
+      document.getElementById(
+        "author-list-body"
+      ).innerHTML += `${fname} ${sname}, `;
 
-      let fullname = fname+sname;
+      let fullname = fname + sname;
 
       this.author.push(fullname);
 
       console.log(this.author);
 
-      document.getElementById("authorname").value = '';
-      document.getElementById("authorsurname").value = '';
-      
-
+      document.getElementById("authorname").value = "";
+      document.getElementById("authorsurname").value = "";
     },
-    addAttendee: function(event) {
+    addAttendee: function (event) {
       event.preventDefault();
       var authorid = "authorname" + counter;
       var presname = "presentername" + counter;
@@ -250,7 +239,7 @@ export default {
         authorName: authorid,
         presenterName: presname,
         titleName: titname,
-        keyword: ""
+        keyword: "",
       });
       this.papers.aName = document.getElementById("authorname").value;
       this.papers.pName = document.getElementById("presentername").value;
@@ -260,11 +249,11 @@ export default {
       counter += 1;
       console.log(counter);
     },
-    savePapers: function(event) {
+    savePapers: function (event) {
       //let author = document.getElementById("authorname").value;
       let presentername = document.getElementById("presentername").value;
       let presentersurname = document.getElementById("presentersurname").value;
-      let presenter = presentername+presentersurname;
+      let presenter = presentername + presentersurname;
       let title = document.getElementById("titlename").value;
       let keywords = this.selected;
 
@@ -278,18 +267,18 @@ export default {
       axios
         .post("http://localhost:8081/paper/create", data, {
           headers: {
-            "Content-Type": "application/json"
-          }
+            "Content-Type": "application/json",
+          },
         })
-        .then(response => {
+        .then((response) => {
           console.log(response);
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error.response);
         });
       window.location.reload();
     },
-    removeAttendee: function(index) {
+    removeAttendee: function (index) {
       this.items.splice(index, 1);
     },
     goToConstraints() {
@@ -303,8 +292,8 @@ export default {
     },
     goToAboutUs() {
       this.$router.push("/aboutus");
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -322,9 +311,9 @@ export default {
 #nav-bar {
   opacity: 1;
 }
-.authorstext{
-  color: brown;
-text-align: left;
+.authorstext {
+  color: rgb(225, 9, 9);
+  text-align: left;
 }
 #icon {
   margin-left: 3px;
@@ -350,7 +339,7 @@ text-align: left;
   top: -5rem;
   right: -80px;
 }
-.mytitle{
+.mytitle {
   color: rgb(14, 43, 204);
 }
 .welcome-msg {
@@ -377,7 +366,7 @@ select {
   font-size: 1rem;
 }
 
-#mytab{
+#mytab {
   background-color: rgb(15, 11, 11);
 }
 </style>

@@ -383,7 +383,7 @@ export default {
 </script>
 <style scoped>
 #home-page {
-  background: url("../assets/background/pencil.jpg") no-repeat center center;
+  background: url("../assets/background/constraint.jpg") no-repeat center center;
   -moz-background-size: 100% 100%; /* Firefox 3.6 */
   -o-background-size: 100% 100%; /* Opera 9.5 */
   -webkit-background-size: 100% 100%; /* Safari 3.0, Chrome */
