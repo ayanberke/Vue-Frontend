@@ -59,11 +59,12 @@
               <thead>
                 <tr>
                   <th scope="col">Day No</th>
-                  <th scope="col">Parallel Session No</th>
-                  <th scope="col">Presentation Duration</th>
                   <th scope="col">Session No</th>
+                  <th scope="col">Parallel Session No</th>
                   <th scope="col">Session Start Time</th>
                   <th scope="col">Session End Time</th>
+                  <th scope="col">Session Duration</th>
+                  <th scope="col">Presentation Duration</th>
                   <td>
                     <button
                       id="button"
@@ -78,11 +79,12 @@
               <tbody>
                 <tr v-for="(paper, index) in papers" :key="index">
                   <td v-text="paper.dayNo"></td>
-                  <td v-text="paper.parallelSessionCount"></td>
-                  <td v-text="paper.presentationDuration"></td>
                   <td v-text="paper.sessionNo"></td>
+                  <td v-text="paper.parallelSessionCount"></td>
                   <td v-text="paper.startTime"></td>
                   <td v-text="paper.endTime"></td>
+                  <td v-text="paper.sessionDuration"></td>
+                  <td v-text="paper.presentationDuration"></td>
                   <td>
                     <button id="button" class="btn btn-secondary btn-dark">
                       Remove
