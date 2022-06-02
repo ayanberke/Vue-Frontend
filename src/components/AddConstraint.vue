@@ -60,6 +60,7 @@
                   placeholder=" Enter a number "
                   id="session1"
                   name="session-1"
+                  autocomplete="off"
                 />
 
                 <br />
@@ -75,6 +76,7 @@
                   name="appt"
                   required
                   id="pduration1"
+                  autocomplete="off"
                 />
 
                 <br />
@@ -87,6 +89,7 @@
                   name="appt"
                   required
                   id="stime1"
+                  autocomplete="off"
                 />
 
                 <br />
@@ -97,6 +100,7 @@
                   type="text"
                   placeholder="Exp = 15:00"
                   id="etime1"
+                  autocomplete="off"
                 />
                 <br />
                 <label>
@@ -133,6 +137,7 @@
                   v-model="parallelsessionCount"
                   id="session2"
                   name="session2"
+                  autocomplete="off"
                 />
                 <br />
 
@@ -147,6 +152,7 @@
                   name="appt"
                   required
                   id="pduration2"
+                  autocomplete="off"
                 />
 
                 <br />
@@ -159,6 +165,7 @@
                   name="appt"
                   required
                   id="stime2"
+                  autocomplete="off"
                 />
                 <br />
 
@@ -168,6 +175,7 @@
                   type="text"
                   placeholder="Exp = 15:00 "
                   id="etime2"
+                  autocomplete="off"
                 />
                 <br />
                 <label>
@@ -204,6 +212,7 @@
                   v-model="parallelsessionCount"
                   id="session3"
                   name="session3"
+                  autocomplete="off"
                 />
                 <br />
 
@@ -218,6 +227,7 @@
                   name="appt"
                   required
                   id="pduration3"
+                  autocomplete="off"
                 />
 
                 <br />
@@ -227,6 +237,7 @@
                   type="text"
                   placeholder="Exp = 13:00"
                   id="stime3"
+                  autocomplete="off"
                 />
                 <br />
 
@@ -236,6 +247,7 @@
                   type="text"
                   placeholder="Exp = 15:00"
                   id="etime3"
+                  autocomplete="off"
                 />
                 <br />
                 <label>
@@ -272,6 +284,7 @@
                   v-model="parallelsessionCount"
                   id="session4"
                   name="session4"
+                  autocomplete="off"
                 />
                 <br />
 
@@ -286,6 +299,7 @@
                   name="appt"
                   required
                   id="pduration4"
+                  autocomplete="off"
                 />
 
                 <br />
@@ -295,6 +309,7 @@
                   type="text"
                   placeholder="Exp = 13:00"
                   id="stime4"
+                  autocomplete="off"
                 />
                 <br />
 
@@ -304,6 +319,7 @@
                   type="text"
                   placeholder="Exp = 15:00"
                   id="etime4"
+                  autocomplete="off"
                 />
                 <br />
                 <label>
@@ -340,6 +356,7 @@
                   v-model="parallelsessionCount"
                   id="session5"
                   name="session5"
+                  autocomplete="off"
                 />
                 <br />
 
@@ -354,6 +371,7 @@
                   name="appt"
                   required
                   id="pduration5"
+                  autocomplete="off"
                 />
 
                 <br />
@@ -364,6 +382,7 @@
                   type="text"
                   placeholder="Exp = 13:00"
                   id="stime5"
+                  autocomplete="off"
                 />
                 <br />
 
@@ -373,6 +392,7 @@
                   type="text"
                   placeholder="Exp = 15:00"
                   id="etime5"
+                  autocomplete="off"
                 />
                 <br />
                 <label>
@@ -421,7 +441,7 @@ export default {
   data() {
     return {
       tabIndex: 0,
-      modalShow: false,
+      modalShow: false
     };
   },
   methods: {
@@ -432,7 +452,7 @@ export default {
         return ["bg-light", "text-info"];
       }
     },
-    saveArray1: function (event) {
+    saveArray1: function(event) {
       console.log("test");
       let sessioncount = document.getElementById("session1").value;
       let startime = document.getElementById("stime1").value;

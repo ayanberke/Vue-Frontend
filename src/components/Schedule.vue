@@ -46,7 +46,10 @@
         <button
           type="button"
           class="btn btn-secondary btn-lg btn-dark mb-4"
-          @click="createPapers"
+          @click="
+            createPapers();
+            say();
+          "
         >
           Optimize
         </button>
@@ -58,6 +61,7 @@
             <tr>
               <th scope="col">Day</th>
               <th scope="col">Session</th>
+              <th scope="col">Parallel Session Number</th>
               <th scope="col">Authors</th>
               <th scope="col">Presenter</th>
               <th scope="col">Title</th>
@@ -70,6 +74,7 @@
             <tr v-for="(paper, index) in papers" :key="index">
               <td v-text="paper.dayNo"></td>
               <td v-text="paper.sessionNo"></td>
+              <td v-text="paper.parallelSessionNo"></td>
               <td v-text="paper.authors"></td>
               <td v-text="paper.presenter"></td>
               <td v-text="paper.title"></td>
@@ -102,32 +107,33 @@ import axios from "axios";
 export default {
   data() {
     return {
-      papers: [],
+      papers: []
     };
   },
   methods: {
+    say() {
+      return alert("OPTIMIZATION IS START!");
+    },
     getPapers() {
-      axios
-        .get("http://localhost:8081/presentation/getAll")
-        .then((response) => {
-          this.papers = response.data;
-        });
+      axios.get("http://localhost:8081/presentation/getAll").then(response => {
+        this.papers = response.data;
+      });
     },
     createPapers() {
       axios.post("http://localhost:8081/presentation/create");
       window.location.reload();
     },
-    deleteAllPresentations: function (event) {
+    deleteAllPresentations: function(event) {
       axios
         .delete("http://localhost:8081/presentation/deleteAll", {
           headers: {
-            "Content-Type": "application/json",
-          },
+            "Content-Type": "application/json"
+          }
         })
-        .then((response) => {
+        .then(response => {
           console.log(response);
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error.response);
         });
       window.location.reload();
@@ -146,11 +152,11 @@ export default {
     },
     goToAboutUs() {
       this.$router.push("/aboutus");
-    },
+    }
   },
   mounted() {
     this.getPapers();
-  },
+  }
 };
 </script>
 <style scoped>

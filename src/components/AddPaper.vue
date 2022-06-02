@@ -43,8 +43,8 @@
       <h1 class="welcome-msg">Enter Paper Info</h1>
 
       <div class="col-lg-5 mx-auto">
-        <b-card no-body >
-          <b-tabs pills card >
+        <b-card no-body>
+          <b-tabs pills card>
             <b-tab title="AUTHORS" active:title-link-class="linkClass(0)">
               <label> <b style="float: right">Author Name </b></label>
               <input
@@ -53,6 +53,7 @@
                 id="authorname"
                 placeholder="Enter a name for the author"
                 name="authorname"
+                autocomplete="off"
                 required
               />
               <br />
@@ -64,6 +65,7 @@
                 id="authorsurname"
                 placeholder="Enter a surname for the author"
                 name="authorsurname"
+                autocomplete="off"
                 required
               />
               <br />
@@ -89,8 +91,10 @@
                 id="presentername"
                 placeholder="Enter a presenter name"
                 name="presentername"
+                autocomplete="off"
                 required
               />
+
               <br />
               <br />
               <label> <b style="float: right"> Presenter Surname </b></label>
@@ -100,8 +104,17 @@
                 id="presentersurname"
                 placeholder="Enter a presenter Surname"
                 name="presentersurname"
+                autocomplete="off"
                 required
               />
+              <br />
+              <!-- <button
+                type="button"
+                class="btn btn-primary btn-lg mb-4"
+                @click="Check"
+              >
+                SAVE PRESENTER
+              </button> -->
               <br />
             </b-tab>
             <b-tab title="TITLE" active:title-link-class="linkClass(2)">
@@ -112,6 +125,7 @@
                 id="titlename"
                 placeholder="Enter title of the paper"
                 name="titlename"
+                autocomplete="off"
                 required
               />
               <br />
@@ -170,16 +184,41 @@ export default {
       author: [],
       selected: [""], // Array reference
       options: [
+        { value: "COMPUTER SCIENCE", text: "COMPUTER SCIENCE", disabled: true },
         { value: "Artificial Intelligence", text: "Artificial Intelligence" },
         { value: "Augmented Reality", text: "Augmented Reality" },
-        { value: "Health", text: "Health" },
+        {
+          value: "Prototyping Mixed Reality",
+          text: "Prototyping Mixed Reality"
+        },
         { value: "Human Interaction", text: "Human Interaction" },
         { value: "Machine Learning", text: "Machine Learning" },
         { value: "Mixed-Reality", text: "Mixed-Reality" },
         { value: "Robotics", text: "Robotics" },
-        { value: "Science", text: "Science" },
-        { value: "Virtual Reality", text: "Virtual Reality" },
-      ],
+        { value: "ECONOMICS", text: "ECONOMICS", disabled: true },
+        {
+          value: "Financial Markets and Institutions",
+          text: "Financial Markets and Institutions"
+        },
+        {
+          value: "Macroeconomic Theory and Policy",
+          text: "Macroeconomic Theory and Policy"
+        },
+        {
+          value: "International Monetary Economics",
+          text: "International Monetary Economics"
+        },
+        { value: "International Finance", text: "International Finance" },
+        {
+          value: "Banking and Financial Intermediation",
+          text: "Banking and Financial Intermediation"
+        },
+        { value: "HEALTH INSURANCE", text: "HEALTH INSURANCE", disabled: true },
+        { value: "Private Health Insurance", text: "Private Health Insurance" },
+        { value: "Health Insurance Plans", text: "Health Insurance Plans" },
+        { value: "United Healthcare", text: "United Healthcare" },
+        { value: "Home Insurance", text: "Home Insurance" }
+      ]
     };
   },
 
@@ -191,7 +230,24 @@ export default {
         return ["bg-light", "text-info"];
       }
     },
-    say: function () {
+    //   Check: function() {
+    //     let presenterName = document.getElementById("presentername").toString();
+    //    let presenterSurname = document.getElementById("presentersurname").toString();
+    //    let authorName = document.getElementById("authorname").toString();
+    //    let authorSurname = document.getElementById("authorsurname").toString();
+    //   let message= "";
+
+    //   if (presenterName+presenterSurname != authorName+authorSurname)
+    //   {
+    //     message= "PRESENTER MUST BE ONE OF THE AUTHOR";
+    //    alert(message);
+    //  }
+    //  {
+    //   message= "PRESENTER IS ONE OF THE AUTHOR PLEASE GO TO NEXT TAB";
+    //    alert(message);
+    //   }
+    // },
+    say: function() {
       if (
         //document.getElementById("authorname").value == "" ||
         //document.getElementById("authorsurname").value == "" ||
@@ -208,7 +264,7 @@ export default {
     SaveAuthors() {
       let fname = document.getElementById("authorname").value;
       let sname = document.getElementById("authorsurname").value;
-
+      let space = " ";
       if (
         document.getElementById("authorname").value == "" ||
         document.getElementById("authorsurname").value == ""
@@ -220,7 +276,7 @@ export default {
         "author-list-body"
       ).innerHTML += `${fname} ${sname}, `;
 
-      let fullname = fname + sname;
+      let fullname = fname + space + sname;
 
       this.author.push(fullname);
 
@@ -229,7 +285,7 @@ export default {
       document.getElementById("authorname").value = "";
       document.getElementById("authorsurname").value = "";
     },
-    addAttendee: function (event) {
+    addAttendee: function(event) {
       event.preventDefault();
       var authorid = "authorname" + counter;
       var presname = "presentername" + counter;
@@ -239,7 +295,7 @@ export default {
         authorName: authorid,
         presenterName: presname,
         titleName: titname,
-        keyword: "",
+        keyword: ""
       });
       this.papers.aName = document.getElementById("authorname").value;
       this.papers.pName = document.getElementById("presentername").value;
@@ -249,11 +305,12 @@ export default {
       counter += 1;
       console.log(counter);
     },
-    savePapers: function (event) {
+    savePapers: function(event) {
       //let author = document.getElementById("authorname").value;
       let presentername = document.getElementById("presentername").value;
       let presentersurname = document.getElementById("presentersurname").value;
-      let presenter = presentername + presentersurname;
+      let space1 = " ";
+      let presenter = presentername + space1 + presentersurname;
       let title = document.getElementById("titlename").value;
       let keywords = this.selected;
 
@@ -267,18 +324,18 @@ export default {
       axios
         .post("http://localhost:8081/paper/create", data, {
           headers: {
-            "Content-Type": "application/json",
-          },
+            "Content-Type": "application/json"
+          }
         })
-        .then((response) => {
+        .then(response => {
           console.log(response);
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error.response);
         });
       window.location.reload();
     },
-    removeAttendee: function (index) {
+    removeAttendee: function(index) {
       this.items.splice(index, 1);
     },
     goToConstraints() {
@@ -292,8 +349,8 @@ export default {
     },
     goToAboutUs() {
       this.$router.push("/aboutus");
-    },
-  },
+    }
+  }
 };
 </script>
 
