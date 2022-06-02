@@ -333,6 +333,7 @@ export default {
         .catch(error => {
           console.log(error.response);
         });
+        this.$router.push("/papers");
       window.location.reload();
     },
     removeAttendee: function(index) {

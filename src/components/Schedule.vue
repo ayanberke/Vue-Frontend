@@ -60,8 +60,8 @@
           <thead>
             <tr>
               <th scope="col">Day</th>
-              <th scope="col">Session</th>
-              <th scope="col">Parallel Session Number</th>
+              <th scope="col">Session No</th>
+              <th scope="col">Parallel Session No</th>
               <th scope="col">Authors</th>
               <th scope="col">Presenter</th>
               <th scope="col">Title</th>
