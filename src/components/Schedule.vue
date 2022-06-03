@@ -44,13 +44,16 @@
           <h1>YOUR OPTIMIZED SCHEDULE</h1>
         </h1>
         <button
+        
           type="button"
           class="btn btn-secondary btn-lg btn-dark mb-4"
+          
           @click="
             createPapers();
             say();
           "
         >
+        
           Optimize
         </button>
       </h1>
@@ -112,7 +115,8 @@ export default {
   },
   methods: {
     say() {
-      return alert("OPTIMIZATION IS START!");
+      return alert("OPTIMIZATION IS STARTED!");
+      
     },
     getPapers() {
       axios.get("http://localhost:8081/presentation/getAll").then(response => {
