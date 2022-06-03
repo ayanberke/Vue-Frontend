@@ -85,10 +85,7 @@
                   <td v-text="paper.endTime"></td>
                   <td v-text="paper.sessionDuration"></td>
                   <td v-text="paper.presentationDuration"></td>
-                  <td>
-                    <button id="button" class="btn btn-secondary btn-dark">
-                      Remove
-                    </button>
+                  <td >
                   </td>
                 </tr>
               </tbody>

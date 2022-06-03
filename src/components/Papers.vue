@@ -67,10 +67,7 @@
               <td v-text="paper.title"></td>
               <td v-text="paper.keyword"></td>
               <td>
-                <button  id="button" class="btn btn-secondary btn-dark"
-                @click="deletePaper">
-                  Remove
-                </button>
+                
               </td>
             </tr>
           </tbody>
