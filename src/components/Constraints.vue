@@ -63,7 +63,6 @@
                   <th scope="col">Parallel Session No</th>
                   <th scope="col">Session Start Time</th>
                   <th scope="col">Session End Time</th>
-                  <th scope="col">Session Duration</th>
                   <th scope="col">Presentation Duration</th>
                   <td>
                     <button
@@ -83,7 +82,6 @@
                   <td v-text="paper.parallelSessionCount"></td>
                   <td v-text="paper.startTime"></td>
                   <td v-text="paper.endTime"></td>
-                  <td v-text="paper.sessionDuration"></td>
                   <td v-text="paper.presentationDuration"></td>
                   <td >
                   </td>
