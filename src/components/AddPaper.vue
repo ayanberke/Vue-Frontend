@@ -139,7 +139,7 @@
                   v-model="selected"
                   :options="options"
                   multiple
-                  :select-size="5"
+                  :select-size="10"
                   class="mb-5"
                 ></b-form-select>
                 <div class="mt-3">
@@ -189,36 +189,83 @@ export default {
         { value: "Augmented Reality", text: "Augmented Reality" },
         {
           value: "Prototyping Mixed Reality",
-          text: "Prototyping Mixed Reality"
+          text: "Prototyping Mixed Reality",
         },
         { value: "Human Interaction", text: "Human Interaction" },
         { value: "Machine Learning", text: "Machine Learning" },
         { value: "Mixed-Reality", text: "Mixed-Reality" },
         { value: "Robotics", text: "Robotics" },
+        { value: "Database", text: "Database" },
+        { value: "CPU", text: "CPU" },
+        { value: "ASCII", text: "ASCII" },
+        { value: "Algorithm", text: "Algorithm" },
+        { value: "Assembly Language", text: "Assembly Language" },
+        { value: "Malware", text: "Malware" },
+        { value: "Web Server", text: "Web Server" },
+        { value: "Network", text: "Network" },
+        { value: "Hacking", text: "Hacking" },
+        { value: "Api", text: "Api" },
+
         { value: "ECONOMICS", text: "ECONOMICS", disabled: true },
         {
           value: "Financial Markets and Institutions",
-          text: "Financial Markets and Institutions"
+          text: "Financial Markets and Institutions",
         },
         {
           value: "Macroeconomic Theory and Policy",
-          text: "Macroeconomic Theory and Policy"
+          text: "Macroeconomic Theory and Policy",
         },
         {
           value: "International Monetary Economics",
-          text: "International Monetary Economics"
+          text: "International Monetary Economics",
         },
         { value: "International Finance", text: "International Finance" },
         {
           value: "Banking and Financial Intermediation",
-          text: "Banking and Financial Intermediation"
+          text: "Banking and Financial Intermediation",
         },
         { value: "HEALTH INSURANCE", text: "HEALTH INSURANCE", disabled: true },
         { value: "Private Health Insurance", text: "Private Health Insurance" },
         { value: "Health Insurance Plans", text: "Health Insurance Plans" },
         { value: "United Healthcare", text: "United Healthcare" },
-        { value: "Home Insurance", text: "Home Insurance" }
-      ]
+        { value: "Home Insurance", text: "Home Insurance" },
+
+        { value: "ART", text: "ART", disabled: true },
+        { value: "Gallery", text: "Gallery" },
+        { value: "Sculpture", text: "Sculpture" },
+        { value: "Oil Painting", text: "Oil Painting" },
+        { value: "Modern Art", text: "Modern Art" },
+        { value: "Artwork", text: "Artwork" },
+
+        { value: "BUSINESS", text: "BUSINESS", disabled: true },
+        { value: "Income", text: "Income" },
+        { value: "Profitability", text: "Profitability" },
+        { value: "Money", text: "Money" },
+        { value: "Business Plan", text: "Business Plan" },
+        { value: "Online Business", text: "Online Business" },
+
+        { value: "ENTERTAINMENT", text: "ENTERTAINMENT", disabled: true },
+        { value: "Intern", text: "Intern" },
+        { value: "Celebrity Movie", text: "Celebrity Movie" },
+        { value: "Breaking News", text: "Breaking News" },
+        
+        { value: "MARKETING", text: "MARKETING", disabled: true },
+        { value: "Pr", text: "Pr" },
+        { value: "Advertisement", text: "Advertisement" },
+        { value: "Marketing strategy", text: "Marketing strategy" },
+        { value: "Online Marketing", text: "Online Marketing" },
+        { value: "Digital Marketing", text: "Digital Marketing" },
+
+        { value: "NUTRITION", text: "NUTRITION", disabled: true },
+        { value: "Fitness", text: "Fitness" },
+        { value: "Health", text: "Health" },
+        { value: "Vitamin", text: "Vitamin" },
+        { value: "Diet", text: "Diet" },
+        { value: "Supplement", text: "Supplement" },
+        { value: "Calories", text: "Calories" },
+        { value: "Dietitian", text: "Dietitian" },
+
+      ],
     };
   },
 
@@ -247,7 +294,7 @@ export default {
     //    alert(message);
     //   }
     // },
-    say: function() {
+    say: function () {
       if (
         //document.getElementById("authorname").value == "" ||
         //document.getElementById("authorsurname").value == "" ||
@@ -285,7 +332,7 @@ export default {
       document.getElementById("authorname").value = "";
       document.getElementById("authorsurname").value = "";
     },
-    addAttendee: function(event) {
+    addAttendee: function (event) {
       event.preventDefault();
       var authorid = "authorname" + counter;
       var presname = "presentername" + counter;
@@ -295,7 +342,7 @@ export default {
         authorName: authorid,
         presenterName: presname,
         titleName: titname,
-        keyword: ""
+        keyword: "",
       });
       this.papers.aName = document.getElementById("authorname").value;
       this.papers.pName = document.getElementById("presentername").value;
@@ -305,7 +352,7 @@ export default {
       counter += 1;
       console.log(counter);
     },
-    savePapers: function(event) {
+    savePapers: function (event) {
       //let author = document.getElementById("authorname").value;
       let presentername = document.getElementById("presentername").value;
       let presentersurname = document.getElementById("presentersurname").value;
@@ -324,19 +371,19 @@ export default {
       axios
         .post("http://localhost:8081/paper/create", data, {
           headers: {
-            "Content-Type": "application/json"
-          }
+            "Content-Type": "application/json",
+          },
         })
-        .then(response => {
+        .then((response) => {
           console.log(response);
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error.response);
         });
-        this.$router.push("/papers");
+      this.$router.push("/papers");
       window.location.reload();
     },
-    removeAttendee: function(index) {
+    removeAttendee: function (index) {
       this.items.splice(index, 1);
     },
     goToConstraints() {
@@ -350,8 +397,8 @@ export default {
     },
     goToAboutUs() {
       this.$router.push("/aboutus");
-    }
-  }
+    },
+  },
 };
 </script>
 
