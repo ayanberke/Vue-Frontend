@@ -105,12 +105,12 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(paper, index) in papers" :key="index">
-                  <td v-text="paper.dayNo"></td>
-                  <td v-text="paper.dayStart"></td>
-                  <td v-text="paper.dayEnd"></td>
-                  <td v-text="paper.sessionCount"></td>
-                  <td v-text="paper.sessionDuration"></td>
+                <tr v-for="(info, index) in infos" :key="index">
+                  <td v-text="info.dayNo"></td>
+                  <td v-text="info.dayStart"></td>
+                  <td v-text="info.dayEnd"></td>
+                  <td v-text="info.sessionCount"></td>
+                  <td v-text="info.sessionDuration"></td>
                 </tr>
               </tbody>
             </table>
@@ -139,6 +139,7 @@ export default {
       tabIndex: 0,
       modalShow: false,
       papers: [],
+      infos:[]
     };
   },
   mounted() {
@@ -153,7 +154,7 @@ export default {
     },
     getInfo() {
       axios.get("http://localhost:8081/info/getAll").then((response) => {
-        this.papers = response.data;
+        this.infos = response.data;
       });
     },
     deleteAllConstraints: function (event) {
