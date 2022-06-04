@@ -168,7 +168,7 @@
 
     <footer class="bg-light text-center text-lg-start">
       <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0)">
-        © 2022 Copyright:
+        Â© 2022 Copyright:
         <a class="text-dark" href="https://confy.com/">confy.com</a>
       </div>
     </footer>
@@ -189,7 +189,7 @@ export default {
         { value: "Augmented Reality", text: "Augmented Reality" },
         {
           value: "Prototyping Mixed Reality",
-          text: "Prototyping Mixed Reality",
+          text: "Prototyping Mixed Reality"
         },
         { value: "Human Interaction", text: "Human Interaction" },
         { value: "Machine Learning", text: "Machine Learning" },
@@ -209,20 +209,20 @@ export default {
         { value: "ECONOMICS", text: "ECONOMICS", disabled: true },
         {
           value: "Financial Markets and Institutions",
-          text: "Financial Markets and Institutions",
+          text: "Financial Markets and Institutions"
         },
         {
           value: "Macroeconomic Theory and Policy",
-          text: "Macroeconomic Theory and Policy",
+          text: "Macroeconomic Theory and Policy"
         },
         {
           value: "International Monetary Economics",
-          text: "International Monetary Economics",
+          text: "International Monetary Economics"
         },
         { value: "International Finance", text: "International Finance" },
         {
           value: "Banking and Financial Intermediation",
-          text: "Banking and Financial Intermediation",
+          text: "Banking and Financial Intermediation"
         },
         { value: "HEALTH INSURANCE", text: "HEALTH INSURANCE", disabled: true },
         { value: "Private Health Insurance", text: "Private Health Insurance" },
@@ -263,8 +263,8 @@ export default {
         { value: "Diet", text: "Diet" },
         { value: "Supplement", text: "Supplement" },
         { value: "Calories", text: "Calories" },
-        { value: "Dietitian", text: "Dietitian" },
-      ],
+        { value: "Dietitian", text: "Dietitian" }
+      ]
     };
   },
 
@@ -287,16 +287,16 @@ export default {
     //   {
     //     message= "PRESENTER MUST BE ONE OF THE AUTHOR";
     //    alert(message);
-    //  }
+    //  }Ã§
     //  {
     //   message= "PRESENTER IS ONE OF THE AUTHOR PLEASE GO TO NEXT TAB";
     //    alert(message);
     //   }
     // },
-    say: function () {
+    say: function() {
       if (
-        //document.getElementById("authorname").value == "" ||
-        //document.getElementById("authorsurname").value == "" ||
+        document.getElementById("authorname").value == "" ||
+        document.getElementById("authorsurname").value == "" ||
         document.getElementById("presentername").value == "" ||
         document.getElementById("presentersurname").value == "" ||
         document.getElementById("tittlename").value == "" ||
@@ -331,7 +331,7 @@ export default {
       document.getElementById("authorname").value = "";
       document.getElementById("authorsurname").value = "";
     },
-    addAttendee: function (event) {
+    addAttendee: function(event) {
       event.preventDefault();
       var authorid = "authorname" + counter;
       var presname = "presentername" + counter;
@@ -341,7 +341,7 @@ export default {
         authorName: authorid,
         presenterName: presname,
         titleName: titname,
-        keyword: "",
+        keyword: ""
       });
       this.papers.aName = document.getElementById("authorname").value;
       this.papers.pName = document.getElementById("presentername").value;
@@ -351,7 +351,7 @@ export default {
       counter += 1;
       console.log(counter);
     },
-    savePapers: function (event) {
+    savePapers: function(event) {
       //let author = document.getElementById("authorname").value;
       let presentername = document.getElementById("presentername").value;
       let presentersurname = document.getElementById("presentersurname").value;
@@ -362,7 +362,7 @@ export default {
 
       const paperValues = new Object();
       paperValues.author = this.author.toString();
-      paperValues.presenter = presenter;
+      paperValues.presenter = presenter.toString();
       paperValues.title = title;
       paperValues.keyword = keywords.toString();
       let data = JSON.stringify(paperValues);
@@ -370,19 +370,19 @@ export default {
       axios
         .post("http://localhost:8081/paper/create", data, {
           headers: {
-            "Content-Type": "application/json",
-          },
+            "Content-Type": "application/json"
+          }
         })
-        .then((response) => {
+        .then(response => {
           console.log(response);
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error.response);
         });
       this.$router.push("/papers");
       window.location.reload();
     },
-    removeAttendee: function (index) {
+    removeAttendee: function(index) {
       this.items.splice(index, 1);
     },
     goToConstraints() {
@@ -396,8 +396,8 @@ export default {
     },
     goToAboutUs() {
       this.$router.push("/aboutus");
-    },
-  },
+    }
+  }
 };
 </script>
 

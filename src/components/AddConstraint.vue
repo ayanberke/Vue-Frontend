@@ -119,8 +119,8 @@
                     Save the Day Info
                   </button>
                 </div>
-                <br>
-                <br>
+                <br />
+                <br />
                 <label>
                   <b style="float: right">Number of Parallel Sessions</b>
                 </label>
@@ -264,8 +264,8 @@
                     Save the Day Info
                   </button>
                 </div>
-                <br>
-                <br>
+                <br />
+                <br />
                 <label>
                   <b style="float: right">Number of Parallel Sessions</b>
                 </label>
@@ -273,7 +273,6 @@
                   class="form-control"
                   type="text"
                   placeholder=" Enter a number"
-                  v-model="parallelsessionCount"
                   id="session2"
                   name="session2"
                   autocomplete="off"
@@ -396,7 +395,6 @@
                   name="sessionduration_3"
                   v-model="sessionduration_3"
                   id="sessionduration_3"
-                  
                   autocomplete="off"
                 />
                 <br />
@@ -409,8 +407,8 @@
                     Save the Day Info
                   </button>
                 </div>
-                <br>
-                <br>
+                <br />
+                <br />
                 <label>
                   <b style="float: right">Number of Parallel Sessions</b>
                 </label>
@@ -418,7 +416,6 @@
                   class="form-control"
                   type="text"
                   placeholder=" Enter a number "
-                  v-model="parallelsessionCount"
                   id="session3"
                   name="session3"
                   autocomplete="off"
@@ -529,7 +526,6 @@
                 />
 
                 <br />
-                
 
                 <label> <b style="float: right">Session Duration </b> </label>
                 <input
@@ -551,8 +547,8 @@
                     Save the Day Info
                   </button>
                 </div>
-                <br>
-                <br>
+                <br />
+                <br />
                 <label>
                   <b style="float: right">Number of Parallel Sessions</b>
                 </label>
@@ -560,7 +556,6 @@
                   class="form-control"
                   type="text"
                   placeholder=" Enter a number "
-                  v-model="parallelsessionCount"
                   id="session4"
                   name="session4"
                   autocomplete="off"
@@ -671,7 +666,6 @@
                 />
 
                 <br />
-                
 
                 <label> <b style="float: right">Session Duration </b> </label>
                 <input
@@ -693,8 +687,8 @@
                     Save the Day Info
                   </button>
                 </div>
-                <br>
-                <br>
+                <br />
+                <br />
                 <label>
                   <b style="float: right">Number of Parallel Sessions</b>
                 </label>
@@ -702,7 +696,6 @@
                   class="form-control"
                   type="text"
                   placeholder=" Enter a number "
-                  v-model="parallelsessionCount"
                   id="session5"
                   name="session5"
                   autocomplete="off"
@@ -823,8 +816,7 @@ export default {
             sessionNo: sessionno,
             startTime: startime,
             endTime: endtime,
-            presentationDuration: presentationduration,
-            
+            presentationDuration: presentationduration
           },
           {
             headers: {
@@ -843,13 +835,12 @@ export default {
 
       document.getElementById(
         "author-list-body"
-      ).innerHTML += `{Session ${sessionno} : # of parallel session:${sessioncount}, Presentation duration:${presentationduration}, Start time:${startime}, End time:${endtime}} `;
+      ).innerHTML += `<b> Session: </b> ${sessionno} , <b> # of parallel session: </b> ${sessioncount}, <b> Presentation duration: </b> ${presentationduration}, <b> Start time: </b> ${startime}, <b> End time: </b> ${endtime} `;
 
       document.getElementById("session1").value = "";
       document.getElementById("stime1").value = "";
       document.getElementById("etime1").value = "";
       document.getElementById("pduration1").value = "";
-
     },
     saveArray2: function(event) {
       console.log("test");
@@ -857,11 +848,10 @@ export default {
       let startime = document.getElementById("stime2").value;
       let endtime = document.getElementById("etime2").value;
       let presentationduration = document.getElementById("pduration2").value;
-      
+
       let day1 = 2;
       let sessionno = 2;
 
-    
       axios
         .post(
           "http://localhost:8081/constraint/create",
@@ -871,8 +861,7 @@ export default {
             sessionNo: sessionno,
             startTime: startime,
             endTime: endtime,
-            presentationDuration: presentationduration,
-            
+            presentationDuration: presentationduration
           },
           {
             headers: {
@@ -890,25 +879,22 @@ export default {
       sessionno = sessionno + 1;
 
       document.getElementById(
-        "author-list-body"
-      ).innerHTML += `{Session ${sessionno} : # of parallel session:${sessioncount}, Presentation duration:${presentationduration}, Start time:${startime}, End time:${endtime}} `;
+        "author-list-body2"
+      ).innerHTML += `<b> Session: </b> ${sessionno} , <b> # of parallel session: </b> ${sessioncount}, <b> Presentation duration: </b> ${presentationduration}, <b> Start time: </b> ${startime}, <b> End time: </b> ${endtime}`;
 
       document.getElementById("session2").value = "";
       document.getElementById("stime2").value = "";
       document.getElementById("etime2").value = "";
       document.getElementById("pduration2").value = "";
-
-
     },
     saveArray3: function(event) {
       console.log("test");
       let sessioncount = document.getElementById("session3").value;
       let startime = document.getElementById("stime3").value;
       let endtime = document.getElementById("etime3").value;
-      let presentationduration = document.getElementById("pduration3").value;    
+      let presentationduration = document.getElementById("pduration3").value;
       let day1 = 3;
       let sessionno = 3;
-
 
       axios
         .post(
@@ -919,8 +905,7 @@ export default {
             sessionNo: sessionno,
             startTime: startime,
             endTime: endtime,
-            presentationDuration: presentationduration,
-            
+            presentationDuration: presentationduration
           },
           {
             headers: {
@@ -938,14 +923,13 @@ export default {
       sessionno = sessionno + 1;
 
       document.getElementById(
-        "author-list-body"
-      ).innerHTML += `{Session ${sessionno} : # of parallel session:${sessioncount}, Presentation duration:${presentationduration}, Start time:${startime}, End time:${endtime}} `;
+        "author-list-body3"
+      ).innerHTML += `<b> Session: </b> ${sessionno} , <b> # of parallel session: </b> ${sessioncount}, <b> Presentation duration: </b> ${presentationduration}, <b> Start time: </b> ${startime}, <b> End time: </b> ${endtime} `;
 
       document.getElementById("session3").value = "";
       document.getElementById("stime3").value = "";
       document.getElementById("etime3").value = "";
       document.getElementById("pduration3").value = "";
-
     },
     saveArray4: function(event) {
       console.log("test");
@@ -953,10 +937,9 @@ export default {
       let startime = document.getElementById("stime4").value;
       let endtime = document.getElementById("etime4").value;
       let presentationduration = document.getElementById("pduration4").value;
-   
+
       let day1 = 4;
       let sessionno = 4;
-
 
       axios
         .post(
@@ -967,8 +950,7 @@ export default {
             sessionNo: sessionno,
             startTime: startime,
             endTime: endtime,
-            presentationDuration: presentationduration,
-           
+            presentationDuration: presentationduration
           },
           {
             headers: {
@@ -984,15 +966,14 @@ export default {
         });
 
       sessionno = sessionno + 1;
-   document.getElementById(
-        "author-list-body"
-      ).innerHTML += `{Session ${sessionno} : # of parallel session:${sessioncount}, Presentation duration:${presentationduration}, Start time:${startime}, End time:${endtime}} `;
+      document.getElementById(
+        "author-list-body4"
+      ).innerHTML += ` <b> Session: </b> ${sessionno} , <b> # of parallel session: </b> ${sessioncount}, <b> Presentation duration: </b> ${presentationduration}, <b> Start time: </b> ${startime}, <b> End time:${endtime} </b> `;
 
       document.getElementById("session4").value = "";
       document.getElementById("stime4").value = "";
       document.getElementById("etime4").value = "";
       document.getElementById("pduration4").value = "";
-
     },
     saveArray5: function(event) {
       console.log("test");
@@ -1004,7 +985,6 @@ export default {
       let day1 = 5;
       let sessionno = 5;
 
-
       axios
         .post(
           "http://localhost:8081/constraint/create",
@@ -1014,8 +994,7 @@ export default {
             sessionNo: sessionno,
             startTime: startime,
             endTime: endtime,
-            presentationDuration: presentationduration,
-            
+            presentationDuration: presentationduration
           },
           {
             headers: {
@@ -1033,15 +1012,13 @@ export default {
       sessionno = sessionno + 1;
 
       document.getElementById(
-        "author-list-body"
-      ).innerHTML += `{Session ${sessionno} : # of parallel session:${sessioncount}, Presentation duration:${presentationduration}, Start time:${startime}, End time:${endtime}} `;
+        "author-list-body5"
+      ).innerHTML += `<b> Session: </b> ${sessionno} , <b> # of parallel session: </b> ${sessioncount}, <b> Presentation duration: </b> ${presentationduration}, <b> Start time: </b> ${startime}, <b> End time: </b> ${endtime}`;
 
       document.getElementById("session5").value = "";
       document.getElementById("stime5").value = "";
       document.getElementById("etime5").value = "";
       document.getElementById("pduration5").value = "";
-
-
     },
     goToConstraints() {
       this.$router.push("/constraints");
@@ -1055,14 +1032,13 @@ export default {
     goToAboutUs() {
       this.$router.push("/aboutus");
     },
-    saveinfo1: function (event) {
-     
+    saveinfo1: function(event) {
       let dayStart = document.getElementById("daystarttime_1").value;
       let dayEnd = document.getElementById("dayendtime_1").value;
       let sessionCount = document.getElementById("totalsessionnumber_1").value;
       let sessionDuration = document.getElementById("sessionduration_1").value;
       let day1 = 1;
-    
+
       axios
         .post(
           "http://localhost:8081/info/create",
@@ -1071,7 +1047,7 @@ export default {
             dayStart: dayStart,
             dayEnd: dayEnd,
             sessionCount: sessionCount,
-            sessionDuration: sessionDuration,
+            sessionDuration: sessionDuration
           },
           {
             headers: {
@@ -1086,21 +1062,18 @@ export default {
           console.log(error.response);
         });
 
-      
       document.getElementById("daystarttime_1").disabled = true;
       document.getElementById("dayendtime_1").disabled = true;
       document.getElementById("totalsessionnumber_1").disabled = true;
       document.getElementById("sessionduration_1").disabled = true;
-      
     },
-    saveinfo2: function (event) {
-     
+    saveinfo2: function(event) {
       let dayStart = document.getElementById("daystarttime_2").value;
       let dayEnd = document.getElementById("dayendtime_2").value;
       let sessionCount = document.getElementById("totalsessionnumber_2").value;
       let sessionDuration = document.getElementById("sessionduration_2").value;
       let day1 = 2;
-    
+
       axios
         .post(
           "http://localhost:8081/info/create",
@@ -1109,7 +1082,7 @@ export default {
             dayStart: dayStart,
             dayEnd: dayEnd,
             sessionCount: sessionCount,
-            sessionDuration: sessionDuration,
+            sessionDuration: sessionDuration
           },
           {
             headers: {
@@ -1124,22 +1097,18 @@ export default {
           console.log(error.response);
         });
 
-
-    
       document.getElementById("daystarttime_2").disabled = true;
       document.getElementById("dayendtime_2").disabled = true;
       document.getElementById("totalsessionnumber_2").disabled = true;
       document.getElementById("sessionduration_2").disabled = true;
-      
     },
-    saveinfo3: function (event) {
-     
+    saveinfo3: function(event) {
       let dayStart = document.getElementById("daystarttime_3").value;
       let dayEnd = document.getElementById("dayendtime_3").value;
       let sessionCount = document.getElementById("totalsessionnumber_3").value;
       let sessionDuration = document.getElementById("sessionduration_3").value;
       let day1 = 3;
-    
+
       axios
         .post(
           "http://localhost:8081/info/create",
@@ -1148,7 +1117,7 @@ export default {
             dayStart: dayStart,
             dayEnd: dayEnd,
             sessionCount: sessionCount,
-            sessionDuration: sessionDuration,
+            sessionDuration: sessionDuration
           },
           {
             headers: {
@@ -1163,22 +1132,18 @@ export default {
           console.log(error.response);
         });
 
-
-     
       document.getElementById("daystarttime_3").disabled = true;
       document.getElementById("dayendtime_3").disabled = true;
       document.getElementById("totalsessionnumber_3").disabled = true;
       document.getElementById("sessionduration_3").disabled = true;
-      
     },
-    saveinfo4: function (event) {
-     
+    saveinfo4: function(event) {
       let dayStart = document.getElementById("daystarttime_4").value;
       let dayEnd = document.getElementById("dayendtime_4").value;
       let sessionCount = document.getElementById("totalsessionnumber_4").value;
       let sessionDuration = document.getElementById("sessionduration_4").value;
       let day1 = 4;
-    
+
       axios
         .post(
           "http://localhost:8081/info/create",
@@ -1187,7 +1152,7 @@ export default {
             dayStart: dayStart,
             dayEnd: dayEnd,
             sessionCount: sessionCount,
-            sessionDuration: sessionDuration,
+            sessionDuration: sessionDuration
           },
           {
             headers: {
@@ -1201,22 +1166,19 @@ export default {
         .catch(error => {
           console.log(error.response);
         });
-
 
       document.getElementById("daystarttime_4").disabled = true;
       document.getElementById("dayendtime_4").disabled = true;
       document.getElementById("totalsessionnumber_4").disabled = true;
       document.getElementById("sessionduration_4").disabled = true;
-      
     },
-    saveinfo5: function (event) {
-     
+    saveinfo5: function(event) {
       let dayStart = document.getElementById("daystarttime_5").value;
       let dayEnd = document.getElementById("dayendtime_5").value;
       let sessionCount = document.getElementById("totalsessionnumber_5").value;
       let sessionDuration = document.getElementById("sessionduration_5").value;
       let day1 = 5;
-    
+
       axios
         .post(
           "http://localhost:8081/info/create",
@@ -1225,7 +1187,7 @@ export default {
             dayStart: dayStart,
             dayEnd: dayEnd,
             sessionCount: sessionCount,
-            sessionDuration: sessionDuration,
+            sessionDuration: sessionDuration
           },
           {
             headers: {
@@ -1240,13 +1202,11 @@ export default {
           console.log(error.response);
         });
 
-
       document.getElementById("daystarttime_5").disabled = true;
       document.getElementById("dayendtime_5").disabled = true;
       document.getElementById("totalsessionnumber_5").disabled = true;
       document.getElementById("sessionduration_5").disabled = true;
-      
-    },
+    }
   }
 };
 </script>

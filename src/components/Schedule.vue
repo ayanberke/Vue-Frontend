@@ -44,16 +44,13 @@
           <h1>YOUR OPTIMIZED SCHEDULE</h1>
         </h1>
         <button
-        
           type="button"
           class="btn btn-secondary btn-lg btn-dark mb-4"
-          
           @click="
             createPapers();
             say();
           "
         >
-        
           Optimize
         </button>
       </h1>
@@ -74,16 +71,16 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(presentation, index) in presentations" :key="index">
-              <td v-text="presentation.dayNo"></td>
-              <td v-text="presentation.sessionNo"></td>
-              <td v-text="presentation.parallelSessionNo"></td>
-              <td v-text="presentation.authors"></td>
-              <td v-text="presentation.presenter"></td>
-              <td v-text="presentation.title"></td>
-              <td v-text="presentation.keywords"></td>
-              <td v-text="presentation.start_time"></td>
-              <td v-text="presentation.end_time"></td>
+            <tr v-for="(paper, index) in papers" :key="index">
+              <td v-text="paper.dayNo"></td>
+              <td v-text="paper.sessionNo"></td>
+              <td v-text="paper.parallelSessionNo"></td>
+              <td v-text="paper.authors"></td>
+              <td v-text="paper.presenter"></td>
+              <td v-text="paper.title"></td>
+              <td v-text="paper.keywords"></td>
+              <td v-text="paper.start_time"></td>
+              <td v-text="paper.end_time"></td>
             </tr>
           </tbody>
         </table>
@@ -110,17 +107,16 @@ import axios from "axios";
 export default {
   data() {
     return {
-      presentations: []
+      papers: []
     };
   },
   methods: {
     say() {
       return alert("OPTIMIZATION IS STARTED!");
-      
     },
     getPapers() {
       axios.get("http://localhost:8081/presentation/getAll").then(response => {
-        this.presentations = response.data;
+        this.papers = response.data;
       });
     },
     createPapers() {
