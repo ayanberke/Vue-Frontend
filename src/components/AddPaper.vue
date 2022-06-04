@@ -168,7 +168,7 @@
 
     <footer class="bg-light text-center text-lg-start">
       <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0)">
-        Â© 2022 Copyright:
+        © 2022 Copyright:
         <a class="text-dark" href="https://confy.com/">confy.com</a>
       </div>
     </footer>
