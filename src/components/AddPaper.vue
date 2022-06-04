@@ -295,8 +295,8 @@ export default {
     // },
     say: function() {
       if (
-        document.getElementById("authorname").value == "" ||
-        document.getElementById("authorsurname").value == "" ||
+       // document.getElementById("authorname").value == "" ||
+       // document.getElementById("authorsurname").value == "" ||
         document.getElementById("presentername").value == "" ||
         document.getElementById("presentersurname").value == "" ||
         document.getElementById("tittlename").value == "" ||
