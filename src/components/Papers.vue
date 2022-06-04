@@ -25,25 +25,41 @@
               <a href="#" class="nav-item nav-link active" @click="goToPapers">
                 <b>Paper List</b>
               </a>
-              <a href="#" class="nav-item nav-link active" @click="goToConstraints">
+              <a
+                href="#"
+                class="nav-item nav-link active"
+                @click="goToConstraints"
+              >
                 <b>Constraints</b>
               </a>
-              <a href="#" class="nav-item nav-link active" @click="goToAboutUs"> <b>About Us</b> </a>
+              <a href="#" class="nav-item nav-link active" @click="goToAboutUs">
+                <b>About Us</b>
+              </a>
             </div>
           </div>
         </div>
       </nav>
 
-      <h1 >
+      <h1>
         <h1 class="Paperlist-msg">Paper List</h1>
-        <button
+        <div>
+          <button
             type="button"
-            class="btn btn-secondary btn-lg btn-dark mb-4"
+            class="btn btn-secondary btn-lg btn-dark"
             @click="goToAddPaperPage"
           >
             Add Paper
           </button>
+          <button
+            id="button"
+            class="btn btn-secondary btn-lg btn-dark mx-5"
+            @click="deleteAllPapers"
+          >
+            Clear Papers
+          </button>
+        </div>
       </h1>
+      <br>
 
       <div class="container">
         <table class="table table-light table-bordered">
@@ -53,11 +69,6 @@
               <th scope="col">Presenter</th>
               <th scope="col">Title</th>
               <th scope="col">Keywords</th>
-              <td>
-                <button id="button" class="btn btn-secondary btn-dark" @click="deleteAllPapers">
-                  Remove All
-                </button>
-              </td>
             </tr>
           </thead>
           <tbody>
@@ -66,19 +77,14 @@
               <td v-text="paper.presenter"></td>
               <td v-text="paper.title"></td>
               <td v-text="paper.keyword"></td>
-              <td>
-                
-              </td>
             </tr>
           </tbody>
         </table>
-        
-        <div class="buttonadd" id="add">
-          
-        </div>
+
+        <div class="buttonadd" id="add"></div>
       </div>
     </div>
-          <footer class="bg-light text-center text-lg-start">
+    <footer class="bg-light text-center text-lg-start">
       <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0)">
         © 2022 Copyright:
         <a class="text-dark" href="https://confy.com/">confy.com</a>
@@ -96,58 +102,59 @@ export default {
     };
   },
   methods: {
-    deleteAllPapers: function(event) {
-     axios
-        .delete('http://localhost:8081/paper/deleteAll',{
-        headers:{
-        'Content-Type': 'application/json'
-        }})
-        .then(response => {
+    deleteAllPapers: function (event) {
+      axios
+        .delete("http://localhost:8081/paper/deleteAll", {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+        .then((response) => {
           console.log(response);
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error.response);
         });
-        window.location.reload();
+      window.location.reload();
     },
     getPapers() {
       axios.get("http://localhost:8081/paper/getAll").then((response) => {
         this.papers = response.data;
       });
     },
-    deletePaper: function(event) {
-    let author= document.getElementById("authorname").value;
-    let presenter = document.getElementById("presentername").value;
-    let title = document.getElementById("titlename").value;
-    let keywords = this.selected;
+    deletePaper: function (event) {
+      let author = document.getElementById("authorname").value;
+      let presenter = document.getElementById("presentername").value;
+      let title = document.getElementById("titlename").value;
+      let keywords = this.selected;
 
-    const paperValues = new Object();
-    paperValues.author = author;
-    paperValues.presenter = presenter;
-    paperValues.title = title;
-    paperValues.keyword = keywords.toString(); 
-    let data = JSON.stringify(paperValues);
-    console.log(data);
-     axios
-        .delete('http://localhost:8081/paper/deleteByTitle', data,{
-        headers:{
-        'Content-Type': 'application/json'
-        }})
-        .then(response => {
+      const paperValues = new Object();
+      paperValues.author = author;
+      paperValues.presenter = presenter;
+      paperValues.title = title;
+      paperValues.keyword = keywords.toString();
+      let data = JSON.stringify(paperValues);
+      console.log(data);
+      axios
+        .delete("http://localhost:8081/paper/deleteByTitle", data, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+        .then((response) => {
           console.log(response);
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error.response);
         });
-        window.location.reload();
+      window.location.reload();
     },
 
     goToConstraints() {
       this.$router.push("/constraints");
     },
-    goToPapers(){
-      this.$router.push('/papers');
-
+    goToPapers() {
+      this.$router.push("/papers");
     },
     goToAddPaperPage() {
       this.$router.push("/addpaper");

@@ -44,7 +44,7 @@
 
       <div class="col-lg-5 mx-auto">
         <b-card no-body>
-          <b-tabs pills card>
+          <b-tabs pills card align="center">
             <b-tab title="AUTHORS" active:title-link-class="linkClass(0)">
               <label> <b style="float: right">Author Name </b></label>
               <input
@@ -248,7 +248,7 @@ export default {
         { value: "Intern", text: "Intern" },
         { value: "Celebrity Movie", text: "Celebrity Movie" },
         { value: "Breaking News", text: "Breaking News" },
-        
+
         { value: "MARKETING", text: "MARKETING", disabled: true },
         { value: "Pr", text: "Pr" },
         { value: "Advertisement", text: "Advertisement" },
@@ -264,7 +264,6 @@ export default {
         { value: "Supplement", text: "Supplement" },
         { value: "Calories", text: "Calories" },
         { value: "Dietitian", text: "Dietitian" },
-
       ],
     };
   },

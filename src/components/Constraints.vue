@@ -44,13 +44,22 @@
       <section class="search-sec">
         <h1>
           <h1 class="Paperlist-msg">Constraint List</h1>
-          <button
-            type="button"
-            class="btn btn-secondary btn-lg btn-dark"
-            @click="goToAddConstraintPage"
-          >
-            Add Constraint
-          </button>
+          <div>
+            <button
+              type="button"
+              class="btn btn-secondary btn-lg btn-dark"
+              @click="goToAddConstraintPage"
+            >
+              Add Constraint
+            </button>
+            <button
+              id="button"
+              class="btn btn-secondary btn-lg btn-dark mx-5"
+              @click="deleteAllConstraints"
+            >
+              Clear Constraints
+            </button>
+          </div>
         </h1>
 
         <div class="container">
@@ -64,15 +73,6 @@
                   <th scope="col">Session Start Time</th>
                   <th scope="col">Session End Time</th>
                   <th scope="col">Presentation Duration</th>
-                  <td>
-                    <button
-                      id="button"
-                      class="btn btn-secondary btn-dark"
-                      @click="deleteAllConstraints"
-                    >
-                      Remove All
-                    </button>
-                  </td>
                 </tr>
               </thead>
               <tbody>
@@ -83,8 +83,34 @@
                   <td v-text="paper.startTime"></td>
                   <td v-text="paper.endTime"></td>
                   <td v-text="paper.presentationDuration"></td>
-                  <td >
-                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="buttonadd" id="add"></div>
+          </div>
+        </div>
+        <br />
+        <br />
+
+        <div class="container">
+          <div class="row">
+            <table class="table table-light table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">Day No</th>
+                  <th scope="col">Day Start Time</th>
+                  <th scope="col">Day End Time</th>
+                  <th scope="col">Total # of Sessions</th>
+                  <th scope="col">Duration of Sessions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(paper, index) in papers" :key="index">
+                  <td v-text="paper.dayNo"></td>
+                  <td v-text="paper.dayStart"></td>
+                  <td v-text="paper.dayEnd"></td>
+                  <td v-text="paper.sessionCount"></td>
+                  <td v-text="paper.sessionDuration"></td>
                 </tr>
               </tbody>
             </table>
@@ -92,7 +118,6 @@
           </div>
         </div>
       </section>
-      
     </div>
     <footer class="bg-light text-center text-lg-start">
       <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0)">
@@ -118,10 +143,16 @@ export default {
   },
   mounted() {
     this.getConstraints();
+    this.getInfo();
   },
   methods: {
     getConstraints() {
       axios.get("http://localhost:8081/constraint/getAll").then((response) => {
+        this.papers = response.data;
+      });
+    },
+    getInfo() {
+      axios.get("http://localhost:8081/info/getAll").then((response) => {
         this.papers = response.data;
       });
     },
@@ -138,8 +169,23 @@ export default {
         .catch((error) => {
           console.log(error.response);
         });
+
+      axios
+        .delete("http://localhost:8081/info/deleteAll", {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error.response);
+        });
+
       window.location.reload();
     },
+
     goToPapers() {
       this.$router.push("/papers");
     },
@@ -165,216 +211,6 @@ export default {
         return ["bg-light", "text-info"];
       }
     },
-    saveArray1: function (event) {
-      console.log("test");
-      let sessioncount = document.getElementById("session1").value;
-      let startime = document.getElementById("stime1").value;
-      let endtime = document.getElementById("etime1").value;
-      let day1 = 1;
-      let presentationduration = "30";
-      let sessionno = 1;
-
-      //stime= startime.toString();
-      //atime = andtime.toString();
-
-      axios
-        .post(
-          "http://localhost:8081/constraint/create",
-          {
-            dayNo: day1,
-            parallelSessionCount: sessioncount,
-            sessionNo: sessionno,
-            startTime: startime,
-            endTime: endtime,
-            presentationDuration: presentationduration,
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        )
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error.response);
-        });
-
-      sessionno = sessionno + 1;
-
-      document.getElementById("session1").value = "";
-      document.getElementById("stime1").value = "";
-      document.getElementById("etime1").value = "";
-    },
-    saveArray2: function (event) {
-      console.log("test");
-      let sessioncount = document.getElementById("session2").value;
-      let startime = document.getElementById("stime2").value;
-      let endtime = document.getElementById("etime2").value;
-      let day1 = 2;
-      let presentationduration = "30";
-      let sessionno = 1;
-
-      //stime= startime.toString();
-      //atime = andtime.toString();
-
-      axios
-        .post(
-          "http://localhost:8081/constraint/create",
-          {
-            dayNo: day1,
-            parallelSessionCount: sessioncount,
-            sessionNo: sessionno,
-            startTime: startime,
-            endTime: endtime,
-            presentationDuration: presentationduration,
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        )
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error.response);
-        });
-
-      sessionno = sessionno + 1;
-
-      document.getElementById("session2").value = "";
-      document.getElementById("stime2").value = "";
-      document.getElementById("etime2").value = "";
-    },
-    saveArray3: function (event) {
-      console.log("test");
-      let sessioncount = document.getElementById("session3").value;
-      let startime = document.getElementById("stime3").value;
-      let endtime = document.getElementById("etime3").value;
-      let day1 = 3;
-      let presentationduration = "30";
-      let sessionno = 1;
-
-      //stime= startime.toString();
-      //atime = andtime.toString();
-
-      axios
-        .post(
-          "http://localhost:8081/constraint/create",
-          {
-            dayNo: day1,
-            parallelSessionCount: sessioncount,
-            sessionNo: sessionno,
-            startTime: startime,
-            endTime: endtime,
-            presentationDuration: presentationduration,
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        )
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error.response);
-        });
-
-      sessionno = sessionno + 1;
-
-      document.getElementById("session3").value = "";
-      document.getElementById("stime3").value = "";
-      document.getElementById("etime3").value = "";
-    },
-    saveArray4: function (event) {
-      console.log("test");
-      let sessioncount = document.getElementById("session4").value;
-      let startime = document.getElementById("stime4").value;
-      let endtime = document.getElementById("etime4").value;
-      let day1 = 4;
-      let presentationduration = "30";
-      let sessionno = 1;
-
-      //stime= startime.toString();
-      //atime = andtime.toString();
-
-      axios
-        .post(
-          "http://localhost:8081/constraint/create",
-          {
-            dayNo: day1,
-            parallelSessionCount: sessioncount,
-            sessionNo: sessionno,
-            startTime: startime,
-            endTime: endtime,
-            presentationDuration: presentationduration,
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        )
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error.response);
-        });
-
-      sessionno = sessionno + 1;
-
-      document.getElementById("session4").value = "";
-      document.getElementById("stime4").value = "";
-      document.getElementById("etime4").value = "";
-    },
-    saveArray5: function (event) {
-      console.log("test");
-      let sessioncount = document.getElementById("session5").value;
-      let startime = document.getElementById("stime5").value;
-      let endtime = document.getElementById("etime5").value;
-      let day1 = 5;
-      let presentationduration = "30";
-      let sessionno = 1;
-
-      //stime= startime.toString();
-      //atime = andtime.toString();
-
-      axios
-        .post(
-          "http://localhost:8081/constraint/create",
-          {
-            dayNo: day1,
-            parallelSessionCount: sessioncount,
-            sessionNo: sessionno,
-            startTime: startime,
-            endTime: endtime,
-            presentationDuration: presentationduration,
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        )
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error.response);
-        });
-
-      sessionno = sessionno + 1;
-
-      document.getElementById("session5").value = "";
-      document.getElementById("stime5").value = "";
-      document.getElementById("etime5").value = "";
-    },
   },
 };
 </script>
@@ -386,7 +222,7 @@ export default {
   -webkit-background-size: 100% 100%; /* Safari 3.0, Chrome */
   background-size: 100% 100%;
   min-height: 100vh;
-  opacity:1;
+  opacity: 1;
 }
 
 #nav-bar {
