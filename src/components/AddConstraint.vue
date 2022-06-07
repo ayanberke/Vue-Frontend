@@ -809,7 +809,7 @@ export default {
 
       axios
         .post(
-          "http://localhost:8081/constraint/create",
+          "https://conference-scheduling-bau.herokuapp.com/constraint/create",
           {
             dayNo: day1,
             parallelSessionCount: sessioncount,
@@ -854,7 +854,7 @@ export default {
 
       axios
         .post(
-          "http://localhost:8081/constraint/create",
+          "https://conference-scheduling-bau.herokuapp.com/constraint/create",
           {
             dayNo: day1,
             parallelSessionCount: sessioncount,
@@ -898,7 +898,7 @@ export default {
 
       axios
         .post(
-          "http://localhost:8081/constraint/create",
+          "https://conference-scheduling-bau.herokuapp.com/constraint/create",
           {
             dayNo: day1,
             parallelSessionCount: sessioncount,
@@ -943,7 +943,7 @@ export default {
 
       axios
         .post(
-          "http://localhost:8081/constraint/create",
+          "https://conference-scheduling-bau.herokuapp.com/constraint/create",
           {
             dayNo: day1,
             parallelSessionCount: sessioncount,
@@ -987,7 +987,7 @@ export default {
 
       axios
         .post(
-          "http://localhost:8081/constraint/create",
+          "https://conference-scheduling-bau.herokuapp.com/constraint/create",
           {
             dayNo: day1,
             parallelSessionCount: sessioncount,
@@ -1041,7 +1041,7 @@ export default {
 
       axios
         .post(
-          "http://localhost:8081/info/create",
+          "https://conference-scheduling-bau.herokuapp.com/info/create",
           {
             dayNo: day1,
             dayStart: dayStart,
@@ -1076,7 +1076,7 @@ export default {
 
       axios
         .post(
-          "http://localhost:8081/info/create",
+          "https://conference-scheduling-bau.herokuapp.com/info/create",
           {
             dayNo: day1,
             dayStart: dayStart,
@@ -1111,7 +1111,7 @@ export default {
 
       axios
         .post(
-          "http://localhost:8081/info/create",
+          "https://conference-scheduling-bau.herokuapp.com/info/create",
           {
             dayNo: day1,
             dayStart: dayStart,
@@ -1146,7 +1146,7 @@ export default {
 
       axios
         .post(
-          "http://localhost:8081/info/create",
+          "https://conference-scheduling-bau.herokuapp.com/info/create",
           {
             dayNo: day1,
             dayStart: dayStart,
@@ -1181,7 +1181,7 @@ export default {
 
       axios
         .post(
-          "http://localhost:8081/info/create",
+          "https://conference-scheduling-bau.herokuapp.com/info/create",
           {
             dayNo: day1,
             dayStart: dayStart,

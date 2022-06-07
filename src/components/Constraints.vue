@@ -148,18 +148,18 @@ export default {
   },
   methods: {
     getConstraints() {
-      axios.get("http://localhost:8081/constraint/getAll").then((response) => {
+      axios.get("https://conference-scheduling-bau.herokuapp.com/constraint/getAll").then((response) => {
         this.papers = response.data;
       });
     },
     getInfo() {
-      axios.get("http://localhost:8081/info/getAll").then((response) => {
+      axios.get("https://conference-scheduling-bau.herokuapp.com/info/getAll").then((response) => {
         this.infos = response.data;
       });
     },
     deleteAllConstraints: function (event) {
       axios
-        .delete("http://localhost:8081/constraint/deleteAll", {
+        .delete("https://conference-scheduling-bau.herokuapp.com/constraint/deleteAll", {
           headers: {
             "Content-Type": "application/json",
           },
@@ -172,7 +172,7 @@ export default {
         });
 
       axios
-        .delete("http://localhost:8081/info/deleteAll", {
+        .delete("https://conference-scheduling-bau.herokuapp.com/info/deleteAll", {
           headers: {
             "Content-Type": "application/json",
           },

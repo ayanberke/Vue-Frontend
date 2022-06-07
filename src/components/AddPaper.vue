@@ -368,7 +368,7 @@ export default {
       let data = JSON.stringify(paperValues);
       console.log(data);
       axios
-        .post("http://localhost:8081/paper/create", data, {
+        .post("https://conference-scheduling-bau.herokuapp.com/paper/create", data, {
           headers: {
             "Content-Type": "application/json"
           }

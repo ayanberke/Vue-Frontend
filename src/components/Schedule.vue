@@ -112,20 +112,20 @@ export default {
   },
   methods: {
     say() {
-      return alert("OPTIMIZATION IS STARTED!");
+      return alert("OPTIMIZATION IS STARTED PLEASE WAIT!");
     },
     getPapers() {
-      axios.get("http://localhost:8081/presentation/getAll").then(response => {
+      axios.get("https://conference-scheduling-bau.herokuapp.com/presentation/getAll").then(response => {
         this.papers = response.data;
       });
     },
     createPapers() {
-      axios.post("http://localhost:8081/presentation/create");
+      axios.post("https://conference-scheduling-bau.herokuapp.com/presentation/create");
       window.location.reload();
     },
     deleteAllPresentations: function(event) {
       axios
-        .delete("http://localhost:8081/presentation/deleteAll", {
+        .delete("https://conference-scheduling-bau.herokuapp.com/presentation/deleteAll", {
           headers: {
             "Content-Type": "application/json"
           }

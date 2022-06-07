@@ -107,7 +107,7 @@ export default {
   methods: {
     deleteAllPapers: function (event) {
       axios
-        .delete("http://localhost:8081/paper/deleteAll", {
+        .delete("https://conference-scheduling-bau.herokuapp.com/paper/deleteAll", {
           headers: {
             "Content-Type": "application/json",
           },
@@ -121,7 +121,7 @@ export default {
       window.location.reload();
     },
     getPapers() {
-      axios.get("http://localhost:8081/paper/getAll").then((response) => {
+      axios.get("https://conference-scheduling-bau.herokuapp.com/paper/getAll").then((response) => {
         this.papers = response.data;
       });
     },
@@ -139,7 +139,7 @@ export default {
       let data = JSON.stringify(paperValues);
       console.log(data);
       axios
-        .delete("http://localhost:8081/paper/deleteByTitle", data, {
+        .delete("https://conference-scheduling-bau.herokuapp.com/paper/deleteByTitle", data, {
           headers: {
             "Content-Type": "application/json",
           },
