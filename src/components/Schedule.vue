@@ -53,6 +53,16 @@
         >
           Optimize
         </button>
+        <br>
+        <label>
+                  <b class="mytitle" style="float: center"
+                    >PLEASE BE PATIENT WHILE YOUR DATA IS OPTIMIZING...
+                    <br>
+                    
+            Awaiting time changes according to number of your papers!</b
+                  >
+                </label>
+        
       </h1>
 
       <div class="container">
@@ -157,7 +167,12 @@ export default {
   mounted() {
     this.getPapers();
   }
+  
 };
+setTimeout(function() {
+  location.reload();
+}, 60000);
+
 </script>
 <style scoped>
 #home-page {
@@ -185,6 +200,10 @@ export default {
   margin: 1rem;
   position: relative;
   display: inline-block;
+}
+.mytitle {
+  color: rgb(245, 4, 4);
+  font-size: 18px;
 }
 textarea,
 select {

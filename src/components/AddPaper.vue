@@ -206,6 +206,23 @@ export default {
         { value: "Hacking", text: "Hacking" },
         { value: "Api", text: "Api" },
 
+        { value: "INFORMATION TECHNOLOGY", text: "INFORMATION TECHNOLOGY", disabled: true },
+        { value: "Network security", text: "Network security" },
+        { value: "IT security", text: "IT security" },
+        { value: "Infrastructure as a service", text: "Infrastructure as a service" },
+        { value: "Web designer", text: "Web designer" },
+        { value: "Cloud architecture", text: "Cloud architecture" },
+        { value: "Website creation", text: "Website creation" },
+        { value: "Tech solutions", text: "Tech solutions" },
+        { value: "IT service management", text: "IT service management" },
+        { value: "App developer", text: "App developer" },
+        
+
+        
+
+
+
+
         { value: "ECONOMICS", text: "ECONOMICS", disabled: true },
         {
           value: "Financial Markets and Institutions",

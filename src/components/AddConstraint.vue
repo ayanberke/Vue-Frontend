@@ -850,7 +850,7 @@ export default {
       let presentationduration = document.getElementById("pduration2").value;
 
       let day1 = 2;
-      let sessionno = 2;
+      let sessionno = 1;
 
       axios
         .post(
@@ -894,7 +894,7 @@ export default {
       let endtime = document.getElementById("etime3").value;
       let presentationduration = document.getElementById("pduration3").value;
       let day1 = 3;
-      let sessionno = 3;
+      let sessionno = 1;
 
       axios
         .post(
@@ -939,7 +939,7 @@ export default {
       let presentationduration = document.getElementById("pduration4").value;
 
       let day1 = 4;
-      let sessionno = 4;
+      let sessionno = 1;
 
       axios
         .post(
@@ -983,7 +983,7 @@ export default {
       let presentationduration = document.getElementById("pduration5").value;
 
       let day1 = 5;
-      let sessionno = 5;
+      let sessionno = 1;
 
       axios
         .post(
