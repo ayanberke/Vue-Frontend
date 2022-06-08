@@ -64,9 +64,10 @@
   "devDependencies": {
 
   },
+  
   "engines": {
-    "node": ">= 6.0.0",
-    "npm": ">= 3.0.0"
+    "node": "16.14.2",
+    "npm": "8.12.1"
   },
   "browserslist": [
     "> 1%",
